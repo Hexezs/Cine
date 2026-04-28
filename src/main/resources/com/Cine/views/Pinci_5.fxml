@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" type="AnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Pinci_5Controller">
+   <children>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ebebeb" height="182.0" layoutX="629.0" layoutY="151.0" stroke="TRANSPARENT" strokeType="INSIDE" width="249.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="92.0" layoutX="-4.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="905.0" />
+      <Label layoutX="295.0" layoutY="7.0" text="CineSync">
+         <font>
+            <Font name="Broadway" size="64.0" />
+         </font>
+      </Label>
+      <Separator layoutX="1.0" layoutY="92.0" prefHeight="12.0" prefWidth="903.0" />
+      <ScrollPane layoutX="51.0" layoutY="151.0" prefHeight="403.0" prefWidth="561.0">
+         <content>
+            <GridPane prefHeight="542.0" prefWidth="543.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180168.68758138022" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fitHeight="149.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0">
+                     <image>
+                        <Image url="@../../../../../../../../Downloads/gatito%20one%20⭐💫💥.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="142.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@../../../../../../../../Downloads/Cato%20cat.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="153.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../../../../../../../Downloads/descarga.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="149.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../../../../../../../Downloads/%23Dog.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="148.0" fitWidth="166.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../../../../../../../Downloads/leo%20★%20(@butchedup)%20on%20X.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="145.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="2">
+                     <image>
+                        <Image url="@../../../../../../../../Downloads/How%20pepino%20felt%20after%20the%20haircut%20💀💀.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label text="gato" translateX="30.0" translateY="70.0">
+                     <font>
+                        <Font name="Consolas" size="45.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="135.0" text="la pelicula" translateX="10.0" translateY="120.0">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="gato" translateX="30.0" translateY="70.0" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Consolas" size="45.0" />
+                     </font>
+                  </Label>
+                  <Label text="la precuela" translateX="10.0" translateY="120.0" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Consolas" size="45.0" />
+                     </font>
+                  </Label>
+                  <Label text="la venganza" translateX="10.0" translateY="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Consolas" size="45.0" />
+                     </font>
+                  </Label>
+                  <Label text="contra ataca" translateX="10.0" translateY="120.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="gato 1" translateX="20.0" translateY="70.0" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Consolas" size="45.0" />
+                     </font>
+                  </Label>
+                  <Label text="la pelicula" translateX="10.0" translateY="120.0" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="gato 2" translateX="20.0" translateY="70.0" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Consolas" size="45.0" />
+                     </font>
+                  </Label>
+                  <Label text="la pelicula" translateX="10.0" translateY="120.0" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Label layoutX="69.0" layoutY="115.0" text="Cartelera">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="-4.0" layoutY="611.0" prefHeight="40.0" prefWidth="909.0">
+         <buttons>
+            <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" text="Atras" translateX="-550.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" text="Cancelar" translateX="-50.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="BtnSig" cache="true" onAction="#BtnSigAction" text="Siguiente" translateX="-25.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </buttons>
+      </ButtonBar>
+      <GridPane layoutX="656.0" layoutY="152.0" prefHeight="169.0" prefWidth="212.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Comprar Boletos:">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </Label>
+            <TextField alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="80.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label alignment="TOP_LEFT" text="Cantidad de boletos: " GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <ComboBox fx:id="CmbxPelicula" layoutX="650.0" layoutY="385.0" onAction="#CmbxPeliculaAction" prefHeight="25.0" prefWidth="190.0" />
+      <Label layoutX="651.0" layoutY="354.0" text="Pelicula:">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="657.0" layoutY="433.0" text="Dia:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="PickerDay" layoutX="650.0" layoutY="486.0" onAction="#PickerDayAction" prefHeight="25.0" prefWidth="190.0" />
+      <Avatar fx:id="Avatar" layoutX="780.0" layoutY="14.0" radius="30.0" />
+      <Label fx:id="NomAvatar" layoutX="698.0" layoutY="32.0" text="Usuario">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

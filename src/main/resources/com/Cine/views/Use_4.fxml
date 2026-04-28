@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" type="AnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Use_4Controller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="99.0" stroke="TRANSPARENT" strokeType="INSIDE" width="900.0" />
+      <Label layoutX="297.0" layoutY="16.0" text="CineSync">
+         <font>
+            <Font name="Broadway" size="64.0" />
+         </font>
+      </Label>
+      <Separator layoutX="10.0" layoutY="92.0" prefHeight="13.0" prefWidth="700.0" />
+      <Label layoutX="62.0" layoutY="157.0" text="Peliculas reservadas">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="563.0" layoutY="311.0" prefHeight="138.0" prefWidth="264.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="BtnEditCuenta" mnemonicParsing="false" onAction="#BtnEditCuentaAction" prefHeight="45.0" prefWidth="500.0" text="Editar cuenta">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="BtnElimCuenta" mnemonicParsing="false" onAction="#BtnElimCuentaAction" prefHeight="45.0" prefWidth="500.0" text="Eliminar cuenta" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
+      <TableView layoutX="57.0" layoutY="229.0" prefHeight="347.0" prefWidth="375.0">
+        <columns>
+          <TableColumn fx:id="ColumPelicula" prefWidth="151.7964859008789" text="Pelicula reservada" />
+          <TableColumn fx:id="ColumAsiento" prefWidth="111.90676879882812" text="Asiento" />
+            <TableColumn fx:id="ColumFecha" prefWidth="109.11270141601562" text="Fecha" />
+        </columns>
+      </TableView>
+      <GridPane layoutX="517.0" layoutY="124.0" prefHeight="113.0" prefWidth="329.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+<!--         <children>-->
+<!--            <Avatar fx:id="Avatar" radius="50.0" GridPane.columnIndex="1" />-->
+<!--            <TextFlow fx:id="NomAvatar" prefHeight="200.0" prefWidth="200.0" />-->
+<!--         </children>-->
+      </GridPane>
+      <ButtonBar layoutY="603.0" prefHeight="40.0" prefWidth="900.0">
+         <buttons>
+            <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" text="Atras" translateX="-550.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" text="Cancelar" translateX="-50.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" text="Siguiente" translateX="-25.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </buttons>
+      </ButtonBar>
+   </children>
+</fx:root>
