@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.List;
-
+//HOLIS!!!!!!
 public class MainApplication extends Application {
 
     @Override
@@ -32,8 +32,8 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
-//        UsuarioService usuarioService = new UsuarioService();
-//        DireccionService direccionService = new DireccionService();
+        UsuarioService usuarioService = new UsuarioService();
+        DireccionService direccionService = new DireccionService();
 //
 //        Direccion direccion = new Direccion("Calle 1","Colonia 1",23400,"Los Cabos","BCS");
 //        Direccion direccion2 = new Direccion("Calle 2","Colonia 2",23400,"Los Cabos","BCS");
