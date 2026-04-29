@@ -32,6 +32,7 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
+        //holiiis
 //        UsuarioService usuarioService = new UsuarioService();
 //        DireccionService direccionService = new DireccionService();
 //        Direccion direccion = new Direccion("Calle 1","Colonia 1",23400,"Los Cabos","BCS");
@@ -39,10 +40,10 @@ public class MainApplication extends Application {
 //        direccionService.addDireccion(direccion);
 //        direccionService.addDireccion(direccion2);
 //
-//    Usuario homero = new Usuario("Homero","J.","Simpson",48);
-//        homero.setDireccion(direccion);
-//        homero.setFechaUltimoInicio(Instant.now());
-//        usuarioService.addUser(homero);
+    Usuario homero = new Usuario("Homero","J.","Simpson",48);
+        homero.setDireccion(direccion);
+       homero.setFechaUltimoInicio(Instant.now());
+        usuarioService.addUser(homero);
 //
 //        Usuario lisa = new Usuario("Lisa","Simpson","Lopez",10);
 //        lisa.setDireccion(direccion2);
