@@ -34,9 +34,8 @@ public class MainApplication extends Application {
     public static void main(String[] args) {
 //        UsuarioService usuarioService = new UsuarioService();
 //        DireccionService direccionService = new DireccionService();
-//
-        Direccion direccion = new Direccion("Calle 1","Colonia 1",23400,"Los Cabos","BCS");
-        Direccion direccion2 = new Direccion("Calle 2","Colonia 2",23400,"Los Cabos","BCS");
+//        Direccion direccion = new Direccion("Calle 1","Colonia 1",23400,"Los Cabos","BCS");
+//        Direccion direccion2 = new Direccion("Calle 2","Colonia 2",23400,"Los Cabos","BCS");
 //        direccionService.addDireccion(direccion);
 //        direccionService.addDireccion(direccion2);
 //
