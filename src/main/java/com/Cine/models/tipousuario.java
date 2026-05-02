@@ -4,27 +4,31 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table( name = "tipousuario" )
-public class tipousuario {
-    private int idtipoUsuario;
-    private byte esAdmin;
+@Table(name = "tipoUsuario")
+public class TipoUsuario {
 
-    public tipousuario(){
-    }
-    public tipousuario(byte esAdmin){
-        this.esAdmin=esAdmin;
-    }
+    private int idTipoUsuario;
+    private boolean esAdmin;
+    public TipoUsuario() {}
 
+    public TipoUsuario(boolean esAdmin) {
+        this.esAdmin = esAdmin;
+    }
     @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
-    public int getIdtipoUsuario(){return idtipoUsuario;}
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    public int getIdTipoUsuario() {
+        return idTipoUsuario;
+    }
 
-    public void setIdtipoUsuario(int idtipoUsuario){
-        this.idtipoUsuario=idtipoUsuario;}
+    private void setIdTipoUsuario(int idTipoUsuario) {
+        this.idTipoUsuario = idTipoUsuario;
+    }
+    public boolean isEsAdmin() {
+        return esAdmin;
+    }
 
-    public int getEsAdmin(){ return esAdmin;}
-
-    public void setEsAdmin(byte esAdmin){this.esAdmin=esAdmin;}
-
+    public void setEsAdmin(boolean esAdmin) {
+        this.esAdmin = esAdmin;
+    }
 }
