@@ -1,8 +1,15 @@
 package com.Cine.controllers;
+import com.Cine.MainApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CreaCuenta_3Controller {
 
@@ -33,9 +40,20 @@ public class CreaCuenta_3Controller {
     }
 
     @FXML
-    private void BtnAtrasAction() {
+    private void BtnAtrasAction(ActionEvent actionEvent) throws IOException {
+        TextNombre.clear();
+        TextApellido.clear();
+        TextCorreo.clear();
+        TextContra.clear();
         System.out.println("Click en Atrás");
-        // Aquí luego puedes regresar a la pantalla anterior
+        Scene scene = ((Button) actionEvent.getSource()).getScene();
+        Stage stage = (Stage) scene.getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Inicio_1.fxml"));
+        Scene nextScene = new Scene(fxmlLoader.load());
+
+        stage.setTitle("CineSync - Inicio");
+        stage.setScene(nextScene);
     }
 
     @FXML
@@ -61,10 +79,5 @@ public class CreaCuenta_3Controller {
         System.out.println("Correo: " + correo);
         System.out.println("Contraseña: " + contra);
 
-        // Aquí después:
-        // 👉 validas datos
-        // 👉 creas DTO
-        // 👉 llamas al service
-        // 👉 guardas en BD con Hibernate
     }
 }

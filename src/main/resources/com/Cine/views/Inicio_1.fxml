@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0"  xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.InicioController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.InicioController">
   
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="92.0" layoutX="-1.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="701.0" />
@@ -76,35 +76,35 @@
                <children>
                   <ImageView fitHeight="149.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0">
                      <image>
-                         <Image url="@../imagenes/Gato_la_pelicula.jpeg" />
+                         <Image url="@../../../imagenes/Gato_la_pelicula.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="142.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/Cato%20cat.jpeg" />
+                        <Image url="@../../../imagenes/Gato_2_la_pelicula.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="153.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/descarga.jpeg" />
+                        <Image url="@../../../imagenes/Gato_contra_ataca.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="149.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/%23Dog.jpeg" />
+                        <Image url="@../../../imagenes/Gato_la_venganza.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="148.0" fitWidth="166.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/leo%20★%20(@butchedup)%20on%20X.jpeg" />
+                        <Image url="@../../../imagenes/Gato_la_precuela.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="145.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="2">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/How%20pepino%20felt%20after%20the%20haircut%20💀💀.jpeg" />
+                        <Image url="@../../../imagenes/Gato_3_la_pelicula.jpeg" />
                      </image>
                   </ImageView>
-                  <Label text="gato" translateX="30.0" translateY="70.0" GridPane.halignment="LEFT">
+                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.halignment="LEFT">
                      <font>
                         <Font name="Consolas" size="45.0" />
                      </font>
@@ -114,7 +114,7 @@
                         <Font name="Consolas" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="gato" translateX="30.0" translateY="70.0" GridPane.rowIndex="1">
+                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.rowIndex="1">
                      <font>
                         <Font name="Consolas" size="45.0" />
                      </font>
@@ -124,7 +124,7 @@
                         <Font name="Consolas" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="Consolas" size="45.0" />
                      </font>
@@ -134,7 +134,7 @@
                         <Font name="Consolas" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="Consolas" size="45.0" />
                      </font>
@@ -144,7 +144,7 @@
                         <Font name="Consolas" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="gato 1" translateX="20.0" translateY="70.0" GridPane.columnIndex="1">
+                  <Label text="Gato 2" translateX="20.0" translateY="70.0" GridPane.columnIndex="1">
                      <font>
                         <Font name="Consolas" size="45.0" />
                      </font>
@@ -154,7 +154,7 @@
                         <Font name="Consolas" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="gato 2" translateX="20.0" translateY="70.0" GridPane.rowIndex="2">
+                  <Label text="Gato 3" translateX="20.0" translateY="70.0" GridPane.rowIndex="2">
                      <font>
                         <Font name="Consolas" size="45.0" />
                      </font>
