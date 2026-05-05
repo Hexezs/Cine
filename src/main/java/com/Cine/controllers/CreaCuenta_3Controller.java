@@ -69,6 +69,7 @@ public class CreaCuenta_3Controller {
 
     @FXML
     private void BtnSigAction() {
+        //Provisional en lo que se crean lo que falta XD
         String nombre = TextNombre.getText();
         String apellido = TextApellido.getText();
         String correo = TextCorreo.getText();
