@@ -1,11 +1,6 @@
 package com.Cine;
 
-import com.Cine.models.Direccion;
 import com.Cine.models.Usuario;
-import com.Cine.services.DireccionService;
-import com.Cine.services.UsuarioService;
-import com.Cine.utils.DateUtils;
-import com.Cine.utils.HibernateUtils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,7 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.Instant;
-import java.util.List;
 
 public class MainApplication extends Application {
 
@@ -40,10 +34,10 @@ public class MainApplication extends Application {
 //        direccionService.addDireccion(direccion);
 //        direccionService.addDireccion(direccion2);
 //
-    Usuario homero = new Usuario("Homero","J.","Simpson",48);
-        homero.setDireccion(direccion);
-       homero.setFechaUltimoInicio(Instant.now());
-        usuarioService.addUser(homero);
+//    Usuario homero = new Usuario("Homero","J.","Simpson",48);
+//        homero.setDireccion(direccion);
+//       homero.setFechaUltimoInicio(Instant.now());
+//        usuarioService.addUser(homero);
 //
 //        Usuario lisa = new Usuario("Lisa","Simpson","Lopez",10);
 //        lisa.setDireccion(direccion2);
