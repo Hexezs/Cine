@@ -1,9 +1,15 @@
 package com.Cine.controllers;
+import com.Cine.MainApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 public class Sesion_2Controller {
 
@@ -27,50 +33,68 @@ public class Sesion_2Controller {
 
     @FXML
     public void initialize() {
-        System.out.println("Pantalla de sesión cargada");
-
-        // Ejemplo: llenar el ComboBox
-        CmbxUsuario.getItems().addAll(
-                "Usuario 1",
-                "Usuario 2",
-                "Usuario 3"
-        );
+        CmbxUsuario.getItems().addAll("Admin", "Usuario");
     }
 
     @FXML
-    private void BtnAtrasAction() {
-        System.out.println("Click en Atrás");
-        // Aquí luego puedes regresar a la pantalla anterior
+    private void BtnAtrasAction(ActionEvent actionEvent) throws IOException {
+        TextCorreo.clear();
+        TextContra.clear();
+        CmbxUsuario.getSelectionModel().clearSelection();
+        Scene scene = ((Button) actionEvent.getSource()).getScene();
+        Stage stage = (Stage) scene.getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Inicio_1.fxml"));
+        Scene nextScene = new Scene(fxmlLoader.load());
+
+        stage.setTitle("CineSync - Inicio");
+        stage.setScene(nextScene);
     }
 
     @FXML
     private void BtnCancelarAction() {
-        System.out.println("Click en Cancelar");
-
-        // Limpiar campos
         TextCorreo.clear();
         TextContra.clear();
         CmbxUsuario.getSelectionModel().clearSelection();
+        CmbxUsuario.setPromptText("Seleccione Usuario");
+        System.out.println("Formulario limpiado");
     }
 
     @FXML
-    private void BtnSigAction() {
-        String correo = TextCorreo.getText();
-        String contra = TextContra.getText();
-        String usuario = CmbxUsuario.getValue();
+    private void BtnSigAction(ActionEvent actionEvent) throws IOException {
+        String rol = CmbxUsuario.getValue();
 
-        System.out.println("Correo: " + correo);
-        System.out.println("Contraseña: " + contra);
-        System.out.println("Usuario seleccionado: " + usuario);
+        if (rol == null || TextCorreo.getText().isEmpty()) {
+            System.out.println("Error: Rellena los campos");
+            return;
+        }
 
-        // Aquí después:
-        // 👉 validas
-        // 👉 llamas al service
-        // 👉 haces login con BD
+        String vista = "";
+        if (rol.equalsIgnoreCase("Admin")) {
+            vista = "views/Admin_6.fxml";
+        } else {
+            vista = "views/Use_4.fxml";
+        }
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(vista));
+
+            Scene scene = ((Button) actionEvent.getSource()).getScene();
+            Stage stage = (Stage) scene.getWindow();
+
+            // 4. Cambiar la escena
+            Scene nextScene = new Scene(fxmlLoader.load());
+            stage.setTitle("CineSync - Panel de " + rol);
+            stage.setScene(nextScene);
+
+            System.out.println("Pantalla de " + rol + " cargada correctamente.");
+
+        } catch (IOException e) {
+            System.err.println("Error al cargar la vista: " + vista);
+            e.printStackTrace();
+        }
     }
 
-    @FXML
-    private void CmbxUsuarioAction() {
-        System.out.println("Seleccionaste: " + CmbxUsuario.getValue());
+    public void CmbxUsuarioAction(ActionEvent actionEvent) {
     }
 }

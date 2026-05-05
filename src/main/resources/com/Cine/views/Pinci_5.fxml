@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" type="AnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Pinci_5Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Pinci_5Controller">
    <children>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ebebeb" height="182.0" layoutX="629.0" layoutY="151.0" stroke="TRANSPARENT" strokeType="INSIDE" width="249.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="92.0" layoutX="-4.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="905.0" />
@@ -196,4 +196,4 @@
          </font>
       </Label>
    </children>
-</fx:root>
+</AnchorPane>
