@@ -16,16 +16,18 @@ public class Usuario {
     private int edad;
     private Direccion direccion;
     private Instant fechaUltimoInicio;
+    private String correo;
 
     public Usuario() {
 
     }
 
-    public Usuario(String nombre, String apellidoP, String apellidoM, int edad) {
+    public Usuario(String nombre, String apellidoP, String apellidoM, int edad, String correo) {
         this.nombre = nombre;
         this.apellidoP = apellidoP;
         this.apellidoM = apellidoM;
         this.edad = edad;
+        this.correo = correo;
     }
 
     @Id
@@ -87,5 +89,20 @@ public class Usuario {
 
     public void setFechaUltimoInicio(Instant fechaUltimoInicio) {
         this.fechaUltimoInicio = fechaUltimoInicio;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setPassword(String password) {
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public void setTipoUsuario_idtipoUsuario(int i) {
+
     }
 }
