@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
@@ -43,32 +42,32 @@
                <children>
                   <ImageView fitHeight="149.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/gatito%20one%20⭐💫💥.jpeg" />
+                        <Image url="@../../../imagenes/Gato_la_pelicula.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="142.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/Cato%20cat.jpeg" />
+                        <Image url="@../../../imagenes/Gato_2_la_pelicula.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="153.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/descarga.jpeg" />
+                        <Image url="@../../../imagenes/Gato_contra_ataca.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="149.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/%23Dog.jpeg" />
+                        <Image url="@../../../imagenes/Gato_la_venganza.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="148.0" fitWidth="166.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/leo%20★%20(@butchedup)%20on%20X.jpeg" />
+                        <Image url="@../../../imagenes/Gato_la_precuela.jpeg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="145.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="2">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/How%20pepino%20felt%20after%20the%20haircut%20💀💀.jpeg" />
+                        <Image url="@../../../imagenes/Gato_3_la_pelicula.jpeg" />
                      </image>
                   </ImageView>
                   <Label text="gato" translateX="30.0" translateY="70.0">
@@ -111,7 +110,7 @@
                         <Font name="Consolas" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="gato 1" translateX="20.0" translateY="70.0" GridPane.columnIndex="1">
+                  <Label text="gato 2" translateX="20.0" translateY="70.0" GridPane.columnIndex="1">
                      <font>
                         <Font name="Consolas" size="45.0" />
                      </font>
@@ -121,7 +120,7 @@
                         <Font name="Consolas" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="gato 2" translateX="20.0" translateY="70.0" GridPane.columnIndex="2">
+                  <Label text="gato 3" translateX="20.0" translateY="70.0" GridPane.columnIndex="2">
                      <font>
                         <Font name="Consolas" size="45.0" />
                      </font>
@@ -189,7 +188,7 @@
          </font>
       </Label>
       <DatePicker fx:id="PickerDay" layoutX="650.0" layoutY="486.0" onAction="#PickerDayAction" prefHeight="25.0" prefWidth="190.0" />
-      <Avatar fx:id="Avatar" layoutX="780.0" layoutY="14.0" radius="30.0" />
+<!--      <Avatar fx:id="Avatar" layoutX="780.0" layoutY="14.0" radius="30.0" />-->
       <Label fx:id="NomAvatar" layoutX="698.0" layoutY="32.0" text="Usuario">
          <font>
             <Font name="Century Gothic" size="18.0" />
