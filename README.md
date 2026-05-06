@@ -5,8 +5,8 @@ Basado en la propuesta entregada en la primera fase del proyecto. Este repositor
 ---
 
 ## 📅 Fechas Límite
-* **Vencimiento:** 18 de mayo de 2026, 08:00 AM
-* **Cierre de entrega:** 18 de mayo de 2026, 08:00 AM
+* **Vencimiento:** 18 de mayo de 2026, 07:00 AM
+* **Cierre de entrega:** 18 de mayo de 2026, 07:00 AM
 
 ---
 
