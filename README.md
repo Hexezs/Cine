@@ -18,6 +18,7 @@ El proyecto sigue un patrón de diseño por capas para garantizar la escalabilid
 * **Controlador:** Intermediario entre la vista y la lógica.
 * **DTO (Data Transfer Object):** Transferencia de datos entre capas.
 * **Servicio:** Contenedor de la lógica de negocio principal.
+* **Mapper:** Traductor de DTO -> Entidad y viceversa.
 * **Repositorio:** Gestión de acceso a datos.
 * **Modelos (Entidades):** Representación de los objetos de la base de datos.
 
