@@ -7,6 +7,10 @@ module com.ites.proyectotemplate {
     requires org.kordamp.bootstrapfx.core;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
+    requires javafx.graphics;
+    requires javafx.base;
+
+
 
     opens com.Cine to javafx.fxml;
     exports com.Cine;

@@ -1,14 +1,21 @@
 package com.Cine.controllers;
 
+import com.Cine.MainApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 //import com.gluonhq.charm.glisten.control.Avatar;
 
@@ -79,8 +86,16 @@ public class Use_4Controller {
     }
 
     @FXML
-    private void BtnAtrasAction() {
+    private void BtnAtrasAction(ActionEvent actionEvent) throws IOException {
         System.out.println("Atrás");
+        Scene scene = ((Button) actionEvent.getSource()).getScene();
+        Stage stage = (Stage) scene.getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));
+        Scene nextScene = new Scene(fxmlLoader.load());
+
+        stage.setTitle("CineSync - Iniciar Sesion");
+        stage.setScene(nextScene);
     }
 
     @FXML
@@ -91,8 +106,16 @@ public class Use_4Controller {
     }
 
     @FXML
-    private void BtnSigAction() {
+    private void BtnSigAction(ActionEvent actionEvent) throws IOException {
         System.out.println("Siguiente");
+        Scene scene = ((Button) actionEvent.getSource()).getScene();
+        Stage stage = (Stage) scene.getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Pinci_5.fxml"));
+
+        Scene nextScene = new Scene(fxmlLoader.load());
+        stage.setTitle("CineSync - Comprar Boeltos");
+        stage.setScene(nextScene);
     }
 
     // Clase interna para la tabla (temporal)
@@ -118,5 +141,7 @@ public class Use_4Controller {
         public String getFecha() {
             return fecha;
         }
+
     }
+
 }
