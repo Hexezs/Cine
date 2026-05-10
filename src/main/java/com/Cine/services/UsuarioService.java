@@ -1,5 +1,5 @@
 package com.Cine.services;
-
+//repository call
 import com.Cine.dto.UsuarioRegistroDTO;
 import com.Cine.models.Usuario;
 import com.Cine.utils.HibernateUtils;
@@ -25,7 +25,7 @@ public class UsuarioService {
         String nombreLimpio = dto.nombre().trim();
         String apellidoLimpio = dto.apellidoM().trim();
 
-        //Mapeo
+        //Mapeo -> MAPPER
         Usuario nuevoUsuario = new Usuario();
         nuevoUsuario.setNombre(nombreLimpio);
         nuevoUsuario.setApellidoM(apellidoLimpio);

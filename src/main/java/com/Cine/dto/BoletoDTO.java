@@ -1,4 +1,8 @@
 package com.Cine.dto;
 
-public record BoletoDTO (Integer cantidad, Integer monto, String asiento){
+public record BoletoDTO (int idBoleto,
+                         int cantidad,
+                         int monto,
+                         int idReserva,
+                         int idAsiento){
 }
