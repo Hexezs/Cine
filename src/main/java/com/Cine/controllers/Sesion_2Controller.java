@@ -1,5 +1,7 @@
 package com.Cine.controllers;
 import com.Cine.MainApplication;
+import com.Cine.SharedData;
+import com.Cine.models.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,35 +65,50 @@ public class Sesion_2Controller {
     @FXML
     private void BtnSigAction(ActionEvent actionEvent) throws IOException {
         String rol = CmbxUsuario.getValue();
+        String correoIngresado = TextCorreo.getText();
+        String contraIngresada = TextContra.getText();
+        String vista = "";
 
         if (rol == null || TextCorreo.getText().isEmpty()) {
             System.out.println("Error: Rellena los campos");
             return;
         }
-
-        String vista = "";
         if (rol.equalsIgnoreCase("Admin")) {
             vista = "views/Admin_6.fxml";
         } else {
             vista = "views/Use_4.fxml";
         }
+        SharedData data = SharedData.getInstance();
+        System.out.println("Acceso como Administrador detectado");
 
-        try {
+        if (rol.equals("Admin")) {
+            System.out.println("Acceso como Administrador detectado");
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(vista));
-
             Scene scene = ((Button) actionEvent.getSource()).getScene();
             Stage stage = (Stage) scene.getWindow();
-
-            // 4. Cambiar la escena
             Scene nextScene = new Scene(fxmlLoader.load());
             stage.setTitle("CineSync - Panel de " + rol);
             stage.setScene(nextScene);
-
             System.out.println("Pantalla de " + rol + " cargada correctamente.");
 
-        } catch (IOException e) {
-            System.err.println("Error al cargar la vista: " + vista);
-            e.printStackTrace();
+        } else if (rol.equals("Usuario")) {
+            Usuario registrado = data.getUsuarioLogueado();
+
+            if (registrado != null &&
+                    correoIngresado.equals(registrado.getCorreo()) &&
+                    contraIngresada.equals(registrado.getPassword())) {
+
+                System.out.println("Acceso concedido: " + registrado.getNombre());
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(vista));
+                Scene scene = ((Button) actionEvent.getSource()).getScene();
+                Stage stage = (Stage) scene.getWindow();
+                Scene nextScene = new Scene(fxmlLoader.load());
+                stage.setTitle("CineSync - Panel de " + rol);
+                stage.setScene(nextScene);
+                System.out.println("Pantalla de " + rol + " cargada correctamente.");
+            } else {
+                System.out.println("Error: Los datos no coinciden con el usuario registrado");
+            }
         }
     }
 

@@ -172,7 +172,7 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </Label>
-            <TextField alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="80.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <TextField fx:id="TextCantidadBoletos" alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="80.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
             <Label alignment="TOP_LEFT" text="Cantidad de boletos: " GridPane.halignment="LEFT" GridPane.rowIndex="1" />
          </children>
       </GridPane>

@@ -1,21 +1,21 @@
 package com.Cine.controllers;
 
 import com.Cine.MainApplication;
+import com.Cine.SharedData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 //import com.gluonhq.charm.glisten.control.Avatar;
 
@@ -76,13 +76,37 @@ public class Use_4Controller {
     }
 
     @FXML
-    private void BtnEditCuentaAction() {
-        System.out.println("Editar cuenta");
+    private void BtnEditCuentaAction(ActionEvent actionEvent)throws IOException {
+        SharedData.getInstance().setModoEdicion(true);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/CreaCuenta_3.fxml"));
+        Scene nextScene = new Scene(fxmlLoader.load());
+        SharedData.getInstance().setModoEdicion(true);
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.setTitle("CineSync - Editar Cuenta");
+        stage.setScene(nextScene);
     }
 
     @FXML
-    private void BtnElimCuentaAction() {
+    private void BtnElimCuentaAction(ActionEvent actionEvent)throws IOException {
         System.out.println("Eliminar cuenta");
+        SharedData data = SharedData.getInstance();
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+        alerta.setTitle("Confirmación de Eliminación");
+        alerta.setHeaderText("¿Estás seguro de que deseas eliminar tu cuenta?");
+        alerta.setContentText("Esta acción limpiará tu sesión actual y regresará al inicio.");
+        Optional<ButtonType> resultado = alerta.showAndWait();
+        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+            System.out.println("Usuario confirmó eliminación.");
+            data.limpiarSesion();
+            Scene scene = ((Button) actionEvent.getSource()).getScene();
+            Stage stage = (Stage) scene.getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));
+            Scene nextScene = new Scene(fxmlLoader.load());
+            stage.setTitle("CineSync - Iniciar Sesion");
+            stage.setScene(nextScene);
+        } else {
+            System.out.println("Eliminación cancelada por el usuario.");
+        }
     }
 
     @FXML

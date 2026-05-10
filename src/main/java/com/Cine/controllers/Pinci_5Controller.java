@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.controlsfx.control.spreadsheet.Picker;
 import org.hibernate.tool.schema.Action;
@@ -15,6 +16,8 @@ import org.hibernate.tool.schema.Action;
 import java.io.IOException;
 
 public class Pinci_5Controller {
+    @FXML
+    private TextField TextCantidadBoletos;
     @FXML
     private Button BtnAtras;
 
@@ -35,16 +38,26 @@ public class Pinci_5Controller {
 
     @FXML
     public void initialize(){
+        CmbxPelicula.getItems().addAll("GATO", "GATO2", "GATO 3");
 
     }
     @FXML
-    private void BtnAtrasAction(){
+    private void BtnAtrasAction(ActionEvent actionEvent) throws IOException{
+        Scene scene = ((Button) actionEvent.getSource()).getScene();
+        Stage stage = (Stage) scene.getWindow();
 
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
+        Scene nextScene = new Scene(fxmlLoader.load());
+
+        stage.setTitle("CineSync - Rol de usuario");
+        stage.setScene(nextScene);
     }
 
     @FXML
     private  void BtnCancelarAction(){
-
+    TextCantidadBoletos.clear();
+    CmbxPelicula.getSelectionModel().clearSelection();
+    PickerDay.setValue(null);
     }
     @FXML
     private void BtnSigAction(ActionEvent actionEvent) throws IOException {
