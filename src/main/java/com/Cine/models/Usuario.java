@@ -17,6 +17,7 @@ public class Usuario {
     private Direccion direccion;
     private Instant fechaUltimoInicio;
     private String correo;
+    private String password;
 
     public Usuario() {
 
@@ -96,6 +97,10 @@ public class Usuario {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getPassword(){
+        return password;
     }
 
     public void setCorreo(String correo) {
