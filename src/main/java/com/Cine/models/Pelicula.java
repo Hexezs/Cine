@@ -13,15 +13,17 @@ public class Pelicula {
     private Idioma idIdioma;
     private String sinopsis;
     private ClasificacionRTC idClasificacionRTC;
+    private String imagenURL;
 
     public Pelicula() {}
 
-    public Pelicula(String nombre, int tiempo, Idioma idIdioma, String sinopsis, ClasificacionRTC idClasificacionRTC) {
+    public Pelicula(String nombre, int tiempo, Idioma idIdioma, String sinopsis, ClasificacionRTC idClasificacionRTC, String imagenURL) {
         this.nombre = nombre;
         this.tiempo = tiempo;
         this.idIdioma = idIdioma;
         this.sinopsis = sinopsis;
         this.idClasificacionRTC = idClasificacionRTC;
+        this.imagenURL = imagenURL;
     }
 
     @Id
@@ -63,6 +65,13 @@ public class Pelicula {
 
     public void setSinopsis(String sinopsis) {
         this.sinopsis = sinopsis;
+    }
+
+    public String getImagenURL(){
+        return imagenURL;
+    }
+    public void setImagenURL(String imagenURL){
+        this.imagenURL = imagenURL;
     }
 
     @ManyToOne

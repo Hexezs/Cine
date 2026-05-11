@@ -8,8 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class ClasificacionRTC {
 
     private int idClasificacionRTC;
-    private String nombre;
-    private String descripcion;
+    private String nombre, descripcion;
 
     public ClasificacionRTC() {}
 
