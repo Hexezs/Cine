@@ -8,18 +8,12 @@ import org.hibernate.annotations.GenericGenerator;
 public class Idioma {
 
     private int idIdioma;
-    private String espanol;
-    private String ingles;
-    private String japones;
-    private String ruso;
+    private String nombreIdioma;
 
     public Idioma() {}
 
-    public Idioma(String espanol, String ingles, String japones, String ruso) {
-        this.espanol = espanol;
-        this.ingles = ingles;
-        this.japones = japones;
-        this.ruso = ruso;
+    public Idioma(String nombreIdioma) {
+        this.nombreIdioma = nombreIdioma;
     }
 
     @Id
@@ -28,35 +22,14 @@ public class Idioma {
     public int getIdIdioma() {
         return idIdioma;
     }
-
     private void setIdIdioma(int idIdioma) {
         this.idIdioma = idIdioma;
     }
-    public String getEspañol() {
-        return espanol;
-    }
 
-    public void setEspañol(String español) {
-        this.espanol = español;
+    public String getNombreIdioma() {
+        return nombreIdioma;
     }
-
-    public String getIngles() {
-        return ingles;
-    }
-    public void setIngles(String ingles) {
-        this.ingles = ingles;
-    }
-    public String getJapones() {
-        return japones;
-    }
-
-    public void setJapones(String japones) {
-        this.japones = japones;
-    }
-    public String getRuso() {
-        return ruso;
-    }
-    public void setRuso(String ruso) {
-        this.ruso = ruso;
+    public void setNombreIdioma(String nombreIdioma) {
+        this.nombreIdioma = nombreIdioma;
     }
 }
