@@ -6,22 +6,22 @@ import com.Cine.models.Asiento;
 public class AsientoMapper {
 
     // idSala viene de afuera porque Asiento no conoce su Sala
-    public static AsientoDTO aDTO(Asiento asiento, int idSala){
+    public static AsientoDTO aDTO(Asiento entidad, int idSala){
         return new AsientoDTO(
-                asiento.getIdAsiento(),
-                asiento.getNumero(),
-                asiento.getLetra(),
+                entidad.getIdAsiento(),
+                entidad.getNumero(),
+                entidad.getLetra(),
                 idSala
         );
     }
 
     public static Asiento aEntidad(AsientoDTO dto){
-        Asiento asiento = new Asiento();
-        asiento.setNumero(dto.numero());
-        asiento.setLetra(dto.letra());
+        Asiento entidad = new Asiento();
+        entidad.setNumero(dto.numero());
+        entidad.setLetra(dto.letra());
         // idSala no se asigna aquí porque Asiento no tiene ese campo
         // el Service debe buscar la Sala y hacer sala.setIdAsiento(asiento)
-        return asiento;
+        return entidad;
     }
 
 }

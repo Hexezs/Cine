@@ -6,21 +6,21 @@ import java.time.LocalDate;
 
 public class SalaMapper {
 
-    public static SalaDTO aDTO(Sala sala){
+    public static SalaDTO aDTO(Sala entidad){
         return new SalaDTO(
-                sala.getCapacidad(),
-                LocalDate.parse(sala.getHorario()),
-                sala.getDisponibles()
+                entidad.getCapacidad(),
+                LocalDate.parse(entidad.getHorario()),
+                entidad.getDisponibles()
         );
     }
 
     public static Sala aEntidad(SalaDTO dto){
-        Sala sala = new Sala();
-        sala.setCapacidad(dto.capacidad());
-        sala.setHorario(dto.horario().toString());
-        sala.setDisponibles(dto.disponibles());
+        Sala entidad = new Sala();
+        entidad.setCapacidad(dto.capacidad());
+        entidad.setHorario(dto.horario().toString());
+        entidad.setDisponibles(dto.disponibles());
         // las FKs (idPelicula, idTipoSala, idAsiento)
         // se asignan en el Service después de buscarlas en BD
-        return sala;
+        return entidad;
     }
 }
