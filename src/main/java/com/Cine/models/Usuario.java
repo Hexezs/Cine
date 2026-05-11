@@ -107,7 +107,14 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public void setTipoUsuario_idtipoUsuario(int i) {
+    private TipoUsuario tipoUsuario;
 
+    @ManyToOne
+    @JoinColumn(name = "TipoUsuario_idtipoUsuario", referencedColumnName = "idTipoUsuario")
+    public TipoUsuario getTipoUsuario(){
+        return tipoUsuario;
+    }
+    public void setTipoUsuario(TipoUsuario tipoUsuario){
+        this.tipoUsuario = tipoUsuario;
     }
 }

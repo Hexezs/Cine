@@ -1,6 +1,7 @@
 package com.Cine.services;
 //repository call
 import com.Cine.dto.UsuarioRegistroDTO;
+import com.Cine.mapper.UsuarioRegistroMapper;
 import com.Cine.models.Usuario;
 import com.Cine.utils.HibernateUtils;
 import jakarta.persistence.EntityManager;
