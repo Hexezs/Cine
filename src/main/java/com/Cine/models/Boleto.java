@@ -15,10 +15,10 @@ public class Boleto {
 
     public Boleto() {}
 
-    public Boleto(int cantidad, int monto, String asiento, Reserva idReserva) {
+    public Boleto(int cantidad, int monto, Asiento idAsiento, Reserva idReserva) {
         this.cantidad = cantidad;
         this.monto = monto;
-        this.asiento = asiento;
+        this.idAsiento = idAsiento;
         this.idReserva = idReserva;
     }
 
@@ -48,12 +48,12 @@ public class Boleto {
         this.monto = monto;
     }
 
-    public String getAsiento() {
-        return asiento;
+    public String getIdAsiento() {
+        return idAsiento.toString();
     }
 
-    public void setAsiento(String asiento) {
-        this.asiento = asiento;
+    public void setIdAsiento(Asiento idAsiento) {
+        this.idAsiento = idAsiento;
     }
 
     @ManyToOne
@@ -65,4 +65,5 @@ public class Boleto {
     public void setIdReserva(Reserva idReserva) {
         this.idReserva = idReserva;
     }
+
 }
