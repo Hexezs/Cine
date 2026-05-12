@@ -17,6 +17,7 @@ public class Usuario {
     private Direccion direccion;
     private Instant fechaUltimoInicio;
     private String correo;
+    private String password;
 
     public Usuario() {
 
@@ -96,13 +97,24 @@ public class Usuario {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getPassword(){
+        return password;
     }
 
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    public void setTipoUsuario_idtipoUsuario(int i) {
+    private TipoUsuario tipoUsuario;
 
+    @ManyToOne
+    @JoinColumn(name = "TipoUsuario_idtipoUsuario", referencedColumnName = "idTipoUsuario")
+    public TipoUsuario getTipoUsuario(){
+        return tipoUsuario;
+    }
+    public void setTipoUsuario(TipoUsuario tipoUsuario){
+        this.tipoUsuario = tipoUsuario;
     }
 }
