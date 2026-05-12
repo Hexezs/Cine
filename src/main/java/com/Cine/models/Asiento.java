@@ -6,7 +6,9 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "Asiento")
 public class Asiento {
-
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private int idAsiento;
     private String numero;
     private String letra;
@@ -15,10 +17,6 @@ public class Asiento {
     public Asiento(String numero, String letra) {
         this.numero = numero;
         this.letra = letra; }
-
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
     public int getIdAsiento() {
         return idAsiento;
     }
@@ -40,5 +38,14 @@ public class Asiento {
 
     public void setLetra(String letra) {
         this.letra = letra;
+    }
+    @ManyToOne
+    @JoinColumn(name = "sala_id_sala", referencedColumnName = "idasiento")
+    private Sala sala;
+    public Sala getSala() {
+        return sala;
+    }
+    public void setSala(Sala sala) {
+        this.sala = sala;
     }
 }
