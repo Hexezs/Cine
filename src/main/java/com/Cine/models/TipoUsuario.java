@@ -4,10 +4,13 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "TipoUsuario")
+@Table(name = "tipoUsuario")
 
 public class TipoUsuario {
 
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private int idTipoUsuario;
     private String nombreTipoUsuario;
 
@@ -16,10 +19,6 @@ public class TipoUsuario {
     public TipoUsuario(String nombreTipoUsuario){
         this.nombreTipoUsuario = nombreTipoUsuario;
     }
-
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
     public int getIdTipoUsuario(){
         return idTipoUsuario;
     }
