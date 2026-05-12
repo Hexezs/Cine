@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="900.0"  xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.SelecPeli_7Controller">
+<AnchorPane prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.SelecPeli_7Controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="92.0" stroke="TRANSPARENT" strokeType="INSIDE" width="914.0" />
       <Label layoutX="299.0" layoutY="9.0" text="CineSync">
@@ -213,7 +213,7 @@
       <Separator layoutX="238.0" layoutY="228.0" orientation="VERTICAL" prefHeight="307.0" prefWidth="7.0" />
       <Separator layoutX="345.0" layoutY="228.0" orientation="VERTICAL" prefHeight="307.0" prefWidth="7.0" />
       <Separator layoutX="449.0" layoutY="229.0" orientation="VERTICAL" prefHeight="307.0" prefWidth="7.0" />
-      <ComboBox fx:id="CmbxLetraAsiento" layoutX="651.0" layoutY="269.0" onAction="#CmbxLetraAsientoAction" prefHeight="30.0" prefWidth="180.0" promptText="ejemplo: A1" />
+      <ComboBox fx:id="CmbxLetraAsiento" layoutX="651.0" layoutY="269.0" onAction="#CmbxLetraAsientoAction" prefHeight="30.0" prefWidth="180.0" promptText="" />
       <Separator layoutY="590.0" prefHeight="15.0" prefWidth="914.0" />
       <Label layoutX="649.0" layoutY="225.0" text="Seleccione la letra del asiento:">
          <font>
@@ -225,6 +225,6 @@
             <Font name="Century Gothic" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="678.0" layoutY="369.0" text="ej. Disponibles: 2" />
+      <TextField fx:id="TxtAsientoDisp" layoutX="678.0" layoutY="369.0" text="ej. Disponibles: 2" />
    </children>
 </AnchorPane>

@@ -73,13 +73,14 @@ public class Sesion_2Controller {
             System.out.println("Error: Rellena los campos");
             return;
         }
+
         if (rol.equalsIgnoreCase("Admin")) {
             vista = "views/Admin_6.fxml";
         } else {
             vista = "views/Use_4.fxml";
         }
+
         SharedData data = SharedData.getInstance();
-        System.out.println("Acceso como Administrador detectado");
 
         if (rol.equals("Admin")) {
             System.out.println("Acceso como Administrador detectado");
@@ -89,16 +90,22 @@ public class Sesion_2Controller {
             Scene nextScene = new Scene(fxmlLoader.load());
             stage.setTitle("CineSync - Panel de " + rol);
             stage.setScene(nextScene);
-            System.out.println("Pantalla de " + rol + " cargada correctamente.");
 
         } else if (rol.equals("Usuario")) {
-            Usuario registrado = data.getUsuarioLogueado();
+            Usuario encontrado = null;
 
-            if (registrado != null &&
-                    correoIngresado.equals(registrado.getCorreo()) &&
-                    contraIngresada.equals(registrado.getPassword())) {
+            for (Usuario u : data.getListaUsuariosGlobal()) {
+                if (u.getCorreo().equals(correoIngresado) && u.getPassword().equals(contraIngresada)) {
+                    encontrado = u;
+                    break;
+                }
+            }
 
-                System.out.println("Acceso concedido: " + registrado.getNombre());
+            if (encontrado != null) {
+                data.setUsuarioLogueado(encontrado);
+
+                System.out.println("Acceso concedido: " + encontrado.getNombre());
+
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(vista));
                 Scene scene = ((Button) actionEvent.getSource()).getScene();
                 Stage stage = (Stage) scene.getWindow();
@@ -107,7 +114,7 @@ public class Sesion_2Controller {
                 stage.setScene(nextScene);
                 System.out.println("Pantalla de " + rol + " cargada correctamente.");
             } else {
-                System.out.println("Error: Los datos no coinciden con el usuario registrado");
+                System.out.println("Error: El correo o la contraseña no existen en la lista de usuarios.");
             }
         }
     }

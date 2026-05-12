@@ -7,18 +7,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "Idioma")
 public class Idioma {
 
-    private int idIdioma;
-    private String nombreIdioma;
-
-    public Idioma() {}
-
-    public Idioma(String nombreIdioma) {
-        this.nombreIdioma = nombreIdioma;
-    }
-
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
+    private int idIdioma;
+    private String nombreIdioma;
+    public Idioma() {}
+    public Idioma(String nombreIdioma) {
+        this.nombreIdioma = nombreIdioma;
+    }
     public int getIdIdioma() {
         return idIdioma;
     }

@@ -6,9 +6,12 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "ClasificacionRTC")
 public class ClasificacionRTC {
-
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private int idClasificacionRTC;
-    private String nombre, descripcion;
+    private String nombre;
+    private String descripcion;
 
     public ClasificacionRTC() {}
 
@@ -16,10 +19,6 @@ public class ClasificacionRTC {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
-
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
     public int getIdClasificacionRTC() {
         return idClasificacionRTC;
     }

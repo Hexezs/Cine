@@ -2,19 +2,20 @@ package com.Cine.models;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Pelicula")
 public class Pelicula {
-
-    private int idPelicula;
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    private int idpelicula;
     private String nombre;
     private int tiempo;
-    private Idioma idIdioma;
-    private String sinopsis;
-    private ClasificacionRTC idClasificacionRTC;
     private String imagenURL;
-
+    private String sinopsis;
     public Pelicula() {}
 
     public Pelicula(String nombre, int tiempo, Idioma idIdioma, String sinopsis, ClasificacionRTC idClasificacionRTC, String imagenURL) {
@@ -25,16 +26,12 @@ public class Pelicula {
         this.idClasificacionRTC = idClasificacionRTC;
         this.imagenURL = imagenURL;
     }
-
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    public int getIdPelicula() {
-        return idPelicula;
+    public int getIdpelicula() {
+        return idpelicula;
     }
 
-    private void setIdPelicula(int idPelicula) {
-        this.idPelicula = idPelicula;
+    private void setIdpelicula(int idpelicula) {
+        this.idpelicula = idpelicula;
     }
     public String getNombre() {
         return nombre;
@@ -49,8 +46,17 @@ public class Pelicula {
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }
+    @OneToMany(mappedBy = "pelicula")
+    private List<Cartelera> funciones = new ArrayList<>();
+    public List<Cartelera> getFunciones() {
+        return funciones;
+    }
+    public void setFunciones(List<Cartelera> funciones) {
+        this.funciones = funciones;
+    }
     @ManyToOne
     @JoinColumn(name = "Idioma_IdIdioma", referencedColumnName = "idIdioma")
+    private Idioma idIdioma;
     public Idioma getIdIdioma() {
         return idIdioma;
     }
@@ -76,6 +82,7 @@ public class Pelicula {
 
     @ManyToOne
     @JoinColumn(name = "ClasificacionRTC_idClasificacionRTC", referencedColumnName = "idClasificacionRTC")
+    private ClasificacionRTC idClasificacionRTC;
     public ClasificacionRTC getIdClasificacionRTC() {
         return idClasificacionRTC;
     }

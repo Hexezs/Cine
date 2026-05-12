@@ -1,6 +1,5 @@
 package com.Cine;
 
-import com.Cine.models.Direccion;
 import com.Cine.models.Usuario;
 import com.Cine.services.DireccionService;
 import com.Cine.services.UsuarioService;
@@ -21,7 +20,7 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Inicio_1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
-        stage.setTitle("Ejemplo Hibernate");
+        stage.setTitle("Cine");
         stage.setScene(scene);
         stage.show();
     }
@@ -33,6 +32,13 @@ public class MainApplication extends Application {
 
     public static void main(String[] args) {
         //holiiis
+        Usuario usuarioDefinido = new Usuario();
+        usuarioDefinido.setNombre("usuario");
+        usuarioDefinido.setApellidoP("De Prueba");
+        usuarioDefinido.setCorreo("usuario");
+        usuarioDefinido.setPassword("1234");
+        SharedData.getInstance().registrarNuevoUsuario(usuarioDefinido);
+        SharedData.getInstance().setUsuarioLogueado(usuarioDefinido);
 //        UsuarioService usuarioService = new UsuarioService();
 //        DireccionService direccionService = new DireccionService();
 //        Direccion direccion = new Direccion("Calle 1","Colonia 1",23400,"Los Cabos","BCS");
@@ -40,11 +46,11 @@ public class MainApplication extends Application {
 //        direccionService.addDireccion(direccion);
 //        direccionService.addDireccion(direccion2);
 //
-    Usuario homero = new Usuario("Homero","J.","Simpson",48);
-        homero.setDireccion(direccion);
-       homero.setFechaUltimoInicio(Instant.now());
-        usuarioService.addUser(homero);
-//
+//    Usuario homero = new Usuario("Homero","J.","Simpson",48);
+//        homero.setDireccion(direccion);
+//       homero.setFechaUltimoInicio(Instant.now());
+//        usuarioService.addUser(homero);
+////
 //        Usuario lisa = new Usuario("Lisa","Simpson","Lopez",10);
 //        lisa.setDireccion(direccion2);
 //        lisa.setFechaUltimoInicio(Instant.now());

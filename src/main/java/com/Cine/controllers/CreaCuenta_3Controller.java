@@ -123,6 +123,14 @@ public class CreaCuenta_3Controller {
                 stage.setScene(nextScene);}
             } else {
                 try {
+
+                    Usuario nuevoUsuario = new Usuario();
+                    nuevoUsuario.setNombre(TextNombre.getText());
+                    nuevoUsuario.setApellidoP(TextApellido.getText());
+                    nuevoUsuario.setCorreo(TextCorreo.getText());
+                    nuevoUsuario.setPassword(TextContra.getText());
+                    data.registrarNuevoUsuario(nuevoUsuario);
+                    data.setUsuarioLogueado(nuevoUsuario);
                     FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));
 
                     Scene scene = ((Button) actionEvent.getSource()).getScene();
@@ -131,12 +139,6 @@ public class CreaCuenta_3Controller {
                     Scene nextScene = new Scene(fxmlLoader.load());
                     stage.setTitle("CineSync - Iniciar Sesion");
                     stage.setScene(nextScene);
-                    Usuario nuevoUsuario = new Usuario();
-                    nuevoUsuario.setNombre(TextNombre.getText());
-                    nuevoUsuario.setApellidoP(TextApellido.getText());
-                    nuevoUsuario.setCorreo(TextCorreo.getText());
-                    nuevoUsuario.setPassword(TextContra.getText());
-                    data.setUsuarioLogueado(nuevoUsuario);
 
                 } catch (IOException e) {
                     System.err.println("Error al cargar la vista: ");

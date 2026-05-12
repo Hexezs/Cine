@@ -7,6 +7,9 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "TipoSala")
 public class TipoSala {
 
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private int idTipoSala;
     private String nombreTipoSala, descripcion;
 
@@ -16,10 +19,6 @@ public class TipoSala {
         this.nombreTipoSala = nombreTipoSala;
         this.descripcion = descripcion;
     }
-
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
     public int getIdTipoSala() {
         return idTipoSala;
     }

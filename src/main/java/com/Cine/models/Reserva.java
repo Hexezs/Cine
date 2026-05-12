@@ -3,27 +3,26 @@ package com.Cine.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "reserva")
 public class Reserva {
 
-    private int idReserva;
-    private LocalDate fecha;
-    private Usuario idUsuario;
-    private Sala idSala;
-
-    public Reserva() {}
-
-    public Reserva(LocalDate fecha, Usuario idUsuario, Sala idSala) {
-        this.fecha = fecha;
-        this.idUsuario = idUsuario;
-        this.idSala = idSala;
-    }
-
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
+    private int idReserva;
+    private LocalDate fecha;
+    public Reserva() {}
+
+    public Reserva(LocalDate fecha, Usuario idUsuario, Cartelera idCartelera) {
+        this.fecha = fecha;
+        this.usuario = idUsuario;
+        this.cartelera = idCartelera;
+    }
+
     public int getIdReserva() {
         return idReserva;
     }
@@ -39,24 +38,33 @@ public class Reserva {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
-
     @ManyToOne
     @JoinColumn(name = "usuario_idusuario", referencedColumnName = "idusuario")
-    public Usuario getIdUsuario() {
-        return idUsuario;
+    private Usuario usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
-
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @ManyToOne
-    @JoinColumn(name = "sala_idsala", referencedColumnName = "idsala")
-    public Sala getIdSala() {
-        return idSala;
+    @JoinColumn(name = "Cartelera_idCartelera", referencedColumnName = "idCartelera")
+    private Cartelera cartelera;
+    public Cartelera getCartelera() {
+        return cartelera;
     }
 
-    public void setIdSala(Sala idSala) {
-        this.idSala = idSala;
+    public void setCartelera(Cartelera cartelera) {
+        this.cartelera = cartelera;
     }
+    @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
+    private List<Boleto> boletos = new ArrayList<>();
+    public List<Boleto> getBoletos() {
+        return boletos;
+    }
+    public void setBoletos(List<Boleto> boletos) {
+        this.boletos = boletos;
+    }
+
 }
