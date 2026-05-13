@@ -71,13 +71,10 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public void setTipoUsuario_idtipoUsuario(int i) {
-
-    }
     public String getPassword() {return password;
     }
     @ManyToOne
-    @JoinColumn(name ="tipoUsuario_idtipoUsuario", referencedColumnName = "idtipoUsuario")
+    @JoinColumn(name ="tipoUsuario_idtipoUsuario", referencedColumnName = "idtipoUsuario", foreignKey = @ForeignKey (name = "idtipoUsuario"))
     private TipoUsuario tipoUsuario;
     public TipoUsuario getTipoUsuario(){return tipoUsuario;}
     public void setTipoUsuario(TipoUsuario tipoUsuario){this.tipoUsuario=tipoUsuario;}

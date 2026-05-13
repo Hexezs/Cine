@@ -46,7 +46,7 @@ public class Pelicula {
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }
-    @OneToMany(mappedBy = "pelicula")
+    @OneToMany(mappedBy = "idpelicula")
     private List<Cartelera> funciones = new ArrayList<>();
     public List<Cartelera> getFunciones() {
         return funciones;
@@ -55,7 +55,7 @@ public class Pelicula {
         this.funciones = funciones;
     }
     @ManyToOne
-    @JoinColumn(name = "Idioma_IdIdioma", referencedColumnName = "idIdioma")
+    @JoinColumn(name = "Idioma_IdIdioma", referencedColumnName = "idIdioma", foreignKey = @ForeignKey (name = "idIdioma"))
     private Idioma idIdioma;
     public Idioma getIdIdioma() {
         return idIdioma;
@@ -81,7 +81,7 @@ public class Pelicula {
     }
 
     @ManyToOne
-    @JoinColumn(name = "ClasificacionRTC_idClasificacionRTC", referencedColumnName = "idClasificacionRTC")
+    @JoinColumn(name = "ClasificacionRTC_idClasificacionRTC", referencedColumnName = "idClasificacionRTC", foreignKey = @ForeignKey (name = "idClasificacionRTC"))
     private ClasificacionRTC idClasificacionRTC;
     public ClasificacionRTC getIdClasificacionRTC() {
         return idClasificacionRTC;

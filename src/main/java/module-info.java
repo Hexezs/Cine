@@ -11,7 +11,7 @@ module com.ites.proyectotemplate {
     requires javafx.base;
 
 
-
+    opens com.Cine.dto to javafx.base, hibernate.core;
     opens com.Cine to javafx.fxml;
     exports com.Cine;
     exports com.Cine.controllers;

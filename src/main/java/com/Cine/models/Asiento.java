@@ -14,9 +14,10 @@ public class Asiento {
     private String letra;
 
     public Asiento() {}
-    public Asiento(String numero, String letra) {
+    public Asiento(String numero, String letra, Sala idsala) {
         this.numero = numero;
-        this.letra = letra; }
+        this.letra = letra;
+        this.idsala =idsala;}
     public int getIdAsiento() {
         return idAsiento;
     }
@@ -40,12 +41,12 @@ public class Asiento {
         this.letra = letra;
     }
     @ManyToOne
-    @JoinColumn(name = "sala_id_sala", referencedColumnName = "idasiento")
-    private Sala sala;
-    public Sala getSala() {
-        return sala;
+    @JoinColumn(name = "sala_id_sala", referencedColumnName = "idsala", foreignKey = @ForeignKey (name = "idsala"))
+    private Sala idsala;
+    public Sala getIdsala() {
+        return idsala;
     }
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setIdsala(Sala idsala) {
+        this.idsala = idsala;
     }
 }

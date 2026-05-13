@@ -15,12 +15,12 @@ public class Boleto {
     private String nombreasiento;
     public Boleto() {}
 
-    public Boleto(int cantidad, int monto,String nombreasiento, Asiento asiento, Reserva reserva) {
+    public Boleto(int cantidad, int monto,String nombreasiento, Asiento idasiento, Reserva idreserva) {
         this.cantidad = cantidad;
         this.monto = monto;
         this.nombreasiento=nombreasiento;
-        this.asiento = asiento;
-        this.reserva = reserva;
+        this.idasiento = idasiento;
+        this.idreserva = idreserva;
     }
     public int getIdBoleto() {
         return idBoleto;
@@ -48,25 +48,25 @@ public class Boleto {
     public void setNombreasiento(String nombreasiento){this.nombreasiento=nombreasiento;}
 
     @ManyToOne
-    @JoinColumn(name = "reserva_idreserva", referencedColumnName = "idreserva")
-    private Reserva reserva;
-    public Reserva getReserva() {
-        return reserva;
+    @JoinColumn(name = "reserva_idreserva", referencedColumnName = "idreserva", foreignKey = @ForeignKey (name = "idreserva"))
+    private Reserva idreserva;
+    public Reserva getIdReserva() {
+        return idreserva;
     }
 
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
+    public void setIdReserva(Reserva idreserva) {
+        this.idreserva = idreserva;
     }
 
     @ManyToOne
-    @JoinColumn(name = "asiento_idasiento", referencedColumnName = "idasiento")
-    private Asiento asiento;
-    public Asiento getAsiento() {
-        return asiento;
+    @JoinColumn(name = "asiento_idasiento", referencedColumnName = "idasiento", foreignKey = @ForeignKey (name = "idasiento"))
+    private Asiento idasiento;
+    public Asiento getIdasiento() {
+        return idasiento;
     }
 
-    public void setAsiento(Asiento asiento) {
-        this.asiento = asiento;
+    public void setIdasiento(Asiento idasiento) {
+        this.idasiento = idasiento;
     }
 
 }

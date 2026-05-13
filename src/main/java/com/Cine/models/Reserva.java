@@ -19,8 +19,8 @@ public class Reserva {
 
     public Reserva(LocalDate fecha, Usuario idUsuario, Cartelera idCartelera) {
         this.fecha = fecha;
-        this.usuario = idUsuario;
-        this.cartelera = idCartelera;
+        this.idusuario = idUsuario;
+        this.idcartelera = idCartelera;
     }
 
     public int getIdReserva() {
@@ -39,26 +39,26 @@ public class Reserva {
         this.fecha = fecha;
     }
     @ManyToOne
-    @JoinColumn(name = "usuario_idusuario", referencedColumnName = "idusuario")
-    private Usuario usuario;
-    public Usuario getUsuario() {
-        return usuario;
+    @JoinColumn(name = "usuario_idusuario", referencedColumnName = "idusuario", foreignKey = @ForeignKey (name = "idusuario"))
+    private Usuario idusuario;
+    public Usuario getIdusuario() {
+        return idusuario;
     }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setIdusuario(Usuario idusuario) {
+        this.idusuario = idusuario;
     }
 
     @ManyToOne
-    @JoinColumn(name = "Cartelera_idCartelera", referencedColumnName = "idCartelera")
-    private Cartelera cartelera;
-    public Cartelera getCartelera() {
-        return cartelera;
+    @JoinColumn(name = "Cartelera_idCartelera", referencedColumnName = "idCartelera", foreignKey = @ForeignKey (name = "idCartelera"))
+    private Cartelera idcartelera;
+    public Cartelera getIdcartelera() {
+        return idcartelera;
     }
 
-    public void setCartelera(Cartelera cartelera) {
-        this.cartelera = cartelera;
+    public void setIdcartelera(Cartelera idcartelera) {
+        this.idcartelera = idcartelera;
     }
-    @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "idreserva", cascade = CascadeType.ALL)
     private List<Boleto> boletos = new ArrayList<>();
     public List<Boleto> getBoletos() {
         return boletos;

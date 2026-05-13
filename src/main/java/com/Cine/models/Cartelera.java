@@ -1,5 +1,6 @@
 package com.Cine.models;
 
+import com.Cine.repository.CarteleraRepository;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -8,20 +9,20 @@ import java.time.LocalDate;
 @Entity
 @Table (name ="Cartelera")
 public class Cartelera {
-    private int idCartelera;
     private LocalDate fecha;
     private String hora;
-    private Sala idsala;
-    private Pelicula idpelicula;
 
     public Cartelera(){}
-    public Cartelera(LocalDate fecha, String hora){
+    public Cartelera(LocalDate fecha, String hora, Pelicula idpelicula, Sala idsala){
         this.fecha=fecha;
         this.hora=hora;
+        this.idpelicula=idpelicula;
+        this.idsala=idsala;
     }
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
+    private int idCartelera;
     public int getIdCartelera(){return idCartelera;}
     public void setIdCartelera(int idCartelera){this.idCartelera=idCartelera;}
     public LocalDate getFecha() {
@@ -34,7 +35,8 @@ public class Cartelera {
     public void setHora(String hora){this.hora=hora;}
 
     @ManyToOne
-    @JoinColumn(name = "sala_idsala", referencedColumnName = "idsala")
+    @JoinColumn(name = "sala_idsala", referencedColumnName = "idsala", foreignKey = @ForeignKey (name = "idsala"))
+    private Sala idsala;
     public Sala getIdsala() {
         return idsala;
     }
@@ -44,7 +46,8 @@ public class Cartelera {
     }
 
     @ManyToOne
-    @JoinColumn(name = "pelicula_idpelicula", referencedColumnName = "idpelicula")
+    @JoinColumn(name = "pelicula_idpelicula", referencedColumnName = "idpelicula", foreignKey = @ForeignKey (name = "idpelicula"))
+    private Pelicula idpelicula;
     public Pelicula getIdpelicula() {
         return idpelicula;
     }

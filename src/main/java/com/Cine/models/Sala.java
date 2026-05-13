@@ -14,7 +14,6 @@ public class Sala {
     @GenericGenerator(name = "increment", strategy = "increment")
     private int idsala;
     private int capacidad;
-    private TipoSala idTipoSala;
 
     public Sala() {}
 
@@ -38,18 +37,19 @@ public class Sala {
         this.capacidad = capacidad;
     }
 
-    @OneToMany(mappedBy = "sala", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "idsala", cascade = CascadeType.ALL)
     private List<Asiento> asientos = new ArrayList<>();
     public List<Asiento> getAsientos() { return asientos; }
     public void setAsientos(List<Asiento> asientos) { this.asientos = asientos; }
 
-    @OneToMany(mappedBy = "sala")
+    @OneToMany(mappedBy = "idsala")
     private List<Cartelera> funciones = new ArrayList<>();
     public List<Cartelera> getFunciones() { return funciones; }
     public void setFunciones(List<Cartelera> funciones) { this.funciones = funciones; }
 
     @ManyToOne
-    @JoinColumn(name = "TipoSala_IdTipoSala", referencedColumnName = "idTipoSala")
+    @JoinColumn(name = "TipoSala_IdTipoSala", referencedColumnName = "idTipoSala", foreignKey = @ForeignKey (name = "idTipoSala"))
+    private TipoSala idTipoSala;
     public TipoSala getIdTipoSala() {
         return idTipoSala;
     }
