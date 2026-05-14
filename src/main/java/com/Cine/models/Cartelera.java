@@ -35,7 +35,7 @@ public class Cartelera {
     public void setHora(String hora){this.hora=hora;}
 
     @ManyToOne
-    @JoinColumn(name = "sala_idsala", referencedColumnName = "idsala", foreignKey = @ForeignKey (name = "idsala"))
+    @JoinColumn(name = "sala_idsala", referencedColumnName = "idsala")
     private Sala idsala;
     public Sala getIdsala() {
         return idsala;
@@ -46,7 +46,7 @@ public class Cartelera {
     }
 
     @ManyToOne
-    @JoinColumn(name = "pelicula_idpelicula", referencedColumnName = "idpelicula", foreignKey = @ForeignKey (name = "idpelicula"))
+    @JoinColumn(name = "pelicula_idpelicula", referencedColumnName = "idpelicula")
     private Pelicula idpelicula;
     public Pelicula getIdpelicula() {
         return idpelicula;

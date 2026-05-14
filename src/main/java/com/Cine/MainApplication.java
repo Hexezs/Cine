@@ -32,13 +32,13 @@ public class MainApplication extends Application {
 
     public static void main(String[] args) {
         //holiiis
-        Usuario usuarioDefinido = new Usuario();
-        usuarioDefinido.setNombre("usuario");
-        usuarioDefinido.setApellidoP("De Prueba");
-        usuarioDefinido.setCorreo("usuario");
-        usuarioDefinido.setPassword("1234");
-        SharedData.getInstance().registrarNuevoUsuario(usuarioDefinido);
-        SharedData.getInstance().setUsuarioLogueado(usuarioDefinido);
+//        Usuario usuarioDefinido = new Usuario();
+//        usuarioDefinido.setNombre("usuario");
+//        usuarioDefinido.setApellidoP("De Prueba");
+//        usuarioDefinido.setCorreo("usuario");
+//        usuarioDefinido.setPassword("1234");
+//        SharedData.getInstance().registrarNuevoUsuario(usuarioDefinido);
+//        SharedData.getInstance().setUsuarioLogueado(usuarioDefinido);
 //        UsuarioService usuarioService = new UsuarioService();
 //        DireccionService direccionService = new DireccionService();
 //        Direccion direccion = new Direccion("Calle 1","Colonia 1",23400,"Los Cabos","BCS");

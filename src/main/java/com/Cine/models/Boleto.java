@@ -48,7 +48,7 @@ public class Boleto {
     public void setNombreasiento(String nombreasiento){this.nombreasiento=nombreasiento;}
 
     @ManyToOne
-    @JoinColumn(name = "reserva_idreserva", referencedColumnName = "idreserva", foreignKey = @ForeignKey (name = "idreserva"))
+    @JoinColumn(name = "reserva_idreserva", referencedColumnName = "idreserva")
     private Reserva idreserva;
     public Reserva getIdReserva() {
         return idreserva;
@@ -59,7 +59,7 @@ public class Boleto {
     }
 
     @ManyToOne
-    @JoinColumn(name = "asiento_idasiento", referencedColumnName = "idasiento", foreignKey = @ForeignKey (name = "idasiento"))
+    @JoinColumn(name = "asiento_idasiento", referencedColumnName = "idasiento")
     private Asiento idasiento;
     public Asiento getIdasiento() {
         return idasiento;

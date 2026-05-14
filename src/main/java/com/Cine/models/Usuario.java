@@ -74,7 +74,7 @@ public class Usuario {
     public String getPassword() {return password;
     }
     @ManyToOne
-    @JoinColumn(name ="tipoUsuario_idtipoUsuario", referencedColumnName = "idtipoUsuario", foreignKey = @ForeignKey (name = "idtipoUsuario"))
+    @JoinColumn(name ="TipoUsuario_idTipoUsuario", referencedColumnName = "idTipoUsuario")
     private TipoUsuario tipoUsuario;
     public TipoUsuario getTipoUsuario(){return tipoUsuario;}
     public void setTipoUsuario(TipoUsuario tipoUsuario){this.tipoUsuario=tipoUsuario;}

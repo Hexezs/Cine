@@ -71,8 +71,8 @@ public class SelecPeli_7Controller {
 
                 for (Reserva r : data.getHistorialCompras()) {
                     // CORRECCIÓN: Navegamos Reserva -> Cartelera -> Pelicula
-                    if (r.getCartelera() != null && r.getCartelera().getIdpelicula() != null) {
-                        boolean mismaPeli = r.getCartelera().getIdpelicula().getNombre().equals(peliActual.getNombre());
+                    if (r.getIdcartelera() != null && r.getIdcartelera().getIdpelicula() != null) {
+                        boolean mismaPeli = r.getIdcartelera().getIdpelicula().getNombre().equals(peliActual.getNombre());
                         boolean mismaFecha = r.getFecha().equals(fechaActual);
 
                         if (mismaPeli && mismaFecha) {
@@ -123,10 +123,10 @@ public class SelecPeli_7Controller {
             Reserva nuevaReserva = new Reserva();
 
             nuevaReserva.setFecha(data.getFechaSeleccionada());
-            nuevaReserva.setUsuario(data.getUsuarioLogueado());
+            nuevaReserva.setIdusuario(data.getUsuarioLogueado());
 
             // CORRECCIÓN: Usamos CarteleraSeleccionada del SharedData
-            nuevaReserva.setCartelera(data.getCarteleraSeleccionada());
+            nuevaReserva.setIdcartelera(data.getCarteleraSeleccionada());
 
             // CORRECCIÓN: Pasamos la lista de boletos que fuimos armando
             nuevaReserva.setBoletos(new ArrayList<>(boletosTemporales));

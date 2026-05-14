@@ -41,7 +41,7 @@ public class Asiento {
         this.letra = letra;
     }
     @ManyToOne
-    @JoinColumn(name = "sala_id_sala", referencedColumnName = "idsala", foreignKey = @ForeignKey (name = "idsala"))
+    @JoinColumn(name = "sala_id_sala", referencedColumnName = "idsala")
     private Sala idsala;
     public Sala getIdsala() {
         return idsala;

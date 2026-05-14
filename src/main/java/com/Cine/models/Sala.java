@@ -48,7 +48,7 @@ public class Sala {
     public void setFunciones(List<Cartelera> funciones) { this.funciones = funciones; }
 
     @ManyToOne
-    @JoinColumn(name = "TipoSala_IdTipoSala", referencedColumnName = "idTipoSala", foreignKey = @ForeignKey (name = "idTipoSala"))
+    @JoinColumn(name = "TipoSala_IdTipoSala", referencedColumnName = "idTipoSala")
     private TipoSala idTipoSala;
     public TipoSala getIdTipoSala() {
         return idTipoSala;

@@ -39,7 +39,7 @@ public class Reserva {
         this.fecha = fecha;
     }
     @ManyToOne
-    @JoinColumn(name = "usuario_idusuario", referencedColumnName = "idusuario", foreignKey = @ForeignKey (name = "idusuario"))
+    @JoinColumn(name = "usuario_idusuario", referencedColumnName = "idusuario")
     private Usuario idusuario;
     public Usuario getIdusuario() {
         return idusuario;
@@ -49,7 +49,7 @@ public class Reserva {
     }
 
     @ManyToOne
-    @JoinColumn(name = "Cartelera_idCartelera", referencedColumnName = "idCartelera", foreignKey = @ForeignKey (name = "idCartelera"))
+    @JoinColumn(name = "Cartelera_idCartelera", referencedColumnName = "idCartelera")
     private Cartelera idcartelera;
     public Cartelera getIdcartelera() {
         return idcartelera;

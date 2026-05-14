@@ -10,7 +10,7 @@ public class PeliculaMapper {
 
     public static PeliculaDTO aDTO(Pelicula entidad){
         return new PeliculaDTO(
-                entidad.getIdPelicula(),
+                entidad.getIdpelicula(),
                 entidad.getNombre(),
                 entidad.getTiempo(),
                 entidad.getSinopsis(),

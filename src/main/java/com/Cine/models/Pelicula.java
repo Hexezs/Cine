@@ -55,7 +55,7 @@ public class Pelicula {
         this.funciones = funciones;
     }
     @ManyToOne
-    @JoinColumn(name = "Idioma_IdIdioma", referencedColumnName = "idIdioma", foreignKey = @ForeignKey (name = "idIdioma"))
+    @JoinColumn(name = "Idioma_IdIdioma", referencedColumnName = "idIdioma")
     private Idioma idIdioma;
     public Idioma getIdIdioma() {
         return idIdioma;
@@ -81,7 +81,7 @@ public class Pelicula {
     }
 
     @ManyToOne
-    @JoinColumn(name = "ClasificacionRTC_idClasificacionRTC", referencedColumnName = "idClasificacionRTC", foreignKey = @ForeignKey (name = "idClasificacionRTC"))
+    @JoinColumn(name = "ClasificacionRTC_idClasificacionRTC", referencedColumnName = "idClasificacionRTC")
     private ClasificacionRTC idClasificacionRTC;
     public ClasificacionRTC getIdClasificacionRTC() {
         return idClasificacionRTC;

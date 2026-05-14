@@ -1,14 +1,21 @@
 package com.Cine.controllers;
+
 import com.Cine.MainApplication;
-import com.Cine.SharedData;
+import com.Cine.dto.UsuarioRegistroDTO;
 import com.Cine.models.Usuario;
+import com.Cine.services.UsuarioService;
+
 import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+
 import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,63 +43,29 @@ public class CreaCuenta_3Controller {
     @FXML
     private PasswordField TextContra;
 
-    @FXML
-    public void initialize() {
-        System.out.println("Pantalla crear cuenta cargada");
-        SharedData data = SharedData.getInstance();
+    private final UsuarioService usuarioService = new UsuarioService();
 
-        // Si entramos en modo edición, precargamos los datos del ShareData
-        if (data.isModoEdicion()) {
-            System.out.println("Cargando vista en Modo Edición");
-            BtnSig.setText("Guardar Cambios");
+    private Usuario usuarioEditar;
 
-            Usuario user = data.getUsuarioLogueado();
-            if (user != null) {
-                TextNombre.setText(user.getNombre());
-                TextApellido.setText(user.getApellidoP());
-                TextCorreo.setText(user.getCorreo());
-                TextContra.setText(user.getPassword());
-            }
-        } else {
-            System.out.println("Cargando vista en Modo Registro");
-            BtnSig.setText("Siguiente");
-        }
+    public void setUsuarioEditar(Usuario usuario) {
+        this.usuarioEditar = usuario;
+        TextNombre.setText(usuario.getNombre());
+        TextApellido.setText(usuario.getApellidoP());
+        TextCorreo.setText(usuario.getCorreo());
+        TextContra.setText(usuario.getPassword());
+        BtnSig.setText("Guardar Cambios");
     }
 
     @FXML
     private void BtnAtrasAction(ActionEvent actionEvent) throws IOException {
-        SharedData data = SharedData.getInstance();
-        if (data.isModoEdicion()) {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
-
-            Scene scene = ((Button) actionEvent.getSource()).getScene();
-            Stage stage = (Stage) scene.getWindow();
-
-            Scene nextScene = new Scene(fxmlLoader.load());
-            stage.setTitle("CineSync - Panel de Usuario");
-            stage.setScene(nextScene);
-        } else {
-            TextNombre.clear();
-            TextApellido.clear();
-            TextCorreo.clear();
-            TextContra.clear();
-            System.out.println("Click en Atrás");
-            Scene scene = ((Button) actionEvent.getSource()).getScene();
-            Stage stage = (Stage) scene.getWindow();
-
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Inicio_1.fxml"));
-            Scene nextScene = new Scene(fxmlLoader.load());
-
-            stage.setTitle("CineSync - Inicio");
-            stage.setScene(nextScene);
-        }
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Inicio_1.fxml"));
+        Scene nextScene = new Scene(fxmlLoader.load());Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.setTitle("CineSync - Inicio");
+        stage.setScene(nextScene);
     }
 
     @FXML
     private void BtnCancelarAction() {
-        System.out.println("Click en Cancelar");
-
-        // Limpiar campos
         TextNombre.clear();
         TextApellido.clear();
         TextCorreo.clear();
@@ -101,50 +74,45 @@ public class CreaCuenta_3Controller {
 
     @FXML
     private void BtnSigAction(ActionEvent actionEvent) throws IOException {
-        SharedData data = SharedData.getInstance();
-        if (TextNombre.getText().isEmpty() || TextContra.getText().isEmpty() ||
-                TextApellido.getText().isEmpty() || TextCorreo.getText().isEmpty()) {
-            System.out.println("Error: Rellena los campos");
+
+        if (TextNombre.getText().isEmpty() || TextApellido.getText().isEmpty() || TextCorreo.getText().isEmpty() || TextContra.getText().isEmpty()) {
+            System.out.println("Error: Rellena todos los campos");
             return;
         }
 
-        if (data.isModoEdicion()) {
-            Usuario user = data.getUsuarioLogueado();
-            if (user != null) {
-                user.setNombre(TextNombre.getText());
-                user.setApellidoP(TextApellido.getText());
-                user.setCorreo(TextCorreo.getText());
-                user.setPassword(TextContra.getText());
-                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
-                Scene scene = ((Button) actionEvent.getSource()).getScene();
-                Stage stage = (Stage) scene.getWindow();
-                Scene nextScene = new Scene(fxmlLoader.load());
-                stage.setTitle("CineSync - Panel de Usuario");
-                stage.setScene(nextScene);}
-            } else {
-                try {
+        if (usuarioEditar != null) {
 
-                    Usuario nuevoUsuario = new Usuario();
-                    nuevoUsuario.setNombre(TextNombre.getText());
-                    nuevoUsuario.setApellidoP(TextApellido.getText());
-                    nuevoUsuario.setCorreo(TextCorreo.getText());
-                    nuevoUsuario.setPassword(TextContra.getText());
-                    data.registrarNuevoUsuario(nuevoUsuario);
-                    data.setUsuarioLogueado(nuevoUsuario);
-                    FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));
+            usuarioEditar.setNombre(TextNombre.getText());
 
-                    Scene scene = ((Button) actionEvent.getSource()).getScene();
-                    Stage stage = (Stage) scene.getWindow();
+            usuarioEditar.setApellidoP(TextApellido.getText());
 
-                    Scene nextScene = new Scene(fxmlLoader.load());
-                    stage.setTitle("CineSync - Iniciar Sesion");
-                    stage.setScene(nextScene);
+            usuarioEditar.setCorreo(TextCorreo.getText());
 
-                } catch (IOException e) {
-                    System.err.println("Error al cargar la vista: ");
-                    e.printStackTrace();
-                }
+            usuarioEditar.setPassword(TextContra.getText());
 
-            }
+            usuarioService.actualizarPerfil(usuarioEditar);
+
+            System.out.println("Perfil actualizado");
+
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
+
+            Scene nextScene = new Scene(fxmlLoader.load());Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            stage.setTitle("CineSync - Panel Usuario");
+            stage.setScene(nextScene);
+
+        } else {
+
+            UsuarioRegistroDTO dto =
+                    new UsuarioRegistroDTO(TextNombre.getText(), "", TextApellido.getText(), TextCorreo.getText(), TextContra.getText());
+
+            usuarioService.registrarNuevoUsuario(dto);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));
+            Scene nextScene = new Scene(fxmlLoader.load());
+
+            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+
+            stage.setTitle("CineSync - Iniciar Sesion");
+            stage.setScene(nextScene);
         }
     }
+}
