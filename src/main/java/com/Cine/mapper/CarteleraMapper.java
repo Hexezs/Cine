@@ -13,7 +13,7 @@ public class CarteleraMapper {
         );
 
         public static Cartelera aEntidad(CarteleraDTO dto){
-            Cartelera entidad = new Idioma();
+            Cartelera entidad = new Cartelera();
             entidad.setFecha(dto.fecha());
             return entidad;
         }

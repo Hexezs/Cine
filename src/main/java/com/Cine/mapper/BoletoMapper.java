@@ -9,7 +9,7 @@ public class BoletoMapper {
                 entidad.getCantidad(),
                 entidad.getMonto(),
                 entidad.getIdReserva(),
-                entidad.getIdAsiento()
+                entidad.getIdasiento().getLetra()
         );
     }
 
