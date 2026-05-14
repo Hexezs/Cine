@@ -1,5 +1,5 @@
 package com.Cine.services;
 
-public class AsientoService {
+public class BoletoService {
 
 }
