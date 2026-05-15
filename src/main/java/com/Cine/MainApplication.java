@@ -50,7 +50,7 @@ public class MainApplication extends Application {
 //        homero.setDireccion(direccion);
 //       homero.setFechaUltimoInicio(Instant.now());
 //        usuarioService.addUser(homero);
-////
+//
 //        Usuario lisa = new Usuario("Lisa","Simpson","Lopez",10);
 //        lisa.setDireccion(direccion2);
 //        lisa.setFechaUltimoInicio(Instant.now());
