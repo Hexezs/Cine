@@ -5,10 +5,9 @@ import com.Cine.models.Usuario;
 
 public class UsuarioInicioMapper {
 
-    public static UsuarioInicioDTO aDTO(Usuario entidad){
-        return new UsuarioInicioDTO(
-                entidad.getCorreo(),
-                entidad.getPassword()
-        );
-    }
+//    public static UsuarioInicioDTO aDTO(Usuario entidad){
+//        return new UsuarioInicioDTO(
+//                entidad.getCorreo(),
+//                entidad.getPassword()
+//        );
 }
