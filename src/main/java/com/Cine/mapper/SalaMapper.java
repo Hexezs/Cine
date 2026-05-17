@@ -9,16 +9,14 @@ public class SalaMapper {
     public static SalaDTO aDTO(Sala entidad){
         return new SalaDTO(
                 entidad.getCapacidad(),
-                entidad.getIdTipoSala().getIdTipoSala()
+                entidad.getIdTipoSala() != null ? entidad.getIdTipoSala().getIdTipoSala() : 0,
+                entidad.getNombreTipoSala()
         );
     }
 
     public static Sala aEntidad(SalaDTO dto){
         Sala entidad = new Sala();
         entidad.setCapacidad(dto.capacidad());
-        entidad.setIdTipoSala(dto.idTipoSala());
-        // las FKs (idPelicula, idTipoSala, idAsiento)
-        // se asignan en el Service después de buscarlas en BD
         return entidad;
     }
 }

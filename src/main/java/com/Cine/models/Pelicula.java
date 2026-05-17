@@ -26,7 +26,7 @@ public class Pelicula {
         this.idClasificacionRTC = idClasificacionRTC;
         this.imagenURL = imagenURL;
     }
-    public int getIdpelicula() {
+    public int getIdPelicula() {
         return idpelicula;
     }
 

@@ -9,8 +9,8 @@ public class CarteleraMapper {
                 entidad.getIdCartelera(),
                 entidad.getFecha(),
                 entidad.getHora(),
-                entidad.getIdpelicula().getIdpelicula(),
-                entidad.getIdsala().getIdsala()
+                entidad.getIdpelicula() != null ? entidad.getIdpelicula().getIdPelicula() : 0,
+                entidad.getIdsala() != null ? entidad.getIdsala().getIdsala() : 0
         );
     }
     public static Cartelera aEntidad(CarteleraDTO dto){
