@@ -54,32 +54,39 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Correo: " GridPane.rowIndex="2">
+            <Label text="Correo: " GridPane.rowIndex="3">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <Label text="Contraseña:" GridPane.rowIndex="3">
+            <Label text="Contraseña:" GridPane.rowIndex="4">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="TextCorreo" prefHeight="25.0" prefWidth="380.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <PasswordField fx:id="TextContra" prefHeight="6.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="TextCorreo" prefHeight="25.0" prefWidth="380.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <PasswordField fx:id="TextContra" prefHeight="6.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label layoutX="10.0" layoutY="99.0" text="Nombre: ">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <Label text="Apellido: " GridPane.rowIndex="1">
+            <Label text="Apellido M: " GridPane.rowIndex="2">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="TextApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="TextApellidoM" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="TextNombre" GridPane.columnIndex="1" />
+            <TextField fx:id="TextApellidoP" prefHeight="6.0" prefWidth="311.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Apellido P:" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

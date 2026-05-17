@@ -24,8 +24,6 @@ public class Pinci_5Controller {
     @FXML
     public void initialize() {
         SharedData data = SharedData.getInstance();
-
-        // 1. Configuramos CÓMO se ve la peli (esto no cambia)
         CmbxPelicula.setConverter(new StringConverter<Pelicula>() {
             @Override
             public String toString(Pelicula peli) {
@@ -34,12 +32,8 @@ public class Pinci_5Controller {
             @Override
             public Pelicula fromString(String string) { return null; }
         });
-
-        // 2. ¡AQUÍ ESTÁ LA MAGIA!: Traemos las pelis del SharedData
         CmbxPelicula.getItems().clear();
         CmbxPelicula.getItems().addAll(data.getListaPeliculasGlobal());
-
-        // 3. Si ya había una seleccionada, la marcamos
         if (data.getPeliculaSeleccionada() != null) {
             CmbxPelicula.setValue(data.getPeliculaSeleccionada());
         }
@@ -50,7 +44,6 @@ public class Pinci_5Controller {
         if (data.getFechaSeleccionada() != null) {
             PickerDay.setValue(data.getFechaSeleccionada());
         }
-        // Corregido: cantidadBoletos es int, no puede ser null ni usar isEmpty()
         if (data.getCantidadBoletos() > 0) {
             TextCantidadBoletos.setText(String.valueOf(data.getCantidadBoletos()));
         }
@@ -70,7 +63,6 @@ public class Pinci_5Controller {
         try {
             int cantidad = Integer.parseInt(cantStr);
 
-            // Alerta de confirmación
             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
             alerta.setTitle("Confirmación");
             alerta.setHeaderText("¿Desea continuar?");

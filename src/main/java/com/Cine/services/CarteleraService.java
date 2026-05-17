@@ -18,7 +18,7 @@ public class CarteleraService {
     public void guardarFuncion(CarteleraDTO dto){
         Cartelera nuevaFuncion = CarteleraMapper.aEntidad(dto);
 
-        Pelicula peliEncontrada = peliculaRepository.getPeliculaByID((dto.idPelicula()));
+        Pelicula peliEncontrada = peliculaRepository.getPeliculaByID((dto.idpelicula()));
 
         if(peliEncontrada != null){
             nuevaFuncion.setIdpelicula(peliEncontrada);

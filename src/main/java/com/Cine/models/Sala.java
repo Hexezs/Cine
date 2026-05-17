@@ -65,5 +65,8 @@ public class Sala {
         }
         return "Sin tipo asignado";
     }
-
+    @Override
+    public String toString() {
+        return "Sala " + idsala + " - " + getNombreTipoSala();
+    }
 }

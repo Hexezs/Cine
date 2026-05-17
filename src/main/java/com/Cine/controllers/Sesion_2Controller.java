@@ -82,7 +82,7 @@ public class Sesion_2Controller {
 
             if (rolSeleccionado.equals("Admin")) {
 
-                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Admin_6.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/admin_6.fxml"));
                 Scene nextScene = new Scene(fxmlLoader.load());
                 Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
                 stage.setTitle("Panel Administrador");
@@ -94,9 +94,7 @@ public class Sesion_2Controller {
 
                 Scene nextScene = new Scene(fxmlLoader.load());
 
-                Use_4Controller controller = fxmlLoader.getController();
-
-                controller.setUsuarioLogueado(usuarioLogueado);
+                Use_4Controller.usuarioLogueado = usuarioLogueado;
 
                 Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
                 stage.setTitle("Cartelera");

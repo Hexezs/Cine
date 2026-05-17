@@ -21,7 +21,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CreaCuenta_3Controller {
-
+    @FXML
+    private TextField TextApellidoP;
+    @FXML
+    private TextField TextApellidoM;
     @FXML
     private Button BtnAtras;
 
@@ -50,7 +53,8 @@ public class CreaCuenta_3Controller {
     public void setUsuarioEditar(Usuario usuario) {
         this.usuarioEditar = usuario;
         TextNombre.setText(usuario.getNombre());
-        TextApellido.setText(usuario.getApellidoP());
+        TextApellidoP.setText(usuario.getApellidoP());
+        TextApellidoM.setText(usuario.getApellidoM());
         TextCorreo.setText(usuario.getCorreo());
         TextContra.setText(usuario.getPassword());
         BtnSig.setText("Guardar Cambios");
@@ -67,7 +71,8 @@ public class CreaCuenta_3Controller {
     @FXML
     private void BtnCancelarAction() {
         TextNombre.clear();
-        TextApellido.clear();
+        TextApellidoM.clear();
+        TextApellidoP.clear();
         TextCorreo.clear();
         TextContra.clear();
     }
@@ -75,7 +80,7 @@ public class CreaCuenta_3Controller {
     @FXML
     private void BtnSigAction(ActionEvent actionEvent) throws IOException {
 
-        if (TextNombre.getText().isEmpty() || TextApellido.getText().isEmpty() || TextCorreo.getText().isEmpty() || TextContra.getText().isEmpty()) {
+        if (TextNombre.getText().isEmpty() || TextApellidoP.getText().isEmpty()|| TextApellidoM.getText().isEmpty() || TextCorreo.getText().isEmpty() || TextContra.getText().isEmpty()) {
             System.out.println("Error: Rellena todos los campos");
             return;
         }
@@ -84,7 +89,9 @@ public class CreaCuenta_3Controller {
 
             usuarioEditar.setNombre(TextNombre.getText());
 
-            usuarioEditar.setApellidoP(TextApellido.getText());
+            usuarioEditar.setApellidoP(TextApellidoP.getText());
+
+            usuarioEditar.setApellidoM(TextApellidoM.getText());
 
             usuarioEditar.setCorreo(TextCorreo.getText());
 
@@ -103,7 +110,7 @@ public class CreaCuenta_3Controller {
         } else {
 
             UsuarioRegistroDTO dto =
-                    new UsuarioRegistroDTO(TextNombre.getText(), "", TextApellido.getText(), TextCorreo.getText(), TextContra.getText());
+                    new UsuarioRegistroDTO(TextNombre.getText(), TextApellidoM.getText(), TextApellidoP.getText(), TextCorreo.getText(), TextContra.getText());
 
             usuarioService.registrarNuevoUsuario(dto);
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));

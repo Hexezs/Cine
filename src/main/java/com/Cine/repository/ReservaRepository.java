@@ -25,10 +25,7 @@ public class ReservaRepository {
     public List<Reserva> getReservasByCartelera(int idCartelera) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Reserva> result = entityManager.createQuery(
-                        "from Reserva where cartelera.idCartelera = :id", Reserva.class)
-                .setParameter("id", idCartelera)
-                .getResultList();
+        List<Reserva> result = entityManager.createQuery("from Reserva where cartelera.idCartelera = :id", Reserva.class).setParameter("id", idCartelera).getResultList();
         entityManager.close();
         return result;
     }

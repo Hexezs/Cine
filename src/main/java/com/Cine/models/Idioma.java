@@ -29,4 +29,8 @@ public class Idioma {
     public void setNombreIdioma(String nombreIdioma) {
         this.nombreIdioma = nombreIdioma;
     }
+    @Override
+    public String toString() {
+        return nombreIdioma;
+    }
 }

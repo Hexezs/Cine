@@ -15,10 +15,7 @@ public class AsientoRepository {
     public List<Asiento> getAsientosBySala(int idSala) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Asiento> result = entityManager.createQuery(
-                        "from Asiento where sala.idSala = :idSala", Asiento.class)
-                .setParameter("idSala", idSala)
-                .getResultList();
+        List<Asiento> result = entityManager.createQuery("from Asiento where sala.idSala = :idSala", Asiento.class).setParameter("idSala", idSala).getResultList();
         entityManager.close();
         return result;
     }
@@ -28,13 +25,8 @@ public class AsientoRepository {
     public List<Asiento> getAsientosOcupados(int idCartelera) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-
         // Buscamos asientos que ya estén en una reserva para esa función de cartelera
-        List<Asiento> ocupados = entityManager.createQuery(
-                        "select r.asiento from Reserva r where r.cartelera.idCartelera = :id", Asiento.class)
-                .setParameter("id", idCartelera)
-                .getResultList();
-
+        List<Asiento> ocupados = entityManager.createQuery("select r.asiento from Reserva r where r.cartelera.idCartelera = :id", Asiento.class).setParameter("id", idCartelera).getResultList();
         entityManager.close();
         return ocupados;
     }

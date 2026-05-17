@@ -25,6 +25,7 @@ public class PeliculaRepository {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
+        entityManager.createQuery("DELETE FROM Cartelera c WHERE c.idpelicula.idpelicula = :id").setParameter("id", pelicula.getIdpelicula()).executeUpdate();
         entityManager.remove(entityManager.merge(pelicula));
         entityManager.getTransaction().commit();
         entityManager.close();
@@ -35,10 +36,7 @@ public class PeliculaRepository {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            Pelicula pelicula = entityManager.createQuery(
-                            "from Pelicula where nombre = :nombre", Pelicula.class)
-                    .setParameter("nombre", nombre)
-                    .getSingleResult();
+            Pelicula pelicula = entityManager.createQuery("from Pelicula where nombre = :nombre", Pelicula.class).setParameter("nombre", nombre).getSingleResult();
             entityManager.close();
             return pelicula;
         } catch (Exception e) {
@@ -62,4 +60,5 @@ public class PeliculaRepository {
         entityManager.close();
         return result;
     }
+
 }

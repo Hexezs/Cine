@@ -34,10 +34,7 @@ public class CarteleraRepository {
     public List<Cartelera> getCarteleraByPelicula(int idPelicula) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Cartelera> result = entityManager.createQuery(
-                        "from Cartelera where idpelicula.idpelicula = :id", Cartelera.class)
-                .setParameter("id", idPelicula)
-                .getResultList();
+        List<Cartelera> result = entityManager.createQuery("from Cartelera where idpelicula.idpelicula = :id", Cartelera.class).setParameter("id", idPelicula).getResultList();
         entityManager.close();
         return result;
     }

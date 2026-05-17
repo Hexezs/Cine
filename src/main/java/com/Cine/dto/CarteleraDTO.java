@@ -5,6 +5,6 @@ import java.time.LocalDate;
 public record CarteleraDTO (int idCartelera,
                             LocalDate fecha,
                             String hora,
-                            int idPelicula,
-                            int idSala) {
+                            int idpelicula,
+                            int idsala) {
 }

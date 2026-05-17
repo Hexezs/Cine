@@ -25,10 +25,7 @@ public class BoletoRepository {
     public List<Boleto> getBoletosByReserva(int idReserva) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Boleto> result = entityManager.createQuery(
-                        "from Boleto where reserva.idReserva = :id", Boleto.class)
-                .setParameter("id", idReserva)
-                .getResultList();
+        List<Boleto> result = entityManager.createQuery("from Boleto where reserva.idReserva = :id", Boleto.class).setParameter("id", idReserva).getResultList();
         entityManager.close();
         return result;
     }

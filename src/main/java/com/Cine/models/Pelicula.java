@@ -26,7 +26,7 @@ public class Pelicula {
         this.idClasificacionRTC = idClasificacionRTC;
         this.imagenURL = imagenURL;
     }
-    public int getIdPelicula() {
+    public int getIdpelicula() {
         return idpelicula;
     }
 
@@ -89,5 +89,9 @@ public class Pelicula {
 
     public void setIdClasificacionRTC(ClasificacionRTC idClasificacionRTC) {
         this.idClasificacionRTC = idClasificacionRTC;
+    }
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

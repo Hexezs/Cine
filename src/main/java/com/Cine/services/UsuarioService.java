@@ -24,8 +24,7 @@ public class UsuarioService {
         if (usuarioRepository.existeCorreo(datos.correo())) {
             throw new RuntimeException("El correo ya está registrado.");
         }
-        TipoUsuarioRepository TipoUsuarioRepository =
-                new TipoUsuarioRepository();
+        TipoUsuarioRepository TipoUsuarioRepository = new TipoUsuarioRepository();
         TipoUsuario tipo = TipoUsuarioRepository.getTipoByID(2);
 
         Usuario nuevo = UsuarioRegistroMapper.aEntidad(datos, tipo);
@@ -39,11 +38,9 @@ public class UsuarioService {
     public Optional<Usuario> iniciarSesion(UsuarioInicioDTO datos) {
         Usuario usuarioEncontrado = usuarioRepository.login(datos.correo(), datos.password());
 
-        if (usuarioEncontrado != null &&
-                usuarioEncontrado.getTipoUsuario() != null) {
+        if (usuarioEncontrado != null && usuarioEncontrado.getTipoUsuario() != null) {
 
-            String rolDB =
-                    usuarioEncontrado.getTipoUsuario().getNombreTipoUsuario();
+            String rolDB = usuarioEncontrado.getTipoUsuario().getNombreTipoUsuario();
 
             if (datos.rol().equalsIgnoreCase(rolDB)) {
                 return Optional.of(usuarioEncontrado);

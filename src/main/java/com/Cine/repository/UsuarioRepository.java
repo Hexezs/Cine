@@ -24,8 +24,7 @@ public class UsuarioRepository {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            Usuario usuario = entityManager.createQuery(
-                            "from Usuario where correo = :correo and password = :password", Usuario.class)
+            Usuario usuario = entityManager.createQuery("from Usuario where correo = :correo and password = :password", Usuario.class)
                     .setParameter("correo", correo)
                     .setParameter("password", password)
                     .getSingleResult();
@@ -40,10 +39,8 @@ public class UsuarioRepository {
     public boolean existeCorreo(String correo) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Usuario> result = entityManager.createQuery(
-                        "from Usuario where correo = :correo", Usuario.class)
-                .setParameter("correo", correo)
-                .getResultList();
+        List<Usuario> result = entityManager.createQuery("from Usuario where correo = :correo", Usuario.class)
+        .setParameter("correo", correo).getResultList();
         entityManager.close();
         return !result.isEmpty();
     }
@@ -72,5 +69,52 @@ public class UsuarioRepository {
         Usuario usuario = entityManager.find(Usuario.class, id);
         entityManager.close();
         return usuario;
+    }
+    public List<Usuario> getAllUsuarios() {
+
+        EntityManagerFactory entityManagerFactory =
+                HibernateUtils.getEntityManagerFactory();
+
+        EntityManager entityManager =
+                entityManagerFactory.createEntityManager();
+
+        List<Usuario> usuarios =
+                entityManager.createQuery(
+                        "from Usuario",
+                        Usuario.class
+                ).getResultList();
+
+        entityManager.close();
+
+        return usuarios;
+    }
+    public List<Usuario> getUsuariosByFuncion(
+            int idFuncion
+    ) {
+
+        EntityManagerFactory entityManagerFactory =
+                HibernateUtils.getEntityManagerFactory();
+
+        EntityManager entityManager =
+                entityManagerFactory.createEntityManager();
+
+        List<Usuario> usuarios =
+                entityManager.createQuery(
+
+                                "select b.idusuario " +
+                                        "from Boleto b " +
+                                        "where b.idcartelera.idCartelera = :idFuncion",
+
+                                Usuario.class
+                        )
+                        .setParameter(
+                                "idFuncion",
+                                idFuncion
+                        )
+                        .getResultList();
+
+        entityManager.close();
+
+        return usuarios;
     }
 }

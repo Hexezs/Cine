@@ -50,11 +50,7 @@ public class Use_4Controller {
     private ObservableList<Reserva> lista =
             FXCollections.observableArrayList();
 
-    private Usuario usuarioLogueado;
-
-    public void setUsuarioLogueado(Usuario usuarioLogueado) {
-        this.usuarioLogueado = usuarioLogueado;
-    }
+    public static Usuario usuarioLogueado;
 
     @FXML
     public void initialize() {
@@ -66,7 +62,7 @@ public class Use_4Controller {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/CreaCuenta_3.fxml"));
         Scene nextScene = new Scene(fxmlLoader.load());
         CreaCuenta_3Controller controller = fxmlLoader.getController();
-        controller.setUsuarioEditar(usuarioLogueado);
+        controller.setUsuarioEditar(Use_4Controller.usuarioLogueado);
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         stage.setTitle("CineSync - Editar Cuenta");stage.setScene(nextScene);
     }

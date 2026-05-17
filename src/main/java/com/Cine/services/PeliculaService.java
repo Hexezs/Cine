@@ -1,44 +1,27 @@
 package com.Cine.services;
-//falta el Repository para que los metodos funcionen, es decir
-//en repositorio se crean esos metodos
-import com.Cine.models.Pelicula;
 
+import com.Cine.models.Pelicula;
+import com.Cine.repository.PeliculaRepository;
 import java.util.List;
-import java.util.Optional;
 
 public class PeliculaService {
-//    private final PeliculaRepository peliculaRepository;
-//
-//    public PeliculaService(PeliculaRepository peliculaRepository){
-//        this.peliculaRepository = peliculaRepository;
-//    }
-//
-//    //Crear o Guardar
-//    public Pelicula guardarPelicula(Pelicula pelicula){
-//        return peliculaRepository.save(pelicula);
-//    }
-//
-//    //leer_todo
-//    public List<Pelicula> obtenerTodasLasPeliculas(){
-//        return peliculaRepository.findAll();
-//    }
-//
-//    //leer por id (optional -> prevenir errores de valores nulos si no existe)
-//    public Optional<Pelicula> obtenerPeliculaPorId(int id){
-//        return peliculaRepository.findById(id);
-//    }
-//
-//    //actualizar usando ifelse+excepcion
-//    public Pelicula actualizarPelicula(int id, Pelicula peliculaActualizada){
-//        return peliculaRepository.findById(id).map(pelicula -> {
-//            pelicula.setTitulo(peliculaActualizada.getTitulo());
-//            pelicula.setDuracion(peliculaActualizada.getDuracion());
-//            return peliculaRepository.save(pelicula);
-//        }).orElseThrow(()-> new RuntimeException("Pelicula no encontrada"));
-//    }
-//
-//    //eliminar
-//    public void eliminarPelicula(int id){
-//        peliculaRepository.deleteById(id);
-//    }
+
+    private final PeliculaRepository peliculaRepository =
+            new PeliculaRepository();
+
+    public void agregarPelicula(Pelicula pelicula){
+
+        peliculaRepository.addPelicula(pelicula);
+    }
+
+    public List<Pelicula> obtenerPeliculas(){
+
+        return peliculaRepository.getAllPeliculas();
+    }
+    public Pelicula buscarPorNombre(String nombre) {
+        return peliculaRepository.getPeliculaByNombre(nombre);
+    }
+    public void eliminarPelicula(Pelicula pelicula) {
+        peliculaRepository.removePelicula(pelicula);
+    }
 }
