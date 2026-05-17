@@ -24,9 +24,11 @@ public class PeliculaMapper {
     public static Pelicula aEntidad(PeliculaRegistroDTO dto, ClasificacionRTC clasificacion, Idioma idioma){
         Pelicula pelicula = new Pelicula();
         pelicula.setNombre(dto.nombrePelicula());
+
         pelicula.setTiempo(dto.tiempo());
         pelicula.setSinopsis(dto.sinopsis());
         pelicula.setImagenURL(dto.imagenURL());
+
         pelicula.setIdClasificacionRTC(clasificacion);
         pelicula.setIdIdioma(idioma);
         return pelicula;

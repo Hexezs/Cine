@@ -47,6 +47,14 @@ public class PeliculaRepository {
         }
     }
 
+    public Pelicula getPeliculaByID(int id){
+        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Pelicula pelicula = entityManager.find(Pelicula.class, id);
+        entityManager.close();
+        return pelicula;
+    }
+
     public List<Pelicula> getAllPeliculas() {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();

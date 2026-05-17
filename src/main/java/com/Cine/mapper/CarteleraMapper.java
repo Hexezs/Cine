@@ -8,14 +8,15 @@ public class CarteleraMapper {
         return new CarteleraDTO(
                 entidad.getIdCartelera(),
                 entidad.getFecha(),
-                entidad.getIdPelicula(),
-                entidad.getIdSala()
+                entidad.getHora(),
+                entidad.getIdpelicula() != null ? entidad.getIdpelicula().getIdPelicula() : 0,
+                entidad.getIdsala() != null ? entidad.getIdsala().getIdsala() : 0
         );
-
-        public static Cartelera aEntidad(CarteleraDTO dto){
-            Cartelera entidad = new Cartelera();
-            entidad.setFecha(dto.fecha());
-            return entidad;
-        }
+    }
+    public static Cartelera aEntidad(CarteleraDTO dto){
+        Cartelera entidad = new Cartelera();
+        entidad.setFecha(dto.fecha());
+        entidad.setHora(dto.hora());
+        return entidad;
     }
 }

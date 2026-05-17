@@ -1,6 +1,6 @@
 package com.Cine.dto;
 
-public record PeliculaDTO (int idpelicula,
+public record PeliculaDTO (int idPelicula,
                            String nombre,
                            int tiempo,
                            String sinopsis,

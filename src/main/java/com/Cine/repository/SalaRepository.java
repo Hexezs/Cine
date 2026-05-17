@@ -27,4 +27,21 @@ public class SalaRepository {
         entityManager.close();
         return sala;
     }
+
+    //para guardar sala
+    public void saveSala(Sala sala) {
+        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        try {
+            entityManager.persist(sala);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+    }
 }

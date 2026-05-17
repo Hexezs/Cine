@@ -12,6 +12,7 @@ public class Sala {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idsala;
     private int capacidad;
 
@@ -54,8 +55,15 @@ public class Sala {
         return idTipoSala;
     }
 
-    public void setIdTipoSala(TipoSala idTipoSala) {
-        this.idTipoSala = idTipoSala;
+    public void setIdTipoSala(TipoSala tipoSala){
+        this.idTipoSala = tipoSala;
+    }
+
+    public String getNombreTipoSala() {
+        if(this.idTipoSala != null){
+            return this.idTipoSala.getNombreTipoSala();
+        }
+        return "Sin tipo asignado";
     }
 
 }
