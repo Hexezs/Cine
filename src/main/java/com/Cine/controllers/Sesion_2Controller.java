@@ -4,6 +4,7 @@ import com.Cine.MainApplication;
 import com.Cine.dto.UsuarioInicioDTO;
 import com.Cine.models.Usuario;
 import com.Cine.services.UsuarioService;
+import com.Cine.SharedData;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -95,6 +96,8 @@ public class Sesion_2Controller {
                 Scene nextScene = new Scene(fxmlLoader.load());
 
                 Use_4Controller.usuarioLogueado = usuarioLogueado;
+
+                SharedData.getInstance().setUsuarioLogueado(usuarioLogueado);
 
                 Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
                 stage.setTitle("Cartelera");
