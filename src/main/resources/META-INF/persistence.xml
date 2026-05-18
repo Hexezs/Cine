@@ -5,14 +5,25 @@
     <persistence-unit name="com.Cine">
         <description>Proyecto template ejemplo</description>
         <class>com.Cine.models.Usuario</class>
+        <class>com.Cine.models.TipoUsuario</class>
+        <class>com.Cine.models.Pelicula</class>
+        <class>com.Cine.models.Idioma</class>
+        <class>com.Cine.models.ClasificacionRTC</class>
+        <class>com.Cine.models.Sala</class>
+        <class>com.Cine.models.TipoSala</class>
+        <class>com.Cine.models.Asiento</class>
+        <class>com.Cine.models.Cartelera</class>
+        <class>com.Cine.models.Reserva</class>
+        <class>com.Cine.models.Boleto</class>
+        <class>com.Cine.models.Direccion</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/mydb"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/CineSync BD"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="Loco12"/>
+            <property name="javax.persistence.jdbc.password" value="1234"/>
         </properties>
     </persistence-unit>
 </persistence>
