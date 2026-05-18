@@ -1,5 +1,11 @@
 package com.Cine;
 
+import com.Cine.dto.UsuarioInicioDTO;
+import com.Cine.dto.UsuarioRegistroDTO;
+import com.Cine.models.Usuario;
+import com.Cine.services.CarteleraService;
+import com.Cine.services.PeliculaService;
+import com.Cine.services.UsuarioService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,54 +26,41 @@ public class MainApplication extends Application {
 
     @Override
     public void stop() throws Exception {
+        HibernateUtils.closeEntityManagerFactory();
         super.stop();
     }
 
     public static void main(String[] args) {
-        //holiiis
-//        Usuario usuarioDefinido = new Usuario();
-//        usuarioDefinido.setNombre("usuario");
-//        usuarioDefinido.setApellidoP("De Prueba");
-//        usuarioDefinido.setCorreo("usuario");
-//        usuarioDefinido.setPassword("1234");
-//        SharedData.getInstance().registrarNuevoUsuario(usuarioDefinido);
-//        SharedData.getInstance().setUsuarioLogueado(usuarioDefinido);
+//      holiiis
 //        UsuarioService usuarioService = new UsuarioService();
-//        DireccionService direccionService = new DireccionService();
-//        Direccion direccion = new Direccion("Calle 1","Colonia 1",23400,"Los Cabos","BCS");
-//        Direccion direccion2 = new Direccion("Calle 2","Colonia 2",23400,"Los Cabos","BCS");
-//        direccionService.addDireccion(direccion);
-//        direccionService.addDireccion(direccion2);
+//        PeliculaService peliculaService = new PeliculaService();
+//        CarteleraService carteleraService = new CarteleraService();
+//        System.out.println("Prueba 1");
+//        UsuarioRegistroDTO registroDTO = new UsuarioRegistroDTO(
+//                "Aura", "Morales", "Romero", "prueba1@gmail", "1234"
+//        );
 //
-//    Usuario homero = new Usuario("Homero","J.","Simpson",48);
-//        homero.setDireccion(direccion);
-//       homero.setFechaUltimoInicio(Instant.now());
-//        usuarioService.addUser(homero);
+//        System.out.println("Registrando usuario...");
+//        Usuario usuarioRegistrado = usuarioService.registrarNuevoUsuario(registroDTO);
+//        System.out.println("Usuario ID: " + usuarioRegistrado.getIdusuario());
+//        System.out.println("Inicio Usuario");
+//        UsuarioInicioDTO loginDTO = new UsuarioInicioDTO("prueba1@gmail.com", "1234", "Cliente");
 //
-//        Usuario lisa = new Usuario("Lisa","Simpson","Lopez",10);
-//        lisa.setDireccion(direccion2);
-//        lisa.setFechaUltimoInicio(Instant.now());
-//        usuarioService.addUser(lisa);
+//        usuarioService.iniciarSesion(loginDTO).ifPresentOrElse(
 //
-//        List<Usuario> result = usuarioService.getAllUsers();
-//        for ( Usuario usuario : result ) {
-//            System.out.println(usuario.getNombre());
-//            System.out.println(usuario.getDireccion().toString());
-//            System.out.println(DateUtils.getDate(usuario.getFechaUltimoInicio()));
-//            System.out.println(DateUtils.getTime(usuario.getFechaUltimoInicio()));
-//            System.out.println(DateUtils.getDateTime(usuario.getFechaUltimoInicio()));
-//        }
+//                user -> System.out.println("Inicio de sesion de : " + user.getNombre()),
 //
-//        System.out.println("=========================");
-//        Usuario lisa2 = usuarioService.getUserByID(2);
-//        System.out.println(lisa2.getNombre());
-//        System.out.println(lisa2.getDireccion().toString());
-//        lisa2.setEdad(11);
-//        usuarioService.updateUser(lisa2);
-//        usuarioService.removeUser(lisa2);
-//        direccionService.removeDireccion(direccion2);
+//                () -> System.out.println("Error :c")
 //
-//        HibernateUtils.closeEntityManagerFactory();
+//        );
+//
+//        System.out.println("Consultando cartelera");
+//
+//        peliculaService.obtenerPeliculas().forEach(p-> {
+//
+//            System.out.println("Pelicula | " + p.getNombre() + " | Duracion " + p.getTiempo() + " min");
+//
+//        });
 
         launch();
     }
