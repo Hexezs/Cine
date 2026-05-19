@@ -22,7 +22,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="938.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="938.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="92.0" stroke="WHITE" strokeType="INSIDE" width="938.0">
          <fill>
@@ -80,7 +80,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <DatePicker prefHeight="0.0" prefWidth="130.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    <DatePicker fx:id="ickerDay" onAction="#PickerDayAction" prefHeight="0.0" prefWidth="130.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                     <Label styleClass="text" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Pelicula:" GridPane.halignment="RIGHT">
                                        <font>
                                           <Font size="14.0" />
@@ -101,7 +101,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox prefHeight="10.0" prefWidth="107.0" promptText="Sala 1" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="CmbxSala" onAction="#CmbxSalaAction" prefHeight="10.0" prefWidth="107.0" promptText="Sala 1" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                                     <ComboBox prefHeight="22.0" prefWidth="106.0" promptText="12:00" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                                     <ComboBox prefHeight="10.0" prefWidth="199.0" promptText="Peliculas existentes..." stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                                        <styleClass>
@@ -121,12 +121,12 @@
                                   <RowConstraints maxHeight="41.80002441406249" minHeight="10.0" prefHeight="35.20001831054687" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="142.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Agregar Función" GridPane.halignment="CENTER">
+                                    <Button fx:id="BtnAgregarPeli" mnemonicParsing="false" onAction="#BtnAgregaPeliAction" prefHeight="34.0" prefWidth="142.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Agregar Función" GridPane.halignment="CENTER">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="142.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Eliminar Función" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                    <Button fx:id="BtnElimPeli" mnemonicParsing="false" onAction="#BtnElimPeliAction" prefHeight="34.0" prefWidth="142.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Eliminar Función" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -150,14 +150,14 @@
                                 </rowConstraints>
                                  <children>
                                     <TextField styleClass="text-field" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Nombre Pelicula..." />
-                                    <ComboBox prefHeight="38.0" prefWidth="180.0" promptText="Clasificación RTC" styleClass="combo-box" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                    <TextField stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Sinopsis..." GridPane.rowIndex="1">
+                                    <ComboBox fx:id="CmbxClasificacion" onAction="#CmbxClasificacionAction" prefHeight="38.0" prefWidth="180.0" promptText="Clasificación RTC" styleClass="combo-box" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                    <TextField fx:id="TextSinopsis" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Sinopsis..." GridPane.rowIndex="1">
                                        <styleClass>
                                           <String fx:value="text" />
                                           <String fx:value="text-field" />
                                        </styleClass>
                                     </TextField>
-                                    <ComboBox prefHeight="38.0" prefWidth="180.0" promptText="Idioma" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                    <ComboBox fx:id="CmbxIdioma" onAction="#CmbxIdiomaAction" prefHeight="38.0" prefWidth="180.0" promptText="Idioma" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                        <styleClass>
                                           <String fx:value="btn-acc" />
                                           <String fx:value="combo-box" />
@@ -165,7 +165,7 @@
                                     </ComboBox>
                                  </children>
                               </GridPane>
-                              <TableView layoutX="559.0" layoutY="224.0" prefHeight="311.0" prefWidth="310.0">
+                              <TableView layoutX="565.0" layoutY="225.0" prefHeight="311.0" prefWidth="310.0">
                                 <columns>
                                   <TableColumn prefWidth="78.39996337890625" text="ID Usuario" />
                                     <TableColumn prefWidth="231.20001220703125" text="Nombre" />
@@ -228,7 +228,7 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="BtnSig" layoutX="783.0" layoutY="685.0" mnemonicParsing="false" onAction="#BtnSigAction" prefHeight="49.0" prefWidth="143.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Siguiente">
+      <Button fx:id="BtnSig" layoutX="783.0" layoutY="685.0" mnemonicParsing="false" onAction="#BtnSigAction" prefHeight="49.0" prefWidth="143.0" text="Siguiente">
          <font>
             <Font size="14.0" />
          </font>
@@ -237,7 +237,7 @@
             <String fx:value="boton-principal" />
          </styleClass>
       </Button>
-      <Button fx:id="BtnAtras" layoutX="10.0" layoutY="687.0" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="50.0" prefWidth="143.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Atras">
+      <Button fx:id="BtnAtras" layoutX="10.0" layoutY="687.0" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="50.0" prefWidth="143.0" text="Atras">
          <font>
             <Font size="14.0" />
          </font>

@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="749.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="749.0" prefWidth="935.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutY="-2.0" stroke="WHITE" strokeType="INSIDE" width="935.0">
          <fill>
@@ -159,17 +159,17 @@
       </Label>
       <ButtonBar layoutX="-2.0" layoutY="695.0" prefHeight="40.0" prefWidth="909.0">
          <buttons>
-            <Button fx:id="BtnAtras" mnemonicParsing="false" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Atras" translateX="-550.0">
+            <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" text="Atras" translateX="-550.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="BtnCancelar" mnemonicParsing="false" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Cancelar" translateX="-50.0">
+            <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" styleClass="btn-acc" text="Cancelar" translateX="-50.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="BtnSig" cache="true" styleClass="boton-principal" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Siguiente" translateX="-25.0">
+            <Button fx:id="BtnSig" cache="true" onAction="#BtnSigAction" styleClass="boton-principal" text="Siguiente" translateX="-25.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -197,8 +197,8 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </Label>
-            <DatePicker fx:id="PickerDay" prefHeight="25.0" prefWidth="190.0" styleClass="date-picker" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <ComboBox prefHeight="48.0" prefWidth="190.0" promptText="Seleccione una pelicula..." stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <DatePicker fx:id="PickerDay" onAction="#PickerDayAction" prefHeight="25.0" prefWidth="190.0" styleClass="date-picker" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <ComboBox fx:id="CmbxPelicula" onAction="#CmbxPeliculaAction" prefHeight="48.0" prefWidth="190.0" promptText="Seleccione una pelicula..." GridPane.halignment="CENTER" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <ImageView fitHeight="133.0" fitWidth="190.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">

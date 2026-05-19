@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutX="-38.0" stroke="WHITE" strokeType="INSIDE" width="938.0">
          <fill>
@@ -58,12 +58,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="BtnEditCuenta" mnemonicParsing="false" prefHeight="46.0" prefWidth="192.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Editar cuenta">
+            <Button fx:id="BtnEditCuenta" mnemonicParsing="false" onAction="#BtnEditCuentaAction" prefHeight="46.0" prefWidth="192.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Editar cuenta">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="BtnElimCuenta" mnemonicParsing="false" prefHeight="46.0" prefWidth="187.0" styleClass="btn-acc" text="Eliminar cuenta" GridPane.columnIndex="1">
+            <Button fx:id="BtnElimCuenta" mnemonicParsing="false" onAction="#BtnElimCuentaAction" prefHeight="46.0" prefWidth="187.0" styleClass="btn-acc" text="Eliminar cuenta" GridPane.columnIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
@@ -81,17 +81,17 @@
       </TableView>
       <ButtonBar layoutY="603.0" prefHeight="40.0" prefWidth="900.0">
          <buttons>
-            <Button fx:id="BtnAtras" mnemonicParsing="false" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Atras" translateX="-550.0">
+            <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Atras" translateX="-550.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="BtnCancelar" mnemonicParsing="false" styleClass="btn-acc" text="Cancelar" translateX="-50.0">
+            <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" styleClass="btn-acc" text="Cancelar" translateX="-50.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="BtnSig" mnemonicParsing="false" styleClass="boton-principal" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Siguiente" translateX="-25.0">
+            <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" styleClass="boton-principal" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Siguiente" translateX="-25.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -100,7 +100,7 @@
       </ButtonBar>
       <ImageView fitHeight="121.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@CineSync-removebg-preview.png" />
+            <Image url="@../../../../../../../../../hello-view/CineSync-removebg-preview.png" />
          </image>
       </ImageView>
    </children>
