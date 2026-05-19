@@ -11,14 +11,34 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.InicioController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.InicioController">
   
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="92.0" layoutX="-1.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="701.0" />
-      <Label layoutX="29.0" layoutY="125.0" text="Cartelera">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="90.0" layoutX="1.0" stroke="WHITE" strokeType="INSIDE" width="699.0">
+         <fill>
+            <LinearGradient endX="0.23579545454545456" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3607843220233917" green="0.7333333492279053" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="29.0" layoutY="108.0" prefHeight="40.0" prefWidth="164.0" styleClass="text" text="Cartelera">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
@@ -30,13 +50,13 @@
       </Label>
       <Pane layoutX="433.0" layoutY="174.0" prefHeight="276.0" prefWidth="243.0" style="-fx-background-color: 94D5FF;">
          <children>
-            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ebebeb" height="265.0" layoutX="6.0" layoutY="5.0" stroke="#ffffff00" strokeLineCap="ROUND" strokeType="INSIDE" width="233.0" />
-            <Button fx:id="BtnSesion" layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#BtnSesionAction" prefHeight="40.0" prefWidth="200.0" text="Iniciar sesion">
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ebebeb" height="265.0" layoutX="5.0" layoutY="5.0" stroke="#ffffff00" strokeLineCap="ROUND" strokeType="INSIDE" width="233.0" />
+            <Button fx:id="BtnSesion" layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#BtnSesionAction" prefHeight="40.0" prefWidth="200.0" styleClass="boton-principal" stylesheets="@estilos.css" text="Iniciar sesion">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="BtnRregistro" layoutX="22.0" layoutY="207.0" mnemonicParsing="false" onAction="#BtnRegistroAction" prefHeight="40.0" prefWidth="200.0" text="Registrate">
+            <Button fx:id="BtnRregistro" layoutX="22.0" layoutY="207.0" mnemonicParsing="false" onAction="#BtnRegistroAction" prefHeight="40.0" prefWidth="200.0" styleClass="btn-acc" text="Registrate">
                <font>
                   <Font size="14.0" />
                </font>
@@ -54,7 +74,7 @@
             </Label>
          </children>
       </Pane>
-      <Label layoutX="467.0" layoutY="125.0" text="¡Reserva tu boleto!">
+      <Label layoutX="467.0" layoutY="125.0" styleClass="text" text="¡Reserva tu boleto!">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
@@ -63,10 +83,10 @@
       <Separator layoutY="82.0" prefHeight="13.0" prefWidth="700.0" />
       <ScrollPane layoutX="18.0" layoutY="158.0" prefHeight="293.0" prefWidth="378.0">
          <content>
-            <GridPane prefHeight="855.0" prefWidth="362.0">
+            <GridPane prefHeight="855.0" prefWidth="362.0" styleClass="table-row-cell">
                <columnConstraints>
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="268.33423360188806" minWidth="10.0" prefWidth="154.333989461263" />
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="285.33442433675134" minWidth="10.0" prefWidth="208.33267720540368" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="268.33423360188806" minWidth="10.0" prefWidth="174.4" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="285.33442433675134" minWidth="10.0" prefWidth="188.80000000000004" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="293.4346618652344" minHeight="10.0" prefHeight="293.4346618652344" vgrow="SOMETIMES" />
@@ -74,7 +94,7 @@
                   <RowConstraints maxHeight="279.29374186197913" minHeight="10.0" prefHeight="272.64310709635413" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <ImageView fitHeight="149.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0">
+                  <ImageView fitHeight="148.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0">
                      <image>
                          <Image url="@../../../imagenes/Gato_la_pelicula.jpeg" />
                      </image>
@@ -168,5 +188,10 @@
             </GridPane>
          </content>
       </ScrollPane>
+      <ImageView fitHeight="111.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../hello-view/CineSync-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

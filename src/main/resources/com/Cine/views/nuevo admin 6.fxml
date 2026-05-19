@@ -1,65 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import java.net.URL?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="92.0" stroke="TRANSPARENT" strokeType="INSIDE" width="938.0" />
-        <Label layoutX="307.0" layoutY="19.0" text="CineSync">
-            <font>
-                <Font name="Broadway" size="64.0" />
-            </font>
-        </Label>
-        <ImageView fitHeight="112.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../../../../../../../hello-view/CineSync-removebg-preview.png" />
-            </image>
-        </ImageView>
-        <TabPane layoutX="14.0" layoutY="93.0" prefHeight="633.0" prefWidth="906.0" tabClosingPolicy="UNAVAILABLE">
-            <tabs>
-                <Tab text="Gestion de Funciones">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <Label layoutX="21.0" layoutY="27.0" prefHeight="20.0" prefWidth="130.0" text="Label">
-                                    <font>
-                                        <Font size="14.0" />
-                                    </font>
-                                </Label>
-                            </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="938.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="92.0" stroke="WHITE" strokeType="INSIDE" width="938.0">
+         <fill>
+            <LinearGradient endX="0.23579545454545456" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3607843220233917" green="0.7333333492279053" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
+      <Label layoutX="307.0" layoutY="19.0" text="CineSync">
+         <font>
+            <Font name="Broadway" size="64.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="112.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CineSync-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="14.0" layoutY="93.0" prefHeight="633.0" prefWidth="906.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Gestion de Funciones">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="6.0" layoutY="-2.0" prefHeight="607.0" prefWidth="894.0">
+                           <children>
+                              <TableView layoutX="31.0" layoutY="224.0" prefHeight="313.0" prefWidth="511.0">
+                                <columns>
+                                  <TableColumn prefWidth="27.999969482421875" text="ID" />
+                                  <TableColumn prefWidth="268.8000602722168" text="Pelicula" />
+                                    <TableColumn prefWidth="67.20001220703125" text="Fecha" />
+                                    <TableColumn prefWidth="64.0" text="Hora" />
+                                    <TableColumn prefWidth="80.79997558593749" text="Sala" />
+                                </columns>
+                              </TableView>
+                              <GridPane layoutX="31.0" layoutY="24.0" prefHeight="185.0" prefWidth="306.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.20001220703125" minWidth="10.0" prefWidth="124.79998779296875" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.3999938964844" minWidth="10.0" prefWidth="267.20001220703125" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <DatePicker prefHeight="0.0" prefWidth="130.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    <Label styleClass="text" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Pelicula:" GridPane.halignment="RIGHT">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Fecha:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Sala:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Hora:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox prefHeight="10.0" prefWidth="107.0" promptText="Sala 1" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                    <ComboBox prefHeight="22.0" prefWidth="106.0" promptText="12:00" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                    <ComboBox prefHeight="10.0" prefWidth="199.0" promptText="Peliculas existentes..." stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="btn-acc" />
+                                          <String fx:value="combo-box" />
+                                       </styleClass>
+                                    </ComboBox>
+                                 </children>
+                              </GridPane>
+                              <GridPane layoutX="635.0" layoutY="53.0" prefHeight="128.0" prefWidth="218.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="41.600006103515625" minHeight="10.0" prefHeight="41.600006103515625" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="50.39998168945313" minHeight="10.0" prefHeight="40.79999389648438" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="41.80002441406249" minHeight="10.0" prefHeight="35.20001831054687" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="142.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Agregar Función" GridPane.halignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="142.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Eliminar Función" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="142.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Actualizar" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                              <GridPane layoutX="375.0" layoutY="35.0" prefHeight="163.0" prefWidth="259.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField styleClass="text-field" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Nombre Pelicula..." />
+                                    <ComboBox prefHeight="38.0" prefWidth="180.0" promptText="Clasificación RTC" styleClass="combo-box" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                    <TextField stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Sinopsis..." GridPane.rowIndex="1">
+                                       <styleClass>
+                                          <String fx:value="text" />
+                                          <String fx:value="text-field" />
+                                       </styleClass>
+                                    </TextField>
+                                    <ComboBox prefHeight="38.0" prefWidth="180.0" promptText="Idioma" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                       <styleClass>
+                                          <String fx:value="btn-acc" />
+                                          <String fx:value="combo-box" />
+                                       </styleClass>
+                                    </ComboBox>
+                                 </children>
+                              </GridPane>
+                              <TableView layoutX="559.0" layoutY="224.0" prefHeight="311.0" prefWidth="310.0">
+                                <columns>
+                                  <TableColumn prefWidth="78.39996337890625" text="ID Usuario" />
+                                    <TableColumn prefWidth="231.20001220703125" text="Nombre" />
+                                </columns>
+                              </TableView>
+                           </children>
                         </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Usuarios Registrados">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                    </content>
-                </Tab>
-            </tabs>
-        </TabPane>
-
-        <Button fx:id="BtnSig" layoutX="783.0" layoutY="685.0" mnemonicParsing="false" onAction="#BtnSigAction" prefHeight="49.0" prefWidth="143.0" style="-fx-background-color: #f97316; -fx-background-radius: 4; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Siguiente">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-
-        <Button fx:id="BtnAtras" layoutX="10.0" layoutY="687.0" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="50.0" prefWidth="143.0" style="-fx-background-color: transparent; -fx-border-color: #0f172a; -fx-border-radius: 4; -fx-background-radius: 4; -fx-text-fill: #0f172a; -fx-cursor: hand;" text="Atras">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-    </children>
-    <stylesheets>
-        <URL value="@estilos.css" />
-    </stylesheets>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Usuarios Registrados">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="27.0" layoutY="185.0" prefHeight="355.0" prefWidth="851.0">
+                          <columns>
+                            <TableColumn prefWidth="86.39995956420898" text="ID Ususuario" />
+                            <TableColumn prefWidth="392.0000457763672" text="Nombre" />
+                              <TableColumn prefWidth="375.99993896484375" text="Correo" />
+                          </columns>
+                        </TableView>
+                        <GridPane layoutX="695.0" layoutY="34.0" prefHeight="134.0" prefWidth="182.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="129.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Editar Usuario" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Eliminar Usuario" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Agregar Usuario" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <TableView layoutX="27.0" layoutY="27.0" prefHeight="149.0" prefWidth="640.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="ID Reserva" />
+                            <TableColumn prefWidth="128.0" text="Boletos Comprados" />
+                              <TableColumn prefWidth="338.40003967285156" text=" Nombre Pelicula" />
+                              <TableColumn prefWidth="97.5999755859375" text="Sala" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="BtnSig" layoutX="783.0" layoutY="685.0" mnemonicParsing="false" onAction="#BtnSigAction" prefHeight="49.0" prefWidth="143.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Siguiente">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <styleClass>
+            <String fx:value="boton-reserva" />
+            <String fx:value="boton-principal" />
+         </styleClass>
+      </Button>
+      <Button fx:id="BtnAtras" layoutX="10.0" layoutY="687.0" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="50.0" prefWidth="143.0" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Atras">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <styleClass>
+            <String fx:value="btn-regresar" />
+            <String fx:value="btn-regresar" />
+         </styleClass>
+      </Button>
+   </children>
 </AnchorPane>
