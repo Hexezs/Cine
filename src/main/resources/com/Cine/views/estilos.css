@@ -40,3 +40,113 @@
     -fx-background-color:  #FFB98A;
     -fx-cursor: hand;
 }
+
+/*formato de pestañas*/
+.tab-pane .tab-header-area .tab-header-background{
+    -fx-background-color: #b9cbdb;
+}
+
+/*pestaña no seleccionada*/
+.tab {
+    -fx-background-color: #e2e8f0;
+    -fx-background-insets: 0 1 0 1;
+    -fx-background-radius: 5 5 0 0;
+    -fx-padding: 5 15 5 15;
+}
+
+/*pestaña mouse*/
+.tab:hover {
+    -fx-background-color: #cbd5e1;
+    -fx-cursor: hand;
+}
+
+/*pestaña seleccionada*/
+.tab:selected {
+    -fx-background-color: #f97316;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/*quitar linea azul por defento de javafx*/
+.tab-pane .tab-header-area .tab-main-content {
+    -fx-padding: 0;
+}
+
+/*TABLE VIEW ESTILO*/
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/*columnas*/
+.table-view .column-header, .table-view .column-header-background .filler {
+    -fx-background-color: #334155;
+    -fx-size: 35;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+/*celdas y filas*/
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f1f5f9 transparent; /*linea division*/
+}
+
+.table-cell {
+    -fx-alignment: LEFT;
+}
+
+/*filas alternadas (una blanca, una gris clarito) para leer mejor */
+.table-row-cell:odd {
+    -fx-background-color: #f8fafc;
+}
+
+/* Cuando seleccionas una fila */
+.table-row-cell:selected {
+    -fx-background-color: #8ACEFF;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #0f172a;
+    -fx-font-weight: bold;
+}
+
+/*campos de texto y combos*/
+.text-field, .combo-box, .date-picker {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #cbd5e1;
+    -fx-padding: 5;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #8ACEFF;
+    -fx-border-width: 2;
+}
+
+/* Elimina el cuadro azul dentro de la pestaña */
+.tab:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* Por si queda una linea abajo del encabezado de pestañas */
+.tab-pane {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* Asegura que el area de contenido no tenga bordes extraños */
+.tab-pane .tab-content-area {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+}
