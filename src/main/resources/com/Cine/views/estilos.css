@@ -1,0 +1,42 @@
+/* Boton Siguiente*/
+.boton-principal {
+    -fx-background-color:  #f97316;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 20;
+}
+
+/* efecto al seleccionar */
+.boton-principal:hover {
+    -fx-background-color:  #FF9977;
+    -fx-cursor: hand;
+}
+
+/* Boton Regresar*/
+.btn-regresar{
+    -fx-background-color: transparent;
+    -fx-border-color: #0f172a;
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-text-fill: #0f172a;
+}
+
+/* efecto al seleccionar */
+.btn-regresar:hover{
+    -fx-background-color:  #5CBBFF;
+    -fx-cursor: hand;
+}
+
+/*Boton accion*/
+.btn-acc{
+    -fx-background-color: #8ACEFF;
+    -fx-border-width: 1;
+    -fx-background-radius: 20;
+    -fx-text-fill: #0f172a;
+}
+
+.btn-acc:hover{
+    -fx-background-color:  #FFB98A;
+    -fx-cursor: hand;
+}

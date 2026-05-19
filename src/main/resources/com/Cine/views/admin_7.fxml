@@ -11,9 +11,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Admin_7Controller">
+<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Admin_7Controller">
     <children>
         <VBox spacing="15.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
             <padding>
@@ -43,6 +44,10 @@
                         <Label text="Hora:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <ComboBox fx:id="CmbxHora" prefWidth="200" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                     </children>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
                 </GridPane>
 
                 <HBox spacing="15">
@@ -54,21 +59,21 @@
                     </children>
                 </HBox>
                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="FUNCIONES REGISTRADAS" />
-                <TableView fx:id="TableFunciones" prefHeight="250">
+                <TableView fx:id="TableFunciones" prefHeight="198.0" prefWidth="497.0">
                     <columns>
-                        <TableColumn fx:id="ColumIdFuncion" prefWidth="80" text="ID" />
-                        <TableColumn fx:id="ColumPelicula" prefWidth="250" text="Película" />
-                        <TableColumn fx:id="ColumFecha" prefWidth="180" text="Fecha" />
-                        <TableColumn fx:id="ColumHora" prefWidth="120" text="Hora" />
-                        <TableColumn fx:id="ColumSala" prefWidth="150" text="Sala" />
+                        <TableColumn fx:id="ColumIdFuncion" prefWidth="31.99999749660492" text="ID" />
+                        <TableColumn fx:id="ColumPelicula" prefWidth="298.3999710083008" text="Película" />
+                        <TableColumn fx:id="ColumFecha" prefWidth="107.20001220703125" text="Fecha" />
+                        <TableColumn fx:id="ColumHora" prefWidth="77.60006713867188" text="Hora" />
+                        <TableColumn fx:id="ColumSala" prefWidth="50.4000244140625" text="Sala" />
                     </columns>
                 </TableView>
                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="USUARIOS REGISTRADOS EN LA FUNCIÓN" />
                 <TableView fx:id="TableUsuarios" prefHeight="250">
                     <columns>
-                        <TableColumn fx:id="ColumIdUsuario" prefWidth="100" text="ID Usuario" />
-                        <TableColumn fx:id="ColumNombre" prefWidth="250" text="Nombre" />
-                        <TableColumn fx:id="ColumCorreo" prefWidth="350" text="Correo" />
+                        <TableColumn fx:id="ColumIdUsuario" prefWidth="66.3999913930893" text="ID Usuario" />
+                        <TableColumn fx:id="ColumNombre" prefWidth="326.4000015258789" text="Nombre" />
+                        <TableColumn fx:id="ColumCorreo" prefWidth="307.9999694824219" text="Correo" />
                     </columns>
                 </TableView>
             </children>

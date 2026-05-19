@@ -6,6 +6,7 @@ import com.Cine.models.Usuario;
 import com.Cine.services.CarteleraService;
 import com.Cine.services.PeliculaService;
 import com.Cine.services.UsuarioService;
+import com.Cine.utils.HibernateUtils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -47,19 +48,15 @@ public class MainApplication extends Application {
 //        UsuarioInicioDTO loginDTO = new UsuarioInicioDTO("prueba1@gmail.com", "1234", "Cliente");
 //
 //        usuarioService.iniciarSesion(loginDTO).ifPresentOrElse(
-//
 //                user -> System.out.println("Inicio de sesion de : " + user.getNombre()),
-//
 //                () -> System.out.println("Error :c")
-//
+
+
 //        );
 //
 //        System.out.println("Consultando cartelera");
-//
 //        peliculaService.obtenerPeliculas().forEach(p-> {
-//
 //            System.out.println("Pelicula | " + p.getNombre() + " | Duracion " + p.getTiempo() + " min");
-//
 //        });
 
         launch();
