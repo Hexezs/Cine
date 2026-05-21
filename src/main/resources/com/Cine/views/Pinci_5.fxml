@@ -5,8 +5,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,192 +17,75 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="749.0" prefWidth="935.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutY="-2.0" stroke="WHITE" strokeType="INSIDE" width="935.0">
-         <fill>
-            <LinearGradient endX="0.23579545454545456" endY="1.0" startX="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.3607843220233917" green="0.7333333492279053" blue="1.0" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Label layoutX="295.0" layoutY="7.0" text="CineSync">
-         <font>
-            <Font name="Broadway" size="64.0" />
-         </font>
-      </Label>
-      <Separator layoutX="1.0" layoutY="92.0" prefHeight="12.0" prefWidth="903.0" />
-      <ScrollPane layoutX="34.0" layoutY="103.0" prefHeight="577.0" prefWidth="550.0">
-         <content>
-            <GridPane prefHeight="586.0" prefWidth="545.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180168.68758138022" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="359.0000030517578" minHeight="10.0" prefHeight="342.20001525878905" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="325.80003967285154" minHeight="10.0" prefHeight="199.79998474121095" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <ImageView fitHeight="195.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0">
-                     <image>
-                        <Image url="@gato%20la%20pelicula.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="197.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1">
-                     <image>
-                        <Image url="@MIAU%20QUE%20HICISTE¿.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="200.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@gatoo%20contraataca.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="195.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@gato(perro)%20la%20venganza.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="195.0" fitWidth="133.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@gato(perro)%20la%20precuela.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="201.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="2">
-                     <image>
-                        <Image url="@gato2%20la%20pelicula.jpeg" />
-                     </image>
-                  </ImageView>
-                  <Label text="Gato" translateX="30.0" translateY="70.0">
-                     <font>
-                        <Font name="Californian FB" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="135.0" text="la pelicula" translateX="10.0" translateY="120.0">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Californian FB" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="la precuela" translateX="10.0" translateY="120.0" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Californian FB" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="la venganza" translateX="10.0" translateY="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Californian FB" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="contra ataca" translateX="10.0" translateY="120.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="MIAU" translateX="20.0" translateY="70.0" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Californian FB" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="¿qué hiciste?" translateX="10.0" translateY="120.0" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="GatoII" translateX="20.0" translateY="70.0" GridPane.columnIndex="2">
-                     <font>
-                        <Font name="Californian FB" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="la pelicula" translateX="10.0" translateY="120.0" GridPane.columnIndex="2">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </GridPane>
-         </content>
-      </ScrollPane>
-      <Label alignment="CENTER" layoutX="633.0" layoutY="151.0" prefHeight="145.0" prefWidth="255.0" styleClass="text" text="Cartelera">
-         <font>
-            <Font name="Broadway" size="35.0" />
-         </font>
-      </Label>
-      <ButtonBar layoutX="-2.0" layoutY="695.0" prefHeight="40.0" prefWidth="909.0">
-         <buttons>
-            <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" text="Atras" translateX="-550.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" styleClass="btn-acc" text="Cancelar" translateX="-50.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="BtnSig" cache="true" onAction="#BtnSigAction" styleClass="boton-principal" text="Siguiente" translateX="-25.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </buttons>
-      </ButtonBar>
-      <GridPane layoutX="652.0" layoutY="297.0" prefHeight="246.0" prefWidth="255.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Pelicula:" GridPane.halignment="CENTER">
-               <font>
-                  <Font name="Century Gothic" size="24.0" />
-               </font>
-            </Label>
-            <Label text="Fecha:" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Century Gothic" size="24.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="PickerDay" onAction="#PickerDayAction" prefHeight="25.0" prefWidth="190.0" styleClass="date-picker" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <ComboBox fx:id="CmbxPelicula" onAction="#CmbxPeliculaAction" prefHeight="48.0" prefWidth="190.0" promptText="Seleccione una pelicula..." GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
-      <ImageView fitHeight="133.0" fitWidth="190.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@CineSync-removebg-preview.png" />
-         </image>
-      </ImageView>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="749.0" prefWidth="935.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Pinci_5Controller">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutY="-2.0" stroke="WHITE" strokeType="INSIDE" width="935.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop offset="0.0">
+                            <color>
+                                <Color red="0.36" green="0.73" blue="1.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <Label layoutX="268.0" layoutY="18.0" text="CineSync">
+            <font>
+                <Font name="Broadway" size="64.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="133.0" fitWidth="190.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@imagenes/CineSyncNoFondoLogo.png" />
+            </image>
+        </ImageView>
+        <GridPane layoutX="280.0" layoutY="180.0" prefHeight="300.0" prefWidth="350.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" prefWidth="350.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints prefHeight="60.0" />
+                <RowConstraints prefHeight="60.0" />
+                <RowConstraints prefHeight="60.0" />
+                <RowConstraints prefHeight="60.0" />
+            </rowConstraints>
+            <children>
+                <Label styleClass="text" text="Reserva tu función" GridPane.halignment="CENTER">
+                    <font>
+                        <Font name="Century Gothic" size="24.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="CmbxPelicula" onAction="#CmbxPeliculaAction" prefHeight="48.0" prefWidth="190.0" promptText="Seleccione una película..." styleClass="combo-box" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <DatePicker fx:id="PickerDay" onAction="#PickerDayAction" prefHeight="25.0" prefWidth="190.0" styleClass="date-picker" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <ComboBox fx:id="CmbxHorario" prefHeight="48.0" prefWidth="190.0" promptText="Seleccione horario..." styleClass="combo-box" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            </children>
+        </GridPane>
+        <ButtonBar layoutX="-2.0" layoutY="695.0" prefHeight="40.0" prefWidth="909.0">
+            <buttons>
+                <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" text="Atrás" translateX="-550.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" styleClass="btn-acc" text="Cancelar" translateX="-50.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="BtnSig" cache="true" mnemonicParsing="false" onAction="#BtnSigAction" styleClass="boton-principal" text="Siguiente" translateX="-25.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </buttons>
+        </ButtonBar>
+    </children>
 </AnchorPane>

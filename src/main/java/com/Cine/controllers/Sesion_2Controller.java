@@ -22,32 +22,19 @@ import java.util.Optional;
 public class Sesion_2Controller {
 
     private final UsuarioService usuarioService = new UsuarioService();
-
-    @FXML private Button BtnAtras;
-    @FXML private Button BtnCancelar;
-    @FXML private Button BtnSig;
-
     @FXML private ComboBox<String> CmbxUsuario;
-
     @FXML private TextField TextCorreo;
-
     @FXML private PasswordField TextContra;
-
     @FXML
     public void initialize() {
-
         CmbxUsuario.getItems().addAll("Admin", "Usuario");
     }
-
     @FXML
     private void BtnAtrasAction(ActionEvent actionEvent) throws IOException {
         limpiarCampos();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Inicio_1.fxml"));
-
         Scene nextScene = new Scene(fxmlLoader.load());
-
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-
         stage.setTitle("CineSync - Inicio");
         stage.setScene(nextScene);
     }
@@ -59,46 +46,28 @@ public class Sesion_2Controller {
 
     @FXML
     private void BtnSigAction(ActionEvent actionEvent) throws IOException {
-
         String rolSeleccionado = CmbxUsuario.getValue();
-
         String correo = TextCorreo.getText();
-
         String password = TextContra.getText();
-
         if (rolSeleccionado == null || correo.isEmpty() || password.isEmpty()) {
-
             System.out.println("Error: Rellena todos los campos");
-
             return;
         }
-
         UsuarioInicioDTO loginData = new UsuarioInicioDTO(correo, password, rolSeleccionado);
-
         Optional<Usuario> usuarioOpt = usuarioService.iniciarSesion(loginData);
-
         if (usuarioOpt.isPresent()) {
             Usuario usuarioLogueado = usuarioOpt.get();
             System.out.println("Bienvenido " + usuarioLogueado.getNombre());
-
             if (rolSeleccionado.equals("Admin")) {
-
-                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/admin_6.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/nuevo admin 6.fxml"));
                 Scene nextScene = new Scene(fxmlLoader.load());
                 Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
                 stage.setTitle("Panel Administrador");
                 stage.setScene(nextScene);
-
             } else {
-
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
-
                 Scene nextScene = new Scene(fxmlLoader.load());
-
                 Use_4Controller.usuarioLogueado = usuarioLogueado;
-
-                SharedData.getInstance().setUsuarioLogueado(usuarioLogueado);
-
                 Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
                 stage.setTitle("Cartelera");
                 stage.setScene(nextScene);
@@ -112,7 +81,6 @@ public class Sesion_2Controller {
     @FXML
     public void CmbxUsuarioAction(ActionEvent actionEvent) {
     }
-
     private void limpiarCampos() {
         TextCorreo.clear();
         TextContra.clear();

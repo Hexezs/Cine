@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -16,146 +17,121 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Admin_6Controller">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="92.0" layoutX="-4.0" stroke="TRANSPARENT" strokeType="INSIDE" width="905.0" />
-      <Label layoutX="297.0" layoutY="9.0" text="CineSync">
-         <font>
-            <Font name="Broadway" size="64.0" />
-         </font>
-      </Label>
-      <Separator layoutY="94.0" prefHeight="12.0" prefWidth="903.0" />
-      <Separator layoutX="452.0" layoutY="99.0" orientation="VERTICAL" prefHeight="553.0" prefWidth="15.0" />
-      <Button fx:id="BtnAgregarPeli" layoutX="28.0" layoutY="144.0" mnemonicParsing="false" onAction="#BtnAgregaPeliAction" prefWidth="400.0" text="Agregar pelicula">
-         <font>
-            <Font name="Century Gothic" size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="BtnElimPeli" layoutX="488.0" layoutY="145.0" mnemonicParsing="false" onAction="#BtnElimPeliAction" prefWidth="400.0" text="Eliminar pelicula">
-         <font>
-            <Font name="Century Gothic" size="24.0" />
-         </font>
-      </Button>
-      <GridPane layoutX="26.0" layoutY="284.0" prefHeight="323.0" prefWidth="402.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints maxHeight="59.6072998046875" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="59.6072998046875" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="59.6072998046875" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="59.6072998046875" minHeight="10.0" prefHeight="25.7103271484375" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="104.2896728515625" minHeight="10.0" prefHeight="33.791117350260436" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="145.36480712890625" minHeight="10.0" prefHeight="31.397725423177064" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="165.0322265625" minHeight="10.0" prefHeight="159.63949584960938" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Detalles de Función:">
-               <font>
-                  <Font name="Century Gothic" size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnSubirImg" mnemonicParsing="false" text="Subir imagen" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </Button>
-            <Label text="Salas Disponibles:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Imagen de la Película: " GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <ComboBox fx:id="CmbxSala" onAction="#CmbxSalaAction" prefWidth="150.0" promptText="Seleccionar Sala" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Cupos Totales: " GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField fx:id="TextCupos" disable="true" editable="false" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Idioma" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <ComboBox fx:id="CmbxIdioma" onAction="#CmbxIdiomaAction" prefWidth="150.0" promptText="Idiomas Disponibles" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Clasificaion" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <ComboBox fx:id="CmbxClasificacion" onAction="#CmbxClasificacionAction" prefWidth="150.0" promptText="Clasificaicones Disponibles" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Sinopsis" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <TextField fx:id="TextSinopsis" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-         </children>
-      </GridPane>
-      <TableView layoutX="491.0" layoutY="370.0" prefHeight="200.0" prefWidth="393.0">
-        <columns>
-          <TableColumn fx:id="ColumUsuario" prefWidth="70.0" text="Id Usuario" />
-          <TableColumn fx:id="ColumNombre" prefWidth="150.0" text="Nombre" />
-            <TableColumn fx:id="ColumCorreo" prefWidth="173.0" text="Correo" />
-        </columns>
-      </TableView>
-      <GridPane layoutX="490.0" layoutY="280.0" prefHeight="60.0" prefWidth="396.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="208.5999755859375" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.4000244140625" minWidth="10.0" prefWidth="91.00002441406252" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="86.4000244140625" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label prefHeight="18.0" prefWidth="157.0" text="Usuarios Registrados" GridPane.halignment="LEFT">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="BtnVer" mnemonicParsing="false" onAction="#BtnVerAction" prefWidth="80.0" text="Ver" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="BtnEliminar" mnemonicParsing="false" onAction="#BtnEliminarAction" prefWidth="80.0" text="Eliminar" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="27.0" layoutY="222.0" prefHeight="30.0" prefWidth="402.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.02191162109375" minWidth="10.0" prefWidth="87.41673278808594" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.26934814453125" minWidth="10.0" prefWidth="314.58326721191406" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <TextField fx:id="TextNomAgPeli" GridPane.columnIndex="1" />
-            <Label text="Nombre: ">
-               <font>
-                  <Font name="Century Gothic" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
-      <GridPane layoutX="489.0" layoutY="222.0" prefHeight="30.0" prefWidth="402.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.02191162109375" minWidth="10.0" prefWidth="87.41673278808594" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.26934814453125" minWidth="10.0" prefWidth="314.58326721191406" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label text="Nombre: ">
-               <font>
-                  <Font name="Century Gothic" size="18.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="CmbxPeli" onAction="#CmbxElimPeliAction" prefWidth="150.0" promptText="Seleccionar Pelkcula" GridPane.columnIndex="1" />
-         </children>
-      </GridPane>
-      <ButtonBar layoutY="610.0" prefHeight="40.0" prefWidth="900.0">
-         <buttons>
-            <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#OnActionBtnAtras" prefHeight="29.0" prefWidth="103.0" text="Atras" translateX="-550.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" text="Cancelar" translateX="-50.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" text="Siguiente" translateX="-25.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </buttons>
-      </ButtonBar>
-   </children>
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9cbdb" height="92.0" layoutX="-4.0" stroke="TRANSPARENT" strokeType="INSIDE" width="905.0" />
+        <Label layoutX="297.0" layoutY="9.0" text="CineSync">
+            <font>
+                <Font name="Broadway" size="64.0" />
+            </font>
+        </Label>
+        <Separator layoutY="94.0" prefHeight="12.0" prefWidth="903.0" />
+        <Separator layoutX="452.0" layoutY="99.0" orientation="VERTICAL" prefHeight="553.0" prefWidth="15.0" />
+        <Button fx:id="BtnAgregarPeli" layoutX="28.0" layoutY="144.0" mnemonicParsing="false" onAction="#BtnAgregaPeliAction" prefWidth="400.0" text="Agregar pelicula">
+            <font>
+                <Font name="Century Gothic" size="24.0" />
+            </font>
+        </Button>
+        <Button fx:id="BtnElimPeli" layoutX="488.0" layoutY="145.0" mnemonicParsing="false" onAction="#BtnElimPeliAction" prefWidth="400.0" text="Eliminar pelicula">
+            <font>
+                <Font name="Century Gothic" size="24.0" />
+            </font>
+        </Button>
+        <GridPane layoutX="26.0" layoutY="284.0" prefHeight="323.0" prefWidth="402.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints prefHeight="30.0" />
+                <RowConstraints prefHeight="30.0" />
+                <RowConstraints prefHeight="30.0" />
+                <RowConstraints prefHeight="30.0" />
+                <RowConstraints prefHeight="30.0" />
+                <RowConstraints prefHeight="30.0" />
+                <RowConstraints prefHeight="160.0" />
+            </rowConstraints>
+            <children>
+                <Label text="Detalles de Función:">
+                    <font>
+                        <Font name="Century Gothic" size="18.0" />
+                    </font>
+                </Label>
+                <Label text="Salas Disponibles:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="CmbxSala" onAction="#CmbxSalaAction" prefWidth="150.0" promptText="Seleccionar Sala" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Cupos Totales:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <TextField fx:id="TextCupos" disable="true" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Idioma" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                <ComboBox fx:id="CmbxIdioma" onAction="#CmbxIdiomaAction" prefWidth="150.0" promptText="Idiomas Disponibles" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Clasificación" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                <ComboBox fx:id="CmbxClasificacion" onAction="#CmbxClasificacionAction" prefWidth="150.0" promptText="Clasificaciones Disponibles" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Sinopsis" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                <TextField fx:id="TextSinopsis" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label text="Imagen:" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                <ImageView fx:id="ImgPreview" fitHeight="120.0" fitWidth="120.0" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <Button fx:id="BtnSubirImg" mnemonicParsing="false" onAction="#BtnSubirImgAction" text="Subir imagen" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </GridPane>
+        <TableView layoutX="491.0" layoutY="370.0" prefHeight="200.0" prefWidth="393.0">
+            <columns>
+                <TableColumn fx:id="ColumUsuario" prefWidth="70.0" text="Id Usuario" />
+                <TableColumn fx:id="ColumNombre" prefWidth="150.0" text="Nombre" />
+                <TableColumn fx:id="ColumCorreo" prefWidth="173.0" text="Correo" />
+            </columns>
+        </TableView>
+        <GridPane layoutX="27.0" layoutY="222.0" prefHeight="30.0" prefWidth="402.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="87.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="314.0" />
+            </columnConstraints>
+            <children>
+                <Label text="Nombre:">
+                    <font>
+                        <Font name="Century Gothic" size="18.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="TextNomAgPeli" GridPane.columnIndex="1" />
+            </children>
+        </GridPane>
+        <GridPane layoutX="489.0" layoutY="222.0" prefHeight="30.0" prefWidth="402.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="87.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="314.0" />
+            </columnConstraints>
+            <children>
+                <Label text="Nombre:">
+                    <font>
+                        <Font name="Century Gothic" size="18.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="CmbxPeli" onAction="#CmbxElimPeliAction" prefWidth="150.0" promptText="Seleccionar Película" GridPane.columnIndex="1" />
+            </children>
+        </GridPane>
+        <ButtonBar layoutY="610.0" prefHeight="40.0" prefWidth="900.0">
+            <buttons>
+                <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#OnActionBtnAtras" prefHeight="29.0" prefWidth="103.0" text="Atras" translateX="-550.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" text="Cancelar" translateX="-50.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" text="Siguiente" translateX="-25.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </buttons>
+        </ButtonBar>
+    </children>
 </AnchorPane>

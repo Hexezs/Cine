@@ -1,7 +1,9 @@
 package com.Cine.controllers;
 
 import com.Cine.MainApplication;
-import com.Cine.SharedData;
+import com.Cine.models.Boleto;
+import com.Cine.models.Cartelera;
+import com.Cine.models.Reserva;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,70 +17,41 @@ import java.io.IOException;
 
 public class Registro_8Controller {
     @FXML
-    private TextFlow NomPeli;
+    private TextFlow regPeliculaNombre;
     @FXML
-    private TextFlow Asiento;
+    private TextFlow regAsientos;
     @FXML
     private TextFlow MontoPagar;
     @FXML
-    private Button BtnAtras;
+    private TextFlow regSala;
+    @FXML
+    private TextFlow regHorario;
+    @FXML
+    private TextFlow noCompra;
     @FXML
     private Button BtnSig;
-
-    @FXML
-    public void initialize() {
-        SharedData data = SharedData.getInstance();
-        if (data.getPeliculaSeleccionada() != null) {
-            Text peliText = new Text(data.getPeliculaSeleccionada().getNombre());
-            NomPeli.getChildren().add(peliText);
+    public void setDatos(Reserva reserva, Cartelera cartelera) {
+        regPeliculaNombre.getChildren().add(new Text(cartelera.getIdpelicula().getNombre()));
+        String asientos = "";
+        double total = 0;
+        for (Boleto b : reserva.getBoletos()) {
+            asientos += b.getNombreasiento() + " ";
+            total += b.getMonto();
         }
 
-        if (data.getBoletosTemporales() != null && !data.getBoletosTemporales().isEmpty()) {
-            String asientosStr = data.getBoletosTemporales().stream()
-                    .map(b -> b.getNombreasiento())
-                    .reduce((a, b) -> a + ", " + b)
-                    .orElse("");
-
-            Text asientoText = new Text(asientosStr);
-            Asiento.getChildren().add(asientoText);
-        }
-        try {
-            int cantidad = data.getCantidadBoletos();
-            double precioBoleto = 65.0;
-            double total = cantidad * precioBoleto;
-
-            Text montoText = new Text("$" + total + " MXN");
-            MontoPagar.getChildren().add(montoText);
-        } catch (Exception e) {
-            MontoPagar.getChildren().add(new Text("$0.00"));
-        }
+        regAsientos.getChildren().add(new Text(asientos));
+        MontoPagar.getChildren().add(new Text("$" + total));
+        regSala.getChildren().add(new Text(String.valueOf(cartelera.getIdsala().getIdsala())));
+        regHorario.getChildren().add(new Text(cartelera.getHora().toString()));
+        noCompra.getChildren().add(new Text(String.valueOf(reserva.getIdReserva())));
     }
 
     @FXML
-    public void BtnSigAction(ActionEvent actionEvent) throws IOException {
-        // Antes de irnos, limpiamos la selección actual para que
-        // el usuario pueda hacer una compra nueva desde cero si quiere
-        SharedData.getInstance().limpiarReserva();
-
-        Scene scene = ((Button) actionEvent.getSource()).getScene();
-        Stage stage = (Stage) scene.getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Pinci_5.fxml"));
-        Scene nextScene = new Scene(fxmlLoader.load());
-
-        stage.setTitle("CineSync - Seleccionar Pelicula");
-        stage.setScene(nextScene);
-    }
-
-    @FXML
-    public void BtnAtrasAction(ActionEvent actionEvent) throws IOException {
-        Scene scene = ((Button) actionEvent.getSource()).getScene();
-        Stage stage = (Stage) scene.getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/SelecPeli_7.fxml"));
-        Scene nextScene = new Scene(fxmlLoader.load());
-
-        stage.setTitle("CineSync - Seleccionar Asiento");
-        stage.setScene(nextScene);
+    public void BtnSigAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Pinci_5.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Seleccionar película");
     }
 }

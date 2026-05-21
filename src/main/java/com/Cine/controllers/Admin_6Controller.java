@@ -1,5 +1,11 @@
 package com.Cine.controllers;
+import javafx.stage.FileChooser;
+import javafx.scene.image.Image;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.nio.file.Files;
 import com.Cine.MainApplication;
 import com.Cine.models.Sala;
 import com.Cine.repository.SalaRepository;
@@ -27,50 +33,50 @@ public class Admin_6Controller {
     @FXML
     private TextField TextCupos;
     @FXML
-    private ImageView SubirImg;
+    private ImageView ImgPreview;
+
+    private byte[] imagenBytes;
+   @FXML
+    private Button BtnSubirImg;
     @FXML
     private ComboBox<Idioma> CmbxIdioma;
     @FXML
     private ComboBox<ClasificacionRTC> CmbxClasificacion;
-    @FXML
-    private TableColumn ColumUsuario;
-    @FXML
-    private TableColumn ColumNombre;
-    @FXML
-    private TableColumn ColumCorreo;
-    @FXML
-    private TextField TextNomEliPeli;
+//    @FXML
+//    private TableColumn ColumUsuario;
+//    @FXML
+//    private TableColumn ColumNombre;
+//    @FXML
+//    private TableColumn ColumCorreo;
+//    @FXML
+//    private TextField TextNomEliPeli;
     @FXML
     private TextField TextNomAgPeli;
-    @FXML
-    private Button BtnAgregarPeli;
-
-    @FXML
-    private Button BtnElimPeli;
-
-    @FXML
-    private Button BtnSubirImg;
-
+//    @FXML
+//    private Button BtnAgregarPeli;
+//
+//    @FXML
+//    private Button BtnElimPeli;
     @FXML
     private ComboBox<Sala> CmbxSala;
 
-    @FXML
-    private DatePicker PickerDay;
-
-    @FXML
-    private Button BtnVer;
-
-    @FXML
-    private Button BtnEliminar;
-
-    @FXML
-    private Button BtnAtras;
-
-    @FXML
-    private Button BtnCancelar;
-
-    @FXML
-    private Button BtnSig;
+//    @FXML
+//    private DatePicker PickerDay;
+//
+//    @FXML
+//    private Button BtnVer;
+//
+//    @FXML
+//    private Button BtnEliminar;
+//
+//    @FXML
+//    private Button BtnAtras;
+//
+//    @FXML
+//    private Button BtnCancelar;
+//
+//    @FXML
+//    private Button BtnSig;
     @FXML
     private ComboBox<Pelicula> CmbxPeli;
     private final PeliculaService peliculaService =
@@ -102,8 +108,7 @@ public class Admin_6Controller {
 
         CmbxPeli.setButtonCell(new ListCell<>() {
             @Override
-            protected void updateItem(Pelicula item, boolean empty) {
-                super.updateItem(item, empty);
+            protected void updateItem(Pelicula item, boolean empty) {super.updateItem(item, empty);
                 setText(empty || item == null ? null : item.getNombre());
             }
         });
@@ -126,7 +131,7 @@ public class Admin_6Controller {
             pelicula.setNombre(nombre);
             pelicula.setTiempo(120);
             pelicula.setSinopsis(sinopsis);
-            pelicula.setImagenURL("default.jpg");
+            pelicula.setImagen(imagenBytes);
             pelicula.setIdIdioma(idioma);
             pelicula.setIdClasificacionRTC(clasificacion);
             peliculaService.agregarPelicula(pelicula);
@@ -217,5 +222,49 @@ public class Admin_6Controller {
     }
     @FXML
     public void CmbxElimPeliAction(ActionEvent actionEvent) {
+
+        Pelicula pelicula = CmbxPeli.getValue();
+
+        if(pelicula != null && pelicula.getImagen() != null){
+
+            ByteArrayInputStream bis = new ByteArrayInputStream(pelicula.getImagen());
+
+            Image image = new Image(bis);
+
+            ImgPreview.setImage(image);
+
+            System.out.println("Imagen cargada desde DB");
+        }
+    }
+    @FXML
+    public void BtnSubirImgAction(ActionEvent actionEvent) {
+
+        try {
+
+            FileChooser fileChooser = new FileChooser();
+
+            fileChooser.setTitle("Seleccionar Imagen");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg"));
+
+            File archivo = fileChooser.showOpenDialog(null);
+            fileChooser.setInitialFileName(" .jpeg");
+
+            if (archivo != null) {
+
+                imagenBytes = Files.readAllBytes(archivo.toPath());
+
+                Image image = new Image(new FileInputStream(archivo));
+
+                ImgPreview.setImage(image);
+
+                System.out.println("Imagen cargada");
+
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
     }
 }

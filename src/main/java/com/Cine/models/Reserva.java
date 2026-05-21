@@ -58,7 +58,7 @@ public class Reserva {
     public void setIdcartelera(Cartelera idcartelera) {
         this.idcartelera = idcartelera;
     }
-    @OneToMany(mappedBy = "idreserva", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "idreserva", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Boleto> boletos = new ArrayList<>();
     public List<Boleto> getBoletos() {
         return boletos;

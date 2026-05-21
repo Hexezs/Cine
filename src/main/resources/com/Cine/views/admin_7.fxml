@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -17,63 +16,51 @@
 <AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Admin_7Controller">
     <children>
         <VBox spacing="15.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-            <padding>
-                <Insets bottom="10" left="10" right="10" top="10" />
-            </padding>
             <children>
-
-                <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="GESTIÓN DE FUNCIONES" />
-
                 <GridPane hgap="10" vgap="10">
                     <columnConstraints>
-                        <ColumnConstraints percentWidth="20" />
-                        <ColumnConstraints percentWidth="30" />
-                        <ColumnConstraints percentWidth="20" />
-                        <ColumnConstraints percentWidth="30" />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
                     </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
                     <children>
                         <Label text="Película:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <ComboBox fx:id="CmbxPelicula" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-
+                        <ComboBox fx:id="CmbxPelicula" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                         <Label text="Sala:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                        <ComboBox fx:id="CmbxSala" onAction="#CmbxSalaAction" prefWidth="250" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-
+                        <ComboBox fx:id="CmbxSala" prefWidth="200" GridPane.columnIndex="3" GridPane.rowIndex="0" />
                         <Label text="Fecha:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <DatePicker fx:id="PickerFecha" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-
+                        <DatePicker fx:id="DateFecha" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Hora:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <ComboBox fx:id="CmbxHora" prefWidth="200" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                     </children>
-               <rowConstraints>
-                  <RowConstraints />
-                  <RowConstraints />
-               </rowConstraints>
                 </GridPane>
-
                 <HBox spacing="15">
                     <children>
-                        <Button fx:id="BtnAgregarFuncion" mnemonicParsing="false" onAction="#BtnAgregarFuncionAction" text="Agregar Función" />
-                        <Button fx:id="BtnEliminarFuncion" mnemonicParsing="false" onAction="#BtnEliminarFuncionAction" text="Eliminar Función" />
-                        <Button fx:id="BtnActualizar" mnemonicParsing="false" onAction="#BtnActualizarAction" text="Actualizar" />
-                        <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" text="Atrás" />
+                        <Button fx:id="BtnAgregarFuncion" text="Agregar Función" />
+                        <Button fx:id="BtnEliminarFuncion" text="Eliminar Función" />
                     </children>
                 </HBox>
                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="FUNCIONES REGISTRADAS" />
                 <TableView fx:id="TableFunciones" prefHeight="198.0" prefWidth="497.0">
                     <columns>
-                        <TableColumn fx:id="ColumIdFuncion" prefWidth="31.99999749660492" text="ID" />
-                        <TableColumn fx:id="ColumPelicula" prefWidth="298.3999710083008" text="Película" />
-                        <TableColumn fx:id="ColumFecha" prefWidth="107.20001220703125" text="Fecha" />
-                        <TableColumn fx:id="ColumHora" prefWidth="77.60006713867188" text="Hora" />
-                        <TableColumn fx:id="ColumSala" prefWidth="50.4000244140625" text="Sala" />
+                        <TableColumn fx:id="ColumIdFuncion" prefWidth="50" text="ID" />
+                        <TableColumn fx:id="ColumPelicula" prefWidth="300" text="Película" />
+                        <TableColumn fx:id="ColumFecha" prefWidth="120" text="Fecha" />
+                        <TableColumn fx:id="ColumHora" prefWidth="100" text="Hora" />
+                        <TableColumn fx:id="ColumSala" prefWidth="80" text="Sala" />
                     </columns>
                 </TableView>
                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="USUARIOS REGISTRADOS EN LA FUNCIÓN" />
                 <TableView fx:id="TableUsuarios" prefHeight="250">
                     <columns>
-                        <TableColumn fx:id="ColumIdUsuario" prefWidth="66.3999913930893" text="ID Usuario" />
-                        <TableColumn fx:id="ColumNombre" prefWidth="326.4000015258789" text="Nombre" />
-                        <TableColumn fx:id="ColumCorreo" prefWidth="307.9999694824219" text="Correo" />
+                        <TableColumn fx:id="ColumIdUsuario" prefWidth="100" text="ID Usuario" />
+                        <TableColumn fx:id="ColumNombre" prefWidth="250" text="Nombre" />
+                        <TableColumn fx:id="ColumCorreo" prefWidth="350" text="Correo" />
                     </columns>
                 </TableView>
             </children>

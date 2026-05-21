@@ -1,173 +1,166 @@
 package com.Cine.controllers;
 
 import com.Cine.MainApplication;
-import com.Cine.SharedData;
+import com.Cine.models.Asiento;
 import com.Cine.models.Boleto;
+import com.Cine.models.Cartelera;
 import com.Cine.models.Reserva;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.Cine.models.Usuario;
+import com.Cine.services.AsientoService;
+import com.Cine.services.ReservaService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class SelecPeli_7Controller {
 
-    @FXML private Label NomAvatar;
-    @FXML private ComboBox<String> CmbxLetraAsiento;
+    public static Usuario usuarioLogueado;
+    public static Cartelera carteleraActual;
+    private final ReservaService reservaService = new ReservaService();
+    private final AsientoService asientoService = new AsientoService();
     @FXML private TextField TxtAsientoDisp;
-    @FXML private Button BtnAtras, BtnCancelar, BtnSig;
+    @FXML private Button buttonA1, buttonA2, buttonA3, buttonA4, buttonA5;
+    @FXML private Button buttonB1, buttonB2, buttonB3, buttonB4, buttonB5;
+    @FXML private Button buttonC1, buttonC2, buttonC3, buttonC4, buttonC5;
+    @FXML private Button buttonD1, buttonD2, buttonD3, buttonD4, buttonD5;
+    @FXML private Button buttonE1, buttonE2, buttonE3, buttonE4, buttonE5;
 
-    private int totalBoletos;
-    private int boletosAsignados = 0;
-    // Ahora guardamos objetos Boleto temporales
-    private List<Boleto> boletosTemporales = new ArrayList<>();
+    private final Map<String, Button> mapa = new HashMap<>();
+
+    private final Set<String> seleccion = new HashSet<>();
 
     @FXML
     public void initialize() {
-        SharedData data = SharedData.getInstance();
-        if (data.getUsuarioLogueado() != null) {
-            NomAvatar.setText(data.getUsuarioLogueado().getNombre());
-        }
-        totalBoletos = data.getCantidadBoletos();
-        CmbxLetraAsiento.setItems(generarAsientosDisponibles());
-        actualizarContador();
-        TxtAsientoDisp.setEditable(false);
+        mapearBotones();
+        bloquearOcupados();
+        actualizarTexto();
     }
 
-    @FXML
-    private void actualizarContador() {
-        int restantes = totalBoletos - boletosAsignados;
-        TxtAsientoDisp.setText("Restantes: " + restantes);
-        if (restantes <= 0) BtnSig.setText("Finalizar");
+    private void mapearBotones() {
+        mapa.put("A1", buttonA1);
+        mapa.put("A2", buttonA2);
+        mapa.put("A3", buttonA3);
+        mapa.put("A4", buttonA4);
+        mapa.put("A5", buttonA5);
+        mapa.put("B1", buttonB1);
+        mapa.put("B2", buttonB2);
+        mapa.put("B3", buttonB3);
+        mapa.put("B4", buttonB4);
+        mapa.put("B5", buttonB5);
+        mapa.put("C1", buttonC1);
+        mapa.put("C2", buttonC2);
+        mapa.put("C3", buttonC3);
+        mapa.put("C4", buttonC4);
+        mapa.put("C5", buttonC5);
+        mapa.put("D1", buttonD1);
+        mapa.put("D2", buttonD2);
+        mapa.put("D3", buttonD3);
+        mapa.put("D4", buttonD4);
+        mapa.put("D5", buttonD5);
+        mapa.put("E1", buttonE1);
+        mapa.put("E2", buttonE2);
+        mapa.put("E3", buttonE3);
+        mapa.put("E4", buttonE4);
+        mapa.put("E5", buttonE5);
     }
 
-    @FXML
-    private ObservableList<String> generarAsientosDisponibles() {
-        List<String> listaDisponibles = new ArrayList<>();
-        SharedData data = SharedData.getInstance();
+    private void bloquearOcupados() {
+        List<Reserva> reservas = reservaService.obtenerReservasPorFuncion(carteleraActual.getIdCartelera()
+        );
 
-        // CORRECCIÓN: peliActual ahora es objeto Pelicula
-        com.Cine.models.Pelicula peliActual = data.getPeliculaSeleccionada();
-        LocalDate fechaActual = data.getFechaSeleccionada();
+        for (Reserva r : reservas) {
 
-        String[] filas = {"A", "B", "C", "D", "E"};
-        for (String f : filas) {
-            for (int i = 1; i <= 5; i++) {
-                String idAsiento = f + i;
-
-                // Checamos si ya se eligió en esta pantalla
-                boolean yaElegidoEnEstaSesion = boletosTemporales.stream()
-                        .anyMatch(b -> b.getNombreasiento().equals(idAsiento));
-
-                boolean ocupadoEnOtrasVentas = false;
-
-                for (Reserva r : data.getHistorialCompras()) {
-                    // CORRECCIÓN: Navegamos Reserva -> Cartelera -> Pelicula
-                    if (r.getIdcartelera() != null && r.getIdcartelera().getIdpelicula() != null) {
-                        boolean mismaPeli = r.getIdcartelera().getIdpelicula().getNombre().equals(peliActual.getNombre());
-                        boolean mismaFecha = r.getFecha().equals(fechaActual);
-
-                        if (mismaPeli && mismaFecha) {
-                            // CORRECCIÓN: Buscamos en la lista de boletos de la reserva
-                            if (r.getBoletos() != null) {
-                                for (Boleto b : r.getBoletos()) {
-                                    if (b.getNombreasiento().equals(idAsiento)) {
-                                        ocupadoEnOtrasVentas = true;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (ocupadoEnOtrasVentas) break;
-                }
-
-                if (!yaElegidoEnEstaSesion && !ocupadoEnOtrasVentas) {
-                    listaDisponibles.add(idAsiento);
+            for (Boleto b : r.getBoletos()) {
+                String asiento = b.getNombreasiento();
+                Button btn = mapa.get(asiento);
+                if (btn != null) {
+                    btn.setDisable(true);
+                    btn.setStyle("-fx-background-color:red; -fx-text-fill:white;");
                 }
             }
         }
-        return FXCollections.observableArrayList(listaDisponibles);
     }
 
     @FXML
-    public void BtnSigAction(ActionEvent actionEvent) throws IOException {
-        String seleccion = CmbxLetraAsiento.getValue();
-        if (seleccion == null) {
-            mostrarAlerta("Atención", "Por favor, selecciona un asiento.");
+    public void seleccionarAsiento(ActionEvent event) {
+        Button btn = (Button) event.getSource();
+        String asiento = btn.getText();
+        if (seleccion.contains(asiento)) {
+            seleccion.remove(asiento);
+            btn.setStyle("");
+        } else {
+            seleccion.add(asiento);
+            btn.setStyle("-fx-background-color:green; -fx-text-fill:white;");
+        }
+        actualizarTexto();
+    }
+
+    private void actualizarTexto() {
+        TxtAsientoDisp.setText("Seleccionados: " + seleccion.size());
+    }
+
+    @FXML
+    public void BtnSigAction(ActionEvent event) throws IOException {
+        if (seleccion.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Selecciona al menos un asiento").showAndWait();
             return;
         }
+        List<Boleto> boletos = new ArrayList<>();
 
-        // Creamos un objeto Boleto y lo añadimos a la lista temporal
-        Boleto nuevoBoleto = new Boleto();
-        nuevoBoleto.setNombreasiento(seleccion);
-        boletosTemporales.add(nuevoBoleto);
+        for (String s : seleccion) {
+            String letra = s.substring(0,1);
+            String numero = s.substring(1);
 
-        boletosAsignados++;
-
-        if (boletosAsignados < totalBoletos) {
-            CmbxLetraAsiento.getSelectionModel().clearSelection();
-            CmbxLetraAsiento.setItems(generarAsientosDisponibles());
-            actualizarContador();
-        } else {
-            // FINALIZAR: Creamos la reserva real
-            SharedData data = SharedData.getInstance();
-            Reserva nuevaReserva = new Reserva();
-
-            nuevaReserva.setFecha(data.getFechaSeleccionada());
-            nuevaReserva.setIdusuario(data.getUsuarioLogueado());
-
-            // CORRECCIÓN: Usamos CarteleraSeleccionada del SharedData
-            nuevaReserva.setIdcartelera(data.getCarteleraSeleccionada());
-
-            // CORRECCIÓN: Pasamos la lista de boletos que fuimos armando
-            nuevaReserva.setBoletos(new ArrayList<>(boletosTemporales));
-
-            // Guardamos en SharedData para el siguiente paso
-            data.setBoletosTemporales(boletosTemporales);
-            data.agregarAlHistorial(nuevaReserva);
-
-            navegar(actionEvent, "views/Registro_8.fxml", "CineSync - Registro");
+            Asiento asiento = asientoService.obtenerAsiento(letra, numero, carteleraActual.getIdsala().getIdsala());
+            Boleto boleto = new Boleto();
+            boleto.setNombreasiento(s);
+            boleto.setCantidad(1);
+            boleto.setMonto(120);
+            boleto.setIdasiento(asiento);
+            boletos.add(boleto);
         }
-    }
 
-    @FXML
-    public void BtnCancelarAction(ActionEvent actionEvent) {
-        boletosAsignados = 0;
-        boletosTemporales.clear();
-        CmbxLetraAsiento.getSelectionModel().clearSelection();
-        CmbxLetraAsiento.setItems(generarAsientosDisponibles());
-        actualizarContador();
-        BtnSig.setText("Siguiente");
-    }
+        Reserva reserva = reservaService.procesarCompra(usuarioLogueado, carteleraActual, boletos);
+        new Alert(Alert.AlertType.INFORMATION, "Reserva creada: " + reserva.getIdReserva()).showAndWait();
 
-    @FXML
-    public void BtnAtrasAction(ActionEvent actionEvent) throws IOException {
-        navegar(actionEvent, "views/Pinci_5.fxml", "CineSync - Selección");
-    }
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Registro_8.fxml"));
 
-    private void navegar(ActionEvent event, String path, String titulo) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource(path));
         Scene scene = new Scene(loader.load());
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        stage.setTitle(titulo);
+        Registro_8Controller controller = loader.getController();
+
+        controller.setDatos(reserva, carteleraActual);
+
+        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        stage.setTitle("Confirmación");
     }
 
-    private void mostrarAlerta(String titulo, String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(titulo);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
+    @FXML
+    public void BtnCancelarAction() {
+        seleccion.clear();
+
+        for (Button btn : mapa.values()) {
+            if (!btn.isDisabled()) {
+                btn.setStyle("");
+            }
+        }
+        actualizarTexto();
     }
 
-    @FXML public void CmbxLetraAsientoAction(ActionEvent actionEvent) {}
+    @FXML
+    public void BtnAtrasAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Pinci_5.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Seleccionar función");
+    }
 }

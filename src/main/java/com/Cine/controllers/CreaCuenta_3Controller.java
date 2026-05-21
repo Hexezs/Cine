@@ -36,10 +36,6 @@ public class CreaCuenta_3Controller {
 
     @FXML
     private TextField TextNombre;
-//
-//    @FXML
-//    private TextField TextApellido;
-
     @FXML
     private TextField TextCorreo;
 

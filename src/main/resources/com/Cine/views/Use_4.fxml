@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -18,90 +16,81 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutX="-38.0" stroke="WHITE" strokeType="INSIDE" width="938.0">
-         <fill>
-            <LinearGradient endX="0.23579545454545456" endY="1.0" startX="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.3607843220233917" green="0.7333333492279053" blue="1.0" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Label layoutX="297.0" layoutY="16.0" text="CineSync">
-         <font>
-            <Font name="Broadway" size="64.0" />
-         </font>
-      </Label>
-      <Separator layoutX="10.0" layoutY="92.0" prefHeight="13.0" prefWidth="700.0" />
-      <Label layoutX="62.0" layoutY="157.0" styleClass="text" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Historial de Reservas">
-         <font>
-            <Font name="Century Gothic" size="24.0" />
-         </font>
-      </Label>
-      <GridPane layoutX="413.0" layoutY="135.0" prefHeight="74.0" prefWidth="439.0">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="BtnEditCuenta" mnemonicParsing="false" onAction="#BtnEditCuentaAction" prefHeight="46.0" prefWidth="192.0" styleClass="btn-acc" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Editar cuenta">
-               <font>
-                  <Font name="Century Gothic" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="BtnElimCuenta" mnemonicParsing="false" onAction="#BtnElimCuentaAction" prefHeight="46.0" prefWidth="187.0" styleClass="btn-acc" text="Eliminar cuenta" GridPane.columnIndex="1">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-         </children>
-      </GridPane>
-      <TableView layoutX="57.0" layoutY="229.0" prefHeight="347.0" prefWidth="796.0">
-        <columns>
-            <TableColumn fx:id="ColumFecha1" prefWidth="191.20001220703125" text="Boleto(s) comprados" />
-            <TableColumn fx:id="ColumFecha" prefWidth="84.79998779296875" text="Fecha" />
-          <TableColumn fx:id="ColumPelicula" prefWidth="257.60004806518555" text="Pelicula reservada" />
-            <TableColumn fx:id="ColumFecha2" prefWidth="128.7999267578125" text="Sala(s)" />
-          <TableColumn fx:id="ColumAsiento" prefWidth="132.7999267578125" text="Asiento(s)" />
-        </columns>
-      </TableView>
-      <ButtonBar layoutY="603.0" prefHeight="40.0" prefWidth="900.0">
-         <buttons>
-            <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Atras" translateX="-550.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" styleClass="btn-acc" text="Cancelar" translateX="-50.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" styleClass="boton-principal" stylesheets="@../TopicosAvanzadosDeProgramacion-main/Proyecto/Cine/src/main/resources/com/Cine/views/estilos.css" text="Siguiente" translateX="-25.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </buttons>
-      </ButtonBar>
-      <ImageView fitHeight="121.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../hello-view/CineSync-removebg-preview.png" />
-         </image>
-      </ImageView>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Use_4Controller">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutX="-38.0" stroke="WHITE" strokeType="INSIDE" width="938.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop offset="0.0">
+                            <color>
+                                <Color red="0.36" green="0.73" blue="1.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+
+        <GridPane layoutX="181.0" layoutY="156.0" prefHeight="81.0" prefWidth="538.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" prefWidth="260.0" />
+                <ColumnConstraints hgrow="SOMETIMES" prefWidth="260.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button fx:id="BtnEditCuenta" mnemonicParsing="false" onAction="#BtnEditCuentaAction" prefHeight="46.0" prefWidth="192.0" styleClass="btn-acc" text="Editar cuenta">
+                    <font>
+                        <Font name="Century Gothic" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="BtnElimCuenta" mnemonicParsing="false" onAction="#BtnElimCuentaAction" prefHeight="46.0" prefWidth="187.0" styleClass="btn-acc" text="Eliminar cuenta" GridPane.columnIndex="1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </GridPane>
+
+        <TableView fx:id="TableUsuarios" layoutX="115.0" layoutY="277.0" prefHeight="278.0" prefWidth="669.0">
+            <columns>
+                <TableColumn fx:id="ColID" prefWidth="110.0" text="ID Usuario" />
+                <TableColumn fx:id="ColNombre" prefWidth="250.0" text="Nombre" />
+                <TableColumn fx:id="ColCorreo" prefWidth="309.0" text="Correo" />
+            </columns>
+        </TableView>
+
+        <ButtonBar layoutY="603.0" prefHeight="40.0" prefWidth="900.0">
+            <buttons>
+                <Button fx:id="BtnAtras" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" text="Atrás" translateX="-550.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="BtnCancelar" mnemonicParsing="false" onAction="#BtnCancelarAction" styleClass="btn-acc" text="Cancelar" translateX="-50.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" styleClass="boton-principal" text="Siguiente" translateX="-25.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </buttons>
+        </ButtonBar>
+
+        <ImageView fitHeight="121.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@imagenes/CineSyncNoFondoLogo.png" />
+            </image>
+        </ImageView>
+    </children>
 </AnchorPane>

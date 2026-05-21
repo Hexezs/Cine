@@ -1,5 +1,5 @@
 package com.Cine.models;
-
+import jakarta.persistence.FetchType;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import java.util.ArrayList;
@@ -14,17 +14,19 @@ public class Pelicula {
     private int idpelicula;
     private String nombre;
     private int tiempo;
-    private String imagenURL;
+    @Lob
+    @Column(name = "imagen")
+    private byte[] imagen;
     private String sinopsis;
     public Pelicula() {}
 
-    public Pelicula(String nombre, int tiempo, Idioma idIdioma, String sinopsis, ClasificacionRTC idClasificacionRTC, String imagenURL) {
+    public Pelicula(String nombre, int tiempo, Idioma idIdioma, String sinopsis, ClasificacionRTC idClasificacionRTC, byte[] imagen) {
         this.nombre = nombre;
         this.tiempo = tiempo;
         this.idIdioma = idIdioma;
         this.sinopsis = sinopsis;
         this.idClasificacionRTC = idClasificacionRTC;
-        this.imagenURL = imagenURL;
+        this.imagen = imagen;
     }
     public int getIdpelicula() {
         return idpelicula;
@@ -46,7 +48,7 @@ public class Pelicula {
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }
-    @OneToMany(mappedBy = "idpelicula")
+    @OneToMany(mappedBy = "idpelicula", fetch = FetchType.EAGER)
     private List<Cartelera> funciones = new ArrayList<>();
     public List<Cartelera> getFunciones() {
         return funciones;
@@ -73,11 +75,12 @@ public class Pelicula {
         this.sinopsis = sinopsis;
     }
 
-    public String getImagenURL(){
-        return imagenURL;
+    public byte[] getImagen() {
+        return imagen;
     }
-    public void setImagenURL(String imagenURL){
-        this.imagenURL = imagenURL;
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 
     @ManyToOne

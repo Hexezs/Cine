@@ -4,7 +4,7 @@ public record PeliculaDTO (int idpelicula,
                            String nombre,
                            int tiempo,
                            String sinopsis,
-                           String imagenURL,
+                           byte[] imagen,
                            int idClasificacionRTC,
                            int idIdioma) {
 }

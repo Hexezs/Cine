@@ -3,6 +3,8 @@ package com.Cine.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.List;
+
 @Entity
 @Table( name = "usuarios" )
 public class Usuario {
@@ -78,5 +80,12 @@ public class Usuario {
     private TipoUsuario tipoUsuario;
     public TipoUsuario getTipoUsuario(){return tipoUsuario;}
     public void setTipoUsuario(TipoUsuario tipoUsuario){this.tipoUsuario=tipoUsuario;}
-
+    @OneToMany(mappedBy = "idusuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reserva> reservas;
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
+    }
 }

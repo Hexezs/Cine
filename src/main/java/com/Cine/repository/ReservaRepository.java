@@ -21,11 +21,14 @@ public class ReservaRepository {
         entityManager.close();
     }
 
-    // Permite ver todos los usuarios que tienen reserva para una función específica
     public List<Reserva> getReservasByCartelera(int idCartelera) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Reserva> result = entityManager.createQuery("from Reserva where cartelera.idCartelera = :id", Reserva.class).setParameter("id", idCartelera).getResultList();
+        List<Reserva> result = entityManager.createQuery(
+                        "from Reserva where idcartelera.idCartelera = :id",
+                        Reserva.class)
+                .setParameter("id", idCartelera)
+                .getResultList();
         entityManager.close();
         return result;
     }
@@ -49,4 +52,16 @@ public class ReservaRepository {
         entityManager.close();
         return result;
     }
+    public void eliminarReservasPorCartelera(int idCartelera) {
+        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        List<Reserva> reservas = entityManager.createQuery("from Reserva where idcartelera.idCartelera = :id", Reserva.class).setParameter("id", idCartelera).getResultList();
+        for (Reserva reserva : reservas) {
+            entityManager.remove(entityManager.merge(reserva));
+        }
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
 }

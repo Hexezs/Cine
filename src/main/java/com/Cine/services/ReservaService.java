@@ -12,31 +12,6 @@ import java.util.List;
 public class ReservaService {
     private final ReservaRepository reservaRepository = new ReservaRepository();
 
-    public Reserva procesarCompra(Usuario usuario, Cartelera cartelera, List<Boleto> boletos){
-        if (usuario == null) {
-            throw new RuntimeException("Inicia sesión para reservar");
-        }
-        if (cartelera == null) {
-            throw new RuntimeException("No se seleccionó una función");
-        }
-        if (boletos == null) {
-            throw new RuntimeException("No se seleccionaron asientos");
-        }
-
-        Reserva nuevaReserva = new Reserva();
-        nuevaReserva.setFecha(LocalDate.now());
-        nuevaReserva.setIdusuario(usuario);
-        nuevaReserva.setIdcartelera(cartelera);
-
-        for (Boleto b : boletos) {
-            b.setIdReserva(nuevaReserva);
-        }
-        nuevaReserva.setBoletos(boletos);
-
-        reservaRepository.addReserva(nuevaReserva);
-        return nuevaReserva;
-    }
-
     public List<Reserva> obtenerReservasPorFuncion(int idCartelera) {
         return reservaRepository.getReservasByCartelera(idCartelera);
     }
@@ -48,4 +23,44 @@ public class ReservaService {
     public void cancelarReserva(Reserva reserva) {
         reservaRepository.removeReserva(reserva);
     }
+    public Reserva procesarCompra(Usuario usuario, Cartelera cartelera, List<Boleto> boletos){
+
+        if (usuario == null) throw new RuntimeException("Inicia sesión");
+        if (cartelera == null) throw new RuntimeException("No función");
+        if (boletos == null || boletos.isEmpty()) throw new RuntimeException("No boletos");
+
+        Reserva reserva = new Reserva();
+        reserva.setFecha(LocalDate.now());
+        reserva.setIdusuario(usuario);
+        reserva.setIdcartelera(cartelera);
+        for (Boleto b : boletos) {
+
+            b.setIdReserva(reserva);
+        }
+
+        reserva.setBoletos(boletos);
+
+        reservaRepository.addReserva(reserva);
+
+        return reserva;
+    }
+    public Reserva crearReserva(Usuario usuario, Cartelera cartelera){
+
+        if(usuario == null)
+            throw new RuntimeException("Inicia sesión");
+
+        if(cartelera == null)
+            throw new RuntimeException("No función");
+
+        Reserva reserva = new Reserva();
+
+        reserva.setFecha(LocalDate.now());
+        reserva.setIdusuario(usuario);
+        reserva.setIdcartelera(cartelera);
+
+        reservaRepository.addReserva(reserva);
+
+        return reserva;
+    }
+
 }

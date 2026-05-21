@@ -9,6 +9,8 @@ module com.ites.proyectotemplate {
     requires org.hibernate.orm.core;
     requires javafx.graphics;
     requires javafx.base;
+//    requires com.ites.proyectotemplate;
+    //requires com.ites.proyectotemplate;
 
 
     opens com.Cine.dto to javafx.base, hibernate.core;
