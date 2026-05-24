@@ -1,5 +1,6 @@
 package com.Cine.repository;
 
+import com.Cine.dto.CarteleraDTO;
 import com.Cine.models.Cartelera;
 import com.Cine.utils.HibernateUtils;
 import jakarta.persistence.EntityManager;

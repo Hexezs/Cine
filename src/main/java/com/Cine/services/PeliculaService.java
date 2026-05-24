@@ -16,7 +16,9 @@ import com.Cine.repository.PeliculaRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PeliculaService {
 
@@ -55,29 +57,51 @@ public class PeliculaService {
         }
         return lista;
     }
-
+    public List<Pelicula> obtenerPeliculasConCartelera() {
+        return peliculaRepository.getPeliculasConCartelera();
+    }
     // --------------------------
     // BUSCAR POR NOMBRE
     // --------------------------
     public Pelicula buscarPorNombre(String nombre) {
         return peliculaRepository.getPeliculaByNombre(nombre);
     }
+    public List<Pelicula> obtenerPeliculasConFunciones() {
 
+        List<Cartelera> funciones = carteleraRepository.getAllCartelera();
+
+        List<Pelicula> peliculas = new ArrayList<>();
+        Set<Integer> ids = new HashSet<>();
+
+        for (Cartelera c : funciones) {
+
+            Pelicula p = c.getIdpelicula();
+
+            if (!ids.contains(p.getIdpelicula())) {
+                ids.add(p.getIdpelicula());
+                peliculas.add(p);
+            }
+        }
+
+        return peliculas;
+    }
     // --------------------------
     // FUNCIONES POR PELÍCULA
     // --------------------------
-    public List<CarteleraDTO> obtenerFuncionesDTO() {
+    public List<CarteleraDTO> obtenerFuncionesDTO(int idPelicula) {
 
         List<Cartelera> funciones =
-                carteleraRepository.getAllCartelera();
+                carteleraRepository.getCarteleraByPelicula(idPelicula);
 
-        List<CarteleraDTO> lista = new ArrayList<>();
-
-        for (Cartelera c : funciones) {
-            lista.add(CarteleraMapper.aDTO(c));
-        }
-
-        return lista;
+        return funciones.stream()
+                .map(c -> new CarteleraDTO(
+                        c.getIdCartelera(),
+                        c.getFecha(),
+                        c.getHora().toString(),
+                        c.getIdpelicula().getIdpelicula(),
+                        c.getIdsala().getIdsala()
+                ))
+                .toList();
     }
 
     // --------------------------

@@ -217,13 +217,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.io.ByteArrayInputStream;
+import javafx.scene.image.Image;
 
 public class Pinci_5Controller {
-
+    @FXML
+    private FlowPane FlowCartelera;
     @FXML private Label LblPeliSelec;
     @FXML private TableView<CarteleraDTO> TblFunciones;
     @FXML private TableColumn<CarteleraDTO, String> ColFecha;
@@ -239,16 +246,8 @@ public class Pinci_5Controller {
     @FXML
     public void initialize() {
         configurarTabla();
-        cargarTodasLasFunciones();
-    }
-    private void cargarTodasLasFunciones() {
-
-        List<CarteleraDTO> funciones =
-                peliculaService.obtenerFuncionesDTO();
-
-        TblFunciones.setItems(
-                FXCollections.observableArrayList(funciones)
-        );
+        TblFunciones.setPlaceholder(new Label("Selecciona una película"));
+        cargarCartelera();
     }
     // =========================
     // CONFIGURAR TABLA
@@ -272,7 +271,38 @@ public class Pinci_5Controller {
             funcionSeleccionada = TblFunciones.getSelectionModel().getSelectedItem();
         });
     }
+    @FXML
+    private void cargarCartelera() {
 
+        List<Pelicula> peliculas = peliculaService.obtenerPeliculasConCartelera();
+
+        FlowCartelera.getChildren().clear();
+
+        for (Pelicula p : peliculas) {
+
+            VBox card = new VBox();
+            card.setSpacing(5);
+
+            ImageView imgView = new ImageView(
+                    new Image(new ByteArrayInputStream(p.getImagen()))
+            );
+
+            imgView.setFitWidth(120);
+            imgView.setFitHeight(160);
+            imgView.setPreserveRatio(true);
+
+            Label nombre = new Label(p.getNombre());
+
+            card.getChildren().addAll(imgView, nombre);
+
+            card.setOnMouseClicked(e -> {
+                setPelicula(p);
+                cargarFunciones(p.getIdpelicula());
+            });
+
+            FlowCartelera.getChildren().add(card);
+        }
+    }
     // =========================
     // CUANDO SELECCIONAS PELÍCULA (desde cards)
     // =========================
@@ -281,8 +311,6 @@ public class Pinci_5Controller {
         this.peliculaSeleccionada = pelicula;
 
         LblPeliSelec.setText(pelicula.getNombre());
-
-        cargarFunciones(pelicula.getIdpelicula());
     }
 
     // =========================
@@ -292,7 +320,7 @@ public class Pinci_5Controller {
     private void cargarFunciones(int idPelicula) {
 
         List<CarteleraDTO> funciones =
-                peliculaService.obtenerFuncionesDTO();
+                peliculaService.obtenerFuncionesDTO(idPelicula);
 
         TblFunciones.setItems(
                 FXCollections.observableArrayList(funciones)

@@ -51,6 +51,18 @@ public class PeliculaRepository {
             return null;
         }
     }
+    public List<Pelicula> getPeliculasConCartelera() {
+
+        EntityManager em = HibernateUtils.getEntityManagerFactory().createEntityManager();
+
+        List<Pelicula> result = em.createQuery(
+                "SELECT DISTINCT p FROM Pelicula p JOIN Cartelera c ON c.idpelicula.idpelicula = p.idpelicula",
+                Pelicula.class
+        ).getResultList();
+
+        em.close();
+        return result;
+    }
     // Buscar por ID
     public Pelicula getPeliculaByID(int id){
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
