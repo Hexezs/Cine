@@ -1,6 +1,7 @@
 package com.Cine.controllers;
 
 import com.Cine.MainApplication;
+import com.Cine.dto.UsuarioEditarDTO;
 import com.Cine.dto.UsuarioRegistroDTO;
 import com.Cine.models.Usuario;
 import com.Cine.services.UsuarioService;
@@ -74,46 +75,60 @@ public class CreaCuenta_3Controller {
     }
 
     @FXML
-    private void BtnSigAction(ActionEvent actionEvent) throws IOException {
+    private void BtnSigAction(ActionEvent actionEvent)
+            throws IOException {
 
-        if (TextNombre.getText().isEmpty() || TextApellidoP.getText().isEmpty()|| TextApellidoM.getText().isEmpty() || TextCorreo.getText().isEmpty() || TextContra.getText().isEmpty()) {
-            System.out.println("Error: Rellena todos los campos");
+        if (TextNombre.getText().isEmpty()
+                || TextApellidoP.getText().isEmpty()
+                || TextApellidoM.getText().isEmpty()
+                || TextCorreo.getText().isEmpty()
+                || TextContra.getText().isEmpty()) {
+
+            System.out.println(
+                    "Error: Rellena todos los campos"
+            );
+
             return;
         }
 
         if (usuarioEditar != null) {
 
-            usuarioEditar.setNombre(TextNombre.getText());
+            UsuarioEditarDTO dto =
+                    new UsuarioEditarDTO(
+                            usuarioEditar.getIdusuario(),
+                            TextNombre.getText(),
+                            TextApellidoP.getText(),
+                            TextApellidoM.getText(),
+                            TextCorreo.getText(),
+                            TextContra.getText()
+                    );
 
-            usuarioEditar.setApellidoP(TextApellidoP.getText());
-
-            usuarioEditar.setApellidoM(TextApellidoM.getText());
-
-            usuarioEditar.setCorreo(TextCorreo.getText());
-
-            usuarioEditar.setPassword(TextContra.getText());
-
-            usuarioService.actualizarPerfil(usuarioEditar);
-
+            usuarioService.actualizarPerfil(dto);
+            usuarioEditar = usuarioService.buscarPorID(usuarioEditar.getIdusuario());
+            Use_4Controller.usuarioLogueado = usuarioEditar;
             System.out.println("Perfil actualizado");
-
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
-
-            Scene nextScene = new Scene(fxmlLoader.load());Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-            stage.setTitle("CineSync - Panel Usuario");
+            Scene nextScene = new Scene(fxmlLoader.load());
+            Use_4Controller controller = fxmlLoader.getController();
+            controller.setUsuario(usuarioEditar);
+            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            stage.setTitle("CineSync - Cuenta");
             stage.setScene(nextScene);
 
-        } else {
-
-            UsuarioRegistroDTO dto =
-                    new UsuarioRegistroDTO(TextNombre.getText(), TextApellidoM.getText(), TextApellidoP.getText(), TextCorreo.getText(), TextContra.getText());
+        }
+        else {
+            UsuarioRegistroDTO dto = new UsuarioRegistroDTO(
+                            TextNombre.getText(),
+                            TextApellidoP.getText(),
+                            TextApellidoM.getText(),
+                            TextCorreo.getText(),
+                            TextContra.getText()
+                    );
 
             usuarioService.registrarNuevoUsuario(dto);
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));
             Scene nextScene = new Scene(fxmlLoader.load());
-
             Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-
             stage.setTitle("CineSync - Iniciar Sesion");
             stage.setScene(nextScene);
         }

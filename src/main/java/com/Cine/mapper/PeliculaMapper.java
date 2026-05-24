@@ -1,3 +1,7 @@
+// ==========================
+// MAPPER
+// ==========================
+
 package com.Cine.mapper;
 
 import com.Cine.dto.PeliculaDTO;
@@ -11,7 +15,6 @@ public class PeliculaMapper {
     public static PeliculaDTO aDTO(Pelicula entidad){
 
         return new PeliculaDTO(
-
                 entidad.getIdpelicula(),
                 entidad.getNombre(),
                 entidad.getTiempo(),
@@ -19,29 +22,16 @@ public class PeliculaMapper {
                 entidad.getImagen(),
                 entidad.getIdClasificacionRTC().getIdClasificacionRTC(),
                 entidad.getIdIdioma().getIdIdioma()
-
         );
     }
 
-    // Para administrador cuando registra película
-    public static Pelicula aEntidad(
-            PeliculaRegistroDTO dto,
-            ClasificacionRTC clasificacion,
-            Idioma idioma
-    ){
-
+    public static Pelicula aEntidad(PeliculaRegistroDTO dto,ClasificacionRTC clasificacion, Idioma idioma){
         Pelicula pelicula = new Pelicula();
-
         pelicula.setNombre(dto.nombrePelicula());
-
         pelicula.setTiempo(dto.tiempo());
-
         pelicula.setSinopsis(dto.sinopsis());
-
         pelicula.setImagen(dto.imagen());
-
         pelicula.setIdClasificacionRTC(clasificacion);
-
         pelicula.setIdIdioma(idioma);
 
         return pelicula;

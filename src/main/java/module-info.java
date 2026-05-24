@@ -9,6 +9,7 @@ module com.ites.proyectotemplate {
     requires org.hibernate.orm.core;
     requires javafx.graphics;
     requires javafx.base;
+    requires java.desktop;
 //    requires com.ites.proyectotemplate;
     //requires com.ites.proyectotemplate;
 

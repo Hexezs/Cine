@@ -4,6 +4,7 @@ import com.Cine.models.Pelicula;
 import com.Cine.utils.HibernateUtils;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+
 import java.util.List;
 
 public class PeliculaRepository {
@@ -25,18 +26,24 @@ public class PeliculaRepository {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.createQuery("DELETE FROM Cartelera c WHERE c.idpelicula.idpelicula = :id").setParameter("id", pelicula.getIdpelicula()).executeUpdate();
+        entityManager.createQuery("""
+                DELETE FROM Cartelera c
+                WHERE c.idpelicula.idpelicula = :id
+                """)
+                .setParameter("id", pelicula.getIdpelicula()).executeUpdate();
         entityManager.remove(entityManager.merge(pelicula));
         entityManager.getTransaction().commit();
         entityManager.close();
     }
 
-    // Para que el Admin busque la película que quiere borrar por su nombre
+    // Buscar por nombre
     public Pelicula getPeliculaByNombre(String nombre) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            Pelicula pelicula = entityManager.createQuery("from Pelicula where nombre = :nombre", Pelicula.class).setParameter("nombre", nombre).getSingleResult();
+            Pelicula pelicula = entityManager.createQuery("FROM Pelicula WHERE nombre = :nombre", Pelicula.class)
+                    .setParameter("nombre", nombre)
+                    .getSingleResult();
             entityManager.close();
             return pelicula;
         } catch (Exception e) {
@@ -44,7 +51,7 @@ public class PeliculaRepository {
             return null;
         }
     }
-
+    // Buscar por ID
     public Pelicula getPeliculaByID(int id){
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -52,13 +59,15 @@ public class PeliculaRepository {
         entityManager.close();
         return pelicula;
     }
-
+    // Obtener todas
     public List<Pelicula> getAllPeliculas() {
-        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
+        EntityManagerFactory entityManagerFactory =HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Pelicula> result = entityManager.createQuery("from Pelicula", Pelicula.class).getResultList();
+        List<Pelicula> result = entityManager.createQuery(
+                "FROM Pelicula",
+                Pelicula.class
+        ).getResultList();
         entityManager.close();
         return result;
     }
-
 }

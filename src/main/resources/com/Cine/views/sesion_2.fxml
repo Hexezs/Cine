@@ -96,7 +96,7 @@
         </GridPane>
         <ImageView fitHeight="123.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@imagenes/CineSyncNoFondoLogo.png" />
+                <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
             </image>
         </ImageView>
     </children>

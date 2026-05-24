@@ -1,6 +1,7 @@
 package com.Cine.controllers;
 
 import com.Cine.MainApplication;
+import com.Cine.dto.CarteleraDTO;
 import com.Cine.models.Boleto;
 import com.Cine.models.Cartelera;
 import com.Cine.models.Reserva;
@@ -30,28 +31,34 @@ public class Registro_8Controller {
     private TextFlow noCompra;
     @FXML
     private Button BtnSig;
-    public void setDatos(Reserva reserva, Cartelera cartelera) {
-        regPeliculaNombre.getChildren().add(new Text(cartelera.getIdpelicula().getNombre()));
-        String asientos = "";
+    @FXML
+    public void setDatos(Reserva reserva, CarteleraDTO cartelera) {
+        regPeliculaNombre.getChildren().clear();
+        regAsientos.getChildren().clear();
+        MontoPagar.getChildren().clear();
+        regSala.getChildren().clear();
+        regHorario.getChildren().clear();
+        noCompra.getChildren().clear();
+        regPeliculaNombre.getChildren().add(new Text("ID Película: " + cartelera.idpelicula()));
+        StringBuilder asientos = new StringBuilder();
         double total = 0;
         for (Boleto b : reserva.getBoletos()) {
-            asientos += b.getNombreasiento() + " ";
+            asientos.append(b.getNombreasiento()).append(" ");
             total += b.getMonto();
         }
-
-        regAsientos.getChildren().add(new Text(asientos));
+        regAsientos.getChildren().add(new Text(asientos.toString()));
         MontoPagar.getChildren().add(new Text("$" + total));
-        regSala.getChildren().add(new Text(String.valueOf(cartelera.getIdsala().getIdsala())));
-        regHorario.getChildren().add(new Text(cartelera.getHora().toString()));
+        regSala.getChildren().add(new Text("Sala: " + cartelera.idsala()));
+        regHorario.getChildren().add(new Text(cartelera.hora()));
         noCompra.getChildren().add(new Text(String.valueOf(reserva.getIdReserva())));
     }
 
     @FXML
     public void BtnSigAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Pinci_5.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
         Scene scene = new Scene(loader.load());
         Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Seleccionar película");
+        stage.setTitle("CineSync -Cuenta");
     }
 }

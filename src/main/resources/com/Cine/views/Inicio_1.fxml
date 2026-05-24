@@ -190,7 +190,7 @@
       </ScrollPane>
       <ImageView fitHeight="111.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../hello-view/CineSync-removebg-preview.png" />
+            <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
          </image>
       </ImageView>
    </children>

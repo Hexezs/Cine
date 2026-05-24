@@ -10,4 +10,5 @@ public class UsuarioInicioMapper {
 //                entidad.getCorreo(),
 //                entidad.getPassword()
 //        );
+//    }
 }

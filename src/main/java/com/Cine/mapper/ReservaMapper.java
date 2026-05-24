@@ -1,23 +1,28 @@
 package com.Cine.mapper;
 
 import com.Cine.dto.ReservaRegistroDTO;
-import com.Cine.models.Cartelera;
-import com.Cine.models.Usuario;
-import com.Cine.models.Reserva;
+import com.Cine.models.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReservaMapper {
-    public static Reserva aEntidad(ReservaRegistroDTO dto, Usuario usuarioBD, Cartelera carteleraBD){
-        Reserva nuevaReserva = new Reserva();
 
-        nuevaReserva.setFecha(LocalDate.now());
-
-        //asignar entidades que servicio ya busco en bd
-        nuevaReserva.setIdusuario(usuarioBD);
-        nuevaReserva.setIdcartelera(carteleraBD);
-
-        return nuevaReserva;
+    public static Reserva aEntidad(
+            ReservaRegistroDTO dto,
+            Usuario usuarioBD,
+            Cartelera carteleraBD,
+            List<Boleto> boletos
+    ) {
+        Reserva reserva = new Reserva();
+        reserva.setFecha(LocalDate.now());
+        reserva.setIdusuario(usuarioBD);
+        reserva.setIdcartelera(carteleraBD);
+        for (Boleto b : boletos) {
+            b.setIdReserva(reserva);
+        }
+        reserva.setBoletos(boletos);
+        return reserva;
     }
-
 }

@@ -4,8 +4,6 @@ import com.Cine.MainApplication;
 import com.Cine.dto.UsuarioInicioDTO;
 import com.Cine.models.Usuario;
 import com.Cine.services.UsuarioService;
-import com.Cine.SharedData;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,14 +60,15 @@ public class Sesion_2Controller {
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/nuevo admin 6.fxml"));
                 Scene nextScene = new Scene(fxmlLoader.load());
                 Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-                stage.setTitle("Panel Administrador");
+                stage.setTitle("CineSync -Panel Administrador");
                 stage.setScene(nextScene);
             } else {
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
                 Scene nextScene = new Scene(fxmlLoader.load());
-                Use_4Controller.usuarioLogueado = usuarioLogueado;
+                Use_4Controller controller = fxmlLoader.getController();
+                controller.setUsuario(usuarioLogueado);
                 Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-                stage.setTitle("Cartelera");
+                stage.setTitle("CineSync -Cuenta");
                 stage.setScene(nextScene);
             }
 

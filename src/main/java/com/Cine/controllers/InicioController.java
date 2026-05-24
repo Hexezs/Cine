@@ -30,7 +30,7 @@ public class InicioController {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));
 
         Scene nextScene = new Scene(fxmlLoader.load());
-        stage.setTitle("CineSync - Iniciar Sesión");
+        stage.setTitle("CineSync -Iniciar Sesión");
         stage.setScene(nextScene);
     }
 
@@ -42,7 +42,7 @@ public class InicioController {
         FXMLLoader fxmlLoader3 = new FXMLLoader(MainApplication.class.getResource("views/CreaCuenta_3.fxml"));
 
         Scene nextScene = new Scene(fxmlLoader3.load());
-        stage3.setTitle("CineSync - Crear Cuenta");
+        stage3.setTitle("CineSync -Crear Cuenta");
         stage3.setScene(nextScene);
     }
 }

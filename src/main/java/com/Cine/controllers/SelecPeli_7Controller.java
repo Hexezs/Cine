@@ -1,6 +1,7 @@
 package com.Cine.controllers;
 
 import com.Cine.MainApplication;
+import com.Cine.dto.CarteleraDTO;
 import com.Cine.models.Asiento;
 import com.Cine.models.Boleto;
 import com.Cine.models.Cartelera;
@@ -21,9 +22,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class SelecPeli_7Controller {
-
-    public static Usuario usuarioLogueado;
-    public static Cartelera carteleraActual;
+    private Usuario usuarioLogueado;
+    private CarteleraDTO cartelera;
     private final ReservaService reservaService = new ReservaService();
     private final AsientoService asientoService = new AsientoService();
     @FXML private TextField TxtAsientoDisp;
@@ -36,11 +36,13 @@ public class SelecPeli_7Controller {
     private final Map<String, Button> mapa = new HashMap<>();
 
     private final Set<String> seleccion = new HashSet<>();
-
+@FXML
+public void cargarDatos() {
+    bloquearOcupados();
+}
     @FXML
     public void initialize() {
         mapearBotones();
-        bloquearOcupados();
         actualizarTexto();
     }
 
@@ -73,7 +75,7 @@ public class SelecPeli_7Controller {
     }
 
     private void bloquearOcupados() {
-        List<Reserva> reservas = reservaService.obtenerReservasPorFuncion(carteleraActual.getIdCartelera()
+        List<Reserva> reservas = reservaService.obtenerReservasPorFuncion(cartelera.idCartelera()
         );
 
         for (Reserva r : reservas) {
@@ -109,38 +111,21 @@ public class SelecPeli_7Controller {
 
     @FXML
     public void BtnSigAction(ActionEvent event) throws IOException {
+
         if (seleccion.isEmpty()) {
             new Alert(Alert.AlertType.WARNING, "Selecciona al menos un asiento").showAndWait();
             return;
         }
-        List<Boleto> boletos = new ArrayList<>();
-
-        for (String s : seleccion) {
-            String letra = s.substring(0,1);
-            String numero = s.substring(1);
-
-            Asiento asiento = asientoService.obtenerAsiento(letra, numero, carteleraActual.getIdsala().getIdsala());
-            Boleto boleto = new Boleto();
-            boleto.setNombreasiento(s);
-            boleto.setCantidad(1);
-            boleto.setMonto(120);
-            boleto.setIdasiento(asiento);
-            boletos.add(boleto);
-        }
-
-        Reserva reserva = reservaService.procesarCompra(usuarioLogueado, carteleraActual, boletos);
+        Reserva reserva = reservaService.procesarCompra(usuarioLogueado, cartelera, new ArrayList<>(seleccion));
         new Alert(Alert.AlertType.INFORMATION, "Reserva creada: " + reserva.getIdReserva()).showAndWait();
-
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Registro_8.fxml"));
-
         Scene scene = new Scene(loader.load());
         Registro_8Controller controller = loader.getController();
 
-        controller.setDatos(reserva, carteleraActual);
-
-        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        controller.setDatos(reserva, cartelera);
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Confirmación");
+        stage.setTitle("Cine-Sync Confirmación");
     }
 
     @FXML
@@ -161,6 +146,13 @@ public class SelecPeli_7Controller {
         Scene scene = new Scene(loader.load());
         Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Seleccionar función");
+        stage.setTitle("CineSync -Seleccionar Funcion");
+    }
+    public void setCarteleraDTO(CarteleraDTO cartelera) {
+        this.cartelera = cartelera;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuarioLogueado = usuario;
     }
 }

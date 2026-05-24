@@ -4,6 +4,8 @@ import com.Cine.models.Cartelera;
 import com.Cine.utils.HibernateUtils;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+
+import java.time.LocalDate;
 import java.util.List;
 
 public class CarteleraRepository {
@@ -21,33 +23,46 @@ public class CarteleraRepository {
         entityManager.close();
     }
 
-    // Para mostrar la lista de funciones disponibles al Admin y al Usuario
+    // Para mostrar la lista de funciones disponibles
     public List<Cartelera> getAllCartelera() {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
+
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Cartelera> result = entityManager.createQuery("from Cartelera", Cartelera.class).getResultList();
+
+        List<Cartelera> result = entityManager.createQuery(
+                "from Cartelera",
+                Cartelera.class
+        ).getResultList();
         entityManager.close();
         return result;
     }
 
-    // Crucial para que el Admin busque funciones por película y vea sus reservas
+    // Buscar funciones por película
     public List<Cartelera> getCarteleraByPelicula(int idPelicula) {
+
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Cartelera> result = entityManager.createQuery("from Cartelera where idpelicula.idpelicula = :id", Cartelera.class).setParameter("id", idPelicula).getResultList();
+
+        List<Cartelera> result = entityManager.createQuery(
+                        "from Cartelera where idpelicula.idpelicula = :id",
+                        Cartelera.class
+                )
+                .setParameter("id", idPelicula)
+                .getResultList();
+
         entityManager.close();
         return result;
     }
 
-    // Obtener la cartelera por su ID
+    // Obtener cartelera por ID
     public Cartelera getCarteleraByID(int id) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Cartelera cartelera = entityManager.find(Cartelera.class, id);
         entityManager.close();
+
         return cartelera;
     }
-
     // Eliminar
     public void removeCartelera(Cartelera cartelera) {
         EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
@@ -56,5 +71,20 @@ public class CarteleraRepository {
         entityManager.remove(entityManager.merge(cartelera));
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+    public List<Cartelera> getFuncionesPorSalaYFecha(int idSala, LocalDate fecha) {
+
+        EntityManager entityManager = HibernateUtils.getEntityManagerFactory().createEntityManager();
+
+        List<Cartelera> result = entityManager.createQuery(
+                        "FROM Cartelera c WHERE c.idsala.idsala = :idSala AND c.fecha = :fecha",
+                        Cartelera.class
+                )
+                .setParameter("idSala", idSala)
+                .setParameter("fecha", fecha)
+                .getResultList();
+
+        entityManager.close();
+        return result;
     }
 }

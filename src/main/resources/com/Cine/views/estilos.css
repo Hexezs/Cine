@@ -168,3 +168,45 @@
     -fx-border-color: #8ACEFF;
     -fx-border-width: 2;
 }
+
+/* =========================================
+   CARTELERA (Pinci_5)
+   ========================================= */
+
+.scroll-cartelera {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.scroll-cartelera > .viewport {
+    -fx-background-color: transparent;
+}
+
+.flow-cartelera {
+    -fx-background-color: transparent;
+    -fx-padding: 12;
+}
+
+.card-pelicula {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1;
+    -fx-padding: 10;
+    -fx-alignment: top-center;
+    -fx-cursor: hand;
+}
+.card-pelicula:hover {
+    -fx-border-color: #f97316;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0, 0, 2);
+}
+.card-pelicula-selected {
+    -fx-border-color: #f97316;
+    -fx-border-width: 2.5;
+    -fx-background-color: #FFEFE0;
+}
+
+.card-pelicula .label { -fx-text-fill: #0f172a; }

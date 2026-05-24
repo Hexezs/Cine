@@ -23,7 +23,8 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class Use_4Controller {
-
+    @FXML
+    private Label nombreUsuario;
     @FXML
     private Button BtnEditCuenta;
     @FXML
@@ -47,9 +48,7 @@ public class Use_4Controller {
     @FXML
     private TableColumn<Reserva, String> ColumFecha;
 
-    private ObservableList<Reserva> lista =
-            FXCollections.observableArrayList();
-
+    private ObservableList<Reserva> lista = FXCollections.observableArrayList();
     public static Usuario usuarioLogueado;
 
     @FXML
@@ -62,9 +61,9 @@ public class Use_4Controller {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/CreaCuenta_3.fxml"));
         Scene nextScene = new Scene(fxmlLoader.load());
         CreaCuenta_3Controller controller = fxmlLoader.getController();
-        controller.setUsuarioEditar(Use_4Controller.usuarioLogueado);
+        controller.setUsuarioEditar(usuarioLogueado);
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        stage.setTitle("CineSync - Editar Cuenta");stage.setScene(nextScene);
+        stage.setTitle("CineSync -Editar Cuenta");stage.setScene(nextScene);
     }
 
     @FXML
@@ -115,7 +114,14 @@ public class Use_4Controller {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Pinci_5.fxml"));
         Scene nextScene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        stage.setTitle("CineSync - Comprar Boletos");
+        stage.setTitle("CineSync - Seleccionar Función");
         stage.setScene(nextScene);
     }
+    @FXML
+    public void setUsuario(Usuario usuario) {
+        this.usuarioLogueado = usuario;
+
+        if (nombreUsuario != null) {
+            nombreUsuario.setText(usuario.getNombre());
+        }}
 }
