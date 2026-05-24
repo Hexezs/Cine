@@ -209,4 +209,18 @@
     -fx-background-color: #FFEFE0;
 }
 
+/* Card en modo solo visual (sin cursor ni hover) */
+.card-pelicula-vista {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1;
+    -fx-padding: 10;
+    -fx-alignment: top-center;
+}
+.card-pelicula-vista .label {
+    -fx-text-fill: #0f172a;
+}
+
 .card-pelicula .label { -fx-text-fill: #0f172a; }
