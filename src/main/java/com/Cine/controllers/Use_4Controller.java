@@ -63,23 +63,11 @@ public class Use_4Controller {
     @FXML
     private void configurarTabla() {
 
-        horario.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getFecha().toString())
-        );
+        horario.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getFecha().toString()));
 
-        peliNombre.setCellValueFactory(c ->
-                new SimpleStringProperty(
-                        c.getValue().getIdcartelera()
-                                .getIdpelicula()
-                                .getNombre()
-                )
-        );
+        peliNombre.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getIdcartelera().getIdpelicula().getNombre()));
 
-        cantidadboletos.setCellValueFactory(c ->
-                new SimpleStringProperty(
-                        String.valueOf(c.getValue().getBoletos().size())
-                )
-        );
+        cantidadboletos.setCellValueFactory(c -> new SimpleStringProperty(String.valueOf(c.getValue().getBoletos().size())));
 
         asientos.setCellValueFactory(c ->
                 new SimpleStringProperty(

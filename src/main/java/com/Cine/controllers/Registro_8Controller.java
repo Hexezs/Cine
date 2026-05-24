@@ -54,11 +54,13 @@ public class Registro_8Controller {
     }
 
     @FXML
-    public void BtnSigAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
-        Scene scene = new Scene(loader.load());
-        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+    public void BtnSigAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
+        Scene nextScene = new Scene(fxmlLoader.load());
+        Use_4Controller controller = fxmlLoader.getController();
+        controller.setUsuario(Use_4Controller.usuarioLogueado);
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         stage.setTitle("CineSync -Cuenta");
+        stage.setScene(nextScene);
     }
 }

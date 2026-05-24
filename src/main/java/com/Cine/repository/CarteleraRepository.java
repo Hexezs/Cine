@@ -88,4 +88,21 @@ public class CarteleraRepository {
         entityManager.close();
         return result;
     }
+    public List<Cartelera> getFuncionesPorPelicula(int idPelicula) {
+
+        EntityManager em =
+                HibernateUtils.getEntityManagerFactory()
+                        .createEntityManager();
+
+        List<Cartelera> lista = em.createQuery(
+                        "FROM Cartelera c WHERE c.idpelicula.idpelicula = :id",
+                        Cartelera.class
+                )
+                .setParameter("id", idPelicula)
+                .getResultList();
+
+        em.close();
+
+        return lista;
+    }
 }

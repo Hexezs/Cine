@@ -378,8 +378,9 @@ public class NuevoAdmin_6Controller {
                 alerta.showAndWait();
                 return;
             }
+            List<Cartelera> funciones = carteleraRepository.getFuncionesPorPelicula(peliculaSeleccionada.getIdpelicula());
 
-            if (peliculaSeleccionada.getFunciones() != null && !peliculaSeleccionada.getFunciones().isEmpty()) {
+            if (!funciones.isEmpty()) {
                 Alert error = new Alert(Alert.AlertType.ERROR);
                 error.setTitle("No se puede eliminar");
                 error.setHeaderText(null);
