@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="475.0" prefWidth="676.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Sesion_2Controller">
+<AnchorPane prefHeight="475.0" prefWidth="676.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Sesion_2Controller">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutX="5.0" layoutY="1.0" stroke="WHITE" strokeType="INSIDE" width="699.0">
             <fill>
@@ -62,7 +62,7 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" styleClass="boton-principal" text="Siguiente" translateX="-25.0">
+                <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" styleClass="boton-principal" text="Iniciar Sesión" translateX="-25.0">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -96,7 +96,7 @@
         </GridPane>
         <ImageView fitHeight="123.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
+                <Image url="@imagenes/CineSyncNoFondoLogo.png" />
             </image>
         </ImageView>
     </children>
