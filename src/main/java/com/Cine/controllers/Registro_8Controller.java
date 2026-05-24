@@ -54,6 +54,29 @@ public class Registro_8Controller {
     }
 
     @FXML
+    public void mostrarTicketReserva(Reserva reserva) {
+        regPeliculaNombre.getChildren().clear();
+        regAsientos.getChildren().clear();
+        MontoPagar.getChildren().clear();
+        regSala.getChildren().clear();
+        regHorario.getChildren().clear();
+        noCompra.getChildren().clear();
+        Cartelera cartelera = reserva.getIdcartelera();
+        regPeliculaNombre.getChildren().add(new Text(cartelera.getIdpelicula().getNombre()));
+        StringBuilder asientos = new StringBuilder();
+        double total = 0;
+        for (Boleto b : reserva.getBoletos()) {
+            asientos.append(b.getNombreasiento()).append(" ");
+            total += b.getMonto();
+        }
+        regAsientos.getChildren().add(new Text(asientos.toString()));
+        MontoPagar.getChildren().add(new Text("$" + total));
+        regSala.getChildren().add(new Text("Sala: " + cartelera.getIdsala().getIdsala()));
+        regHorario.getChildren().add(new Text(cartelera.getHora()));
+        noCompra.getChildren().add(new Text(String.valueOf(reserva.getIdReserva())));
+    }
+
+    @FXML
     public void BtnSigAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
         Scene nextScene = new Scene(fxmlLoader.load());

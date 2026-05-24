@@ -2,13 +2,17 @@ package com.Cine.controllers;
 
 import com.Cine.MainApplication;
 import com.Cine.models.Reserva;
+import com.Cine.models.Boleto;
+import com.Cine.models.Cartelera;
 import com.Cine.models.Usuario;
 
 import com.Cine.repository.ReservaRepository;
 import com.Cine.services.UsuarioService;
+import com.Cine.services.ReservaService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.beans.property.SimpleStringProperty;
 
 import javafx.event.ActionEvent;
 
@@ -30,6 +34,7 @@ public class Use_4Controller {
     private TableView<Reserva> TableUsuarios;
     @FXML private TableColumn<Reserva, String> horario;
     @FXML private TableColumn<Reserva, String> peliNombre;
+    @FXML private TableColumn<Reserva, String> hora;
     @FXML private TableColumn<Reserva, String> cantidadboletos;
     @FXML private TableColumn<Reserva, String> asientos;
     @FXML
@@ -44,6 +49,8 @@ public class Use_4Controller {
     private Button BtnCancelar;
     @FXML
     private Button BtnSig;
+    @FXML
+    private Button BtnTicket;
     @FXML
     private TableColumn<Reserva, String> ColumPelicula;
 
@@ -64,6 +71,8 @@ public class Use_4Controller {
     private void configurarTabla() {
 
         horario.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getFecha().toString()));
+
+        hora.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getIdcartelera().getHora()));
 
         peliNombre.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getIdcartelera().getIdpelicula().getNombre()));
 
@@ -129,8 +138,18 @@ public class Use_4Controller {
     }
 
     @FXML
-    private void BtnCancelarAction() {
-        lista.clear();
+    private void BtnTicketAction(ActionEvent actionEvent) throws IOException {
+        Reserva reservaSeleccionada = TableUsuarios.getSelectionModel().getSelectedItem();
+        if (reservaSeleccionada == null) {
+            new Alert(Alert.AlertType.WARNING, "Selecciona una reserva de la tabla para ver su ticket").showAndWait();
+            return;
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Registro_8.fxml"));
+        Scene nextScene = new Scene(fxmlLoader.load());
+        Registro_8Controller controller = fxmlLoader.getController();
+        controller.mostrarTicketReserva(reservaSeleccionada);
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.setTitle("CineSync - Ticket");stage.setScene(nextScene);
     }
 
     @FXML

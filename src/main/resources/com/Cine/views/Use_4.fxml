@@ -61,10 +61,11 @@
 
         <TableView fx:id="TableUsuarios" layoutX="41.0" layoutY="256.0" prefHeight="278.0" prefWidth="818.0">
             <columns>
-                <TableColumn fx:id="horario" prefWidth="142.6666603088379" text="Horario" />
-                <TableColumn fx:id="peliNombre" prefWidth="412.00001525878906" text="Pelicula" />
-                <TableColumn fx:id="cantidadboletos" prefWidth="88.0" text="Boletos" />
-                <TableColumn fx:id="asientos" minWidth="0.0" prefWidth="175.199951171875" text="Asientos" />
+                <TableColumn fx:id="horario" prefWidth="105.33328628540039" text="Fecha" />
+            <TableColumn fx:id="hora" prefWidth="84.6666259765625" text="Horario" />
+                <TableColumn fx:id="peliNombre" prefWidth="368.66664123535156" text="Pelicula" />
+                <TableColumn fx:id="cantidadboletos" prefWidth="63.3333740234375" text="Boletos" />
+                <TableColumn fx:id="asientos" minWidth="0.0" prefWidth="189.333251953125" text="Asientos" />
             </columns>
         </TableView>
 
@@ -98,5 +99,10 @@
                 <Font name="Broadway" size="31.0" />
             </font>
         </Label>
+      <Button fx:id="BtnTicket" layoutX="623.0" layoutY="598.0" mnemonicParsing="false" onAction="#BtnTicketAction" styleClass="btn-acc" text="Ver Ticket">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
