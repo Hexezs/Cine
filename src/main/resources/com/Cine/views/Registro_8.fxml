@@ -143,8 +143,7 @@
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Label>
-      <TextFlow fx:id="noCompra" layoutX="649.0" layoutY="424.0" prefHeight="46.0" prefWidth="120.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 25; -fx-font-weight: bold;" textAlignment="CENTER" />
-      <Rectangle fill="#f97316" height="3.0" layoutX="652.0" layoutY="472.0" stroke="TRANSPARENT" strokeType="INSIDE" width="113.0" />
+      <Rectangle fill="#f97316" height="3.0" layoutX="653.0" layoutY="535.0" stroke="TRANSPARENT" strokeType="INSIDE" width="113.0" />
       <ImageView fitHeight="92.0" fitWidth="144.0" layoutX="637.0" layoutY="214.0">
          <image>
             <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
@@ -155,6 +154,7 @@
             <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="noCompra" fitHeight="92.0" fitWidth="120.0" layoutX="653.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
 
    </children>
 </AnchorPane>

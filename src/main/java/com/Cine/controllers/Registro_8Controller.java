@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
@@ -28,7 +30,7 @@ public class Registro_8Controller {
     @FXML
     private TextFlow regHorario;
     @FXML
-    private TextFlow noCompra;
+    private ImageView noCompra;
     @FXML
     private Button BtnSig;
     @FXML
@@ -38,7 +40,6 @@ public class Registro_8Controller {
         MontoPagar.getChildren().clear();
         regSala.getChildren().clear();
         regHorario.getChildren().clear();
-        noCompra.getChildren().clear();
         regPeliculaNombre.getChildren().add(new Text("ID Película: " + cartelera.idpelicula()));
         StringBuilder asientos = new StringBuilder();
         double total = 0;
@@ -51,20 +52,9 @@ public class Registro_8Controller {
         regSala.getChildren().add(new Text("Sala:00 " + cartelera.idsala()));
         regHorario.getChildren().add(new Text(cartelera.hora()));
 
-        String formatoCodigo = "*" + reserva.getIdReserva() + "*";
-        Text textoCodigo = new Text(formatoCodigo);
-
-// Cargamos el archivo de la fuente directamente desde los recursos del proyecto
-        javafx.scene.text.Font barcodeFont = javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/fonts/code39.ttf"), 40);
-
-// Verificamos que la ruta sea correcta y aplicamos
-        if (barcodeFont != null) {
-            textoCodigo.setFont(barcodeFont);
-        } else {
-            System.out.println("Error: No se encontró el archivo de la fuente en la ruta especificada.");
-            textoCodigo.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 40;");
-        }
-        noCompra.getChildren().add(textoCodigo);
+        String url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + reserva.getIdReserva();
+        Image qrImage = new Image(url, true);
+        noCompra.setImage(qrImage);
     }
 
     @FXML
@@ -74,7 +64,6 @@ public class Registro_8Controller {
         MontoPagar.getChildren().clear();
         regSala.getChildren().clear();
         regHorario.getChildren().clear();
-        noCompra.getChildren().clear();
         Cartelera cartelera = reserva.getIdcartelera();
         regPeliculaNombre.getChildren().add(new Text(cartelera.getIdpelicula().getNombre()));
         StringBuilder asientos = new StringBuilder();
@@ -88,20 +77,9 @@ public class Registro_8Controller {
         regSala.getChildren().add(new Text(cartelera.getIdsala().toString()));
         regHorario.getChildren().add(new Text(cartelera.getHora()));
 
-        String formatoCodigo = "*" + reserva.getIdReserva() + "*";
-        Text textoCodigo = new Text(formatoCodigo);
-
-// Cargamos el archivo de la fuente directamente desde los recursos del proyecto
-        javafx.scene.text.Font barcodeFont = javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/fonts/code39.ttf"), 40);
-
-// Verificamos que la ruta sea correcta y aplicamos
-        if (barcodeFont != null) {
-            textoCodigo.setFont(barcodeFont);
-        } else {
-            System.out.println("Error: No se encontró el archivo de la fuente en la ruta especificada.");
-            textoCodigo.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 40;");
-        }
-        noCompra.getChildren().add(textoCodigo);
+        String url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + reserva.getIdReserva();
+        Image qrImage = new Image(url, true);
+        noCompra.setImage(qrImage);
     }
 
     @FXML
