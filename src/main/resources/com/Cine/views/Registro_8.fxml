@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #f1f5f9;" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Registro_8Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #f1f5f9;" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.Registro_8Controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="92.0" stroke="WHITE" strokeType="INSIDE" width="900.0">
          <fill>
@@ -100,12 +100,12 @@
       <TextFlow fx:id="regPeliculaNombre" layoutX="290.0" layoutY="288.0" prefHeight="28.0" prefWidth="495.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;" stylesheets="@estilos.css" />
 
       <!-- ASIENTO -->
-      <Label layoutX="424.0" layoutY="344.0" text="ASIENT(O)S" textFill="#94a3b8">
+      <Label layoutX="474.0" layoutY="344.0" text="ASIENT(O)S" textFill="#94a3b8">
          <font>
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Label>
-      <TextFlow fx:id="regAsientos" layoutX="423.0" layoutY="362.0" prefHeight="28.0" prefWidth="326.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;" />
+      <TextFlow fx:id="regAsientos" layoutX="475.0" layoutY="362.0" prefHeight="28.0" prefWidth="288.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;" />
 
       <!-- MONTO A PAGAR -->
       <Label layoutX="290.0" layoutY="410.0" text="MONTO A PAGAR" textFill="#94a3b8">
@@ -126,28 +126,33 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="371.0" layoutY="344.0" text="SALA" textFill="#94a3b8">
+      <Label layoutX="382.0" layoutY="344.0" text="SALA" textFill="#94a3b8">
          <font>
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Label>
-      <TextFlow fx:id="regSala" layoutX="360.0" layoutY="362.0" prefHeight="28.0" prefWidth="50.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;" />
+      <TextFlow fx:id="regSala" layoutX="345.0" layoutY="361.0" prefHeight="28.0" prefWidth="113.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;" textAlignment="CENTER" />
       <Label layoutX="289.0" layoutY="344.0" text="HORARIO" textFill="#94a3b8">
          <font>
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Label>
-      <TextFlow fx:id="regHorario" layoutX="290.0" layoutY="361.0" prefHeight="28.0" prefWidth="50.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;" />
-      <Label layoutX="671.0" layoutY="410.0" text="NO. COMPRA" textFill="#94a3b8">
+      <TextFlow fx:id="regHorario" layoutX="284.0" layoutY="362.0" prefHeight="28.0" prefWidth="62.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;" textAlignment="CENTER" />
+      <Label layoutX="671.0" layoutY="410.0" text="ID. COMPRA" textFill="#94a3b8">
          <font>
             <Font name="Century Gothic" size="11.0" />
          </font>
       </Label>
-      <TextFlow fx:id="noCompra" layoutX="648.0" layoutY="428.0" prefHeight="28.0" prefWidth="120.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16; -fx-font-weight: bold;" />
-      <Rectangle fill="#f97316" height="3.0" layoutX="652.0" layoutY="454.0" stroke="TRANSPARENT" strokeType="INSIDE" width="113.0" />
+      <TextFlow fx:id="noCompra" layoutX="649.0" layoutY="424.0" prefHeight="46.0" prefWidth="120.0" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 25; -fx-font-weight: bold;" textAlignment="CENTER" />
+      <Rectangle fill="#f97316" height="3.0" layoutX="652.0" layoutY="472.0" stroke="TRANSPARENT" strokeType="INSIDE" width="113.0" />
       <ImageView fitHeight="92.0" fitWidth="144.0" layoutX="637.0" layoutY="214.0">
          <image>
-            <Image url="@../Desktop/CineSync-removebg-preview.png" />
+            <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="111.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
          </image>
       </ImageView>
 

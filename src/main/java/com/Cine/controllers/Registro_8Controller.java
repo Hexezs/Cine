@@ -48,9 +48,23 @@ public class Registro_8Controller {
         }
         regAsientos.getChildren().add(new Text(asientos.toString()));
         MontoPagar.getChildren().add(new Text("$" + total));
-        regSala.getChildren().add(new Text("Sala: " + cartelera.idsala()));
+        regSala.getChildren().add(new Text("Sala:00 " + cartelera.idsala()));
         regHorario.getChildren().add(new Text(cartelera.hora()));
-        noCompra.getChildren().add(new Text(String.valueOf(reserva.getIdReserva())));
+
+        String formatoCodigo = "*" + reserva.getIdReserva() + "*";
+        Text textoCodigo = new Text(formatoCodigo);
+
+// Cargamos el archivo de la fuente directamente desde los recursos del proyecto
+        javafx.scene.text.Font barcodeFont = javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/fonts/code39.ttf"), 40);
+
+// Verificamos que la ruta sea correcta y aplicamos
+        if (barcodeFont != null) {
+            textoCodigo.setFont(barcodeFont);
+        } else {
+            System.out.println("Error: No se encontró el archivo de la fuente en la ruta especificada.");
+            textoCodigo.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 40;");
+        }
+        noCompra.getChildren().add(textoCodigo);
     }
 
     @FXML
@@ -71,9 +85,23 @@ public class Registro_8Controller {
         }
         regAsientos.getChildren().add(new Text(asientos.toString()));
         MontoPagar.getChildren().add(new Text("$" + total));
-        regSala.getChildren().add(new Text("Sala: " + cartelera.getIdsala().getIdsala()));
+        regSala.getChildren().add(new Text(cartelera.getIdsala().toString()));
         regHorario.getChildren().add(new Text(cartelera.getHora()));
-        noCompra.getChildren().add(new Text(String.valueOf(reserva.getIdReserva())));
+
+        String formatoCodigo = "*" + reserva.getIdReserva() + "*";
+        Text textoCodigo = new Text(formatoCodigo);
+
+// Cargamos el archivo de la fuente directamente desde los recursos del proyecto
+        javafx.scene.text.Font barcodeFont = javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/fonts/code39.ttf"), 40);
+
+// Verificamos que la ruta sea correcta y aplicamos
+        if (barcodeFont != null) {
+            textoCodigo.setFont(barcodeFont);
+        } else {
+            System.out.println("Error: No se encontró el archivo de la fuente en la ruta especificada.");
+            textoCodigo.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 40;");
+        }
+        noCompra.getChildren().add(textoCodigo);
     }
 
     @FXML

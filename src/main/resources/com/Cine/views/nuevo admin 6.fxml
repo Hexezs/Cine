@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -249,6 +250,11 @@
             <Font name="Broadway" size="64.0" />
          </font>
       </Label>
+      <ImageView fitHeight="111.0" fitWidth="172.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
+         </image>
+      </ImageView>
 
     </children>
 

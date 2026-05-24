@@ -44,7 +44,7 @@
         </Label>
         <ImageView fitHeight="133.0" fitWidth="190.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@imagenes/CineSyncNoFondoLogo.png" />
+                <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
             </image>
         </ImageView>
 
@@ -80,9 +80,10 @@
         </Label>
         <TableView fx:id="TblFunciones" layoutX="580.0" layoutY="220.0" prefHeight="460.0" prefWidth="340.0">
             <columns>
-                <TableColumn fx:id="ColFecha" prefWidth="115.0" text="Fecha" />
-                <TableColumn fx:id="ColHora" prefWidth="80.0" text="Hora" />
-                <TableColumn fx:id="ColSala" prefWidth="143.0" text="Sala" />
+                <TableColumn fx:id="ColFecha" prefWidth="102.0001220703125" text="Fecha" />
+                <TableColumn fx:id="ColHora" prefWidth="62.0" text="Hora" />
+                <TableColumn fx:id="ColSala" prefWidth="87.3333740234375" text="Sala" />
+            <TableColumn fx:id="ColIdioma" prefWidth="82.0" text="Idioma" />
             </columns>
         </TableView>
 

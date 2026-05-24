@@ -115,7 +115,7 @@
         </ButtonBar>
         <ImageView fitHeight="137.0" fitWidth="182.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@imagenes/CineSyncNoFondoLogo.png" />
+                <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
             </image>
         </ImageView>
     </children>

@@ -4,6 +4,7 @@ import com.Cine.MainApplication;
 import com.Cine.dto.CarteleraDTO;
 import com.Cine.models.Pelicula;
 import com.Cine.models.Usuario;
+import com.Cine.models.Cartelera;
 import com.Cine.services.PeliculaService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -23,17 +24,25 @@ import java.util.List;
 public class Pinci_5Controller {
     @FXML
     private FlowPane FlowCartelera;
-    @FXML private Label LblPeliSelec;
-    @FXML private TableView<CarteleraDTO> TblFunciones;
-    @FXML private TableColumn<CarteleraDTO, String> ColFecha;
-    @FXML private TableColumn<CarteleraDTO, String> ColHora;
-    @FXML private TableColumn<CarteleraDTO, String> ColSala;
-    @FXML private Button BtnAtras, BtnCancelar, BtnSig;
+    @FXML
+    private Label LblPeliSelec;
+    @FXML
+    private TableView<Cartelera> TblFunciones;
+    @FXML
+    private TableColumn<Cartelera, String> ColFecha;
+    @FXML
+    private TableColumn<Cartelera, String> ColHora;
+    @FXML
+    private TableColumn<Cartelera, String> ColSala;
+    @FXML
+    private TableColumn<Cartelera, String> ColIdioma;
+    @FXML
+    private Button BtnAtras, BtnCancelar, BtnSig;
     public static Usuario usuarioLogueado;
     private final PeliculaService peliculaService = new PeliculaService();
 
     private Pelicula peliculaSeleccionada;
-    private CarteleraDTO funcionSeleccionada;
+    private Cartelera funcionSeleccionada;
 
     @FXML
     public void initialize() {
@@ -48,21 +57,26 @@ public class Pinci_5Controller {
     private void configurarTabla() {
 
         ColFecha.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().fecha().toString())
+                new SimpleStringProperty(c.getValue().getFecha().toString())
         );
 
         ColHora.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().hora())
+                new SimpleStringProperty(c.getValue().getHora())
         );
 
         ColSala.setCellValueFactory(c ->
-                new SimpleStringProperty("Sala " + c.getValue().idsala())
+                new SimpleStringProperty(c.getValue().getIdsala().getNombreTipoSala())
+        );
+
+        ColIdioma.setCellValueFactory(c ->
+                new SimpleStringProperty(c.getValue().getIdpelicula().getIdIdioma().getNombreIdioma())
         );
 
         TblFunciones.setOnMouseClicked(e -> {
             funcionSeleccionada = TblFunciones.getSelectionModel().getSelectedItem();
         });
     }
+
     @FXML
     private void cargarCartelera() {
 
@@ -90,7 +104,7 @@ public class Pinci_5Controller {
 
             card.setOnMouseClicked(e -> {
                 setPelicula(p);
-                cargarFunciones(p.getIdpelicula());
+                cargarFunciones(p);
             });
 
             FlowCartelera.getChildren().add(card);
@@ -110,13 +124,10 @@ public class Pinci_5Controller {
     // CARGAR FUNCIONES (DTO)
     // =========================
     @FXML
-    private void cargarFunciones(int idPelicula) {
-
-        List<CarteleraDTO> funciones =
-                peliculaService.obtenerFuncionesDTO(idPelicula);
+    private void cargarFunciones(Pelicula pelicula) {
 
         TblFunciones.setItems(
-                FXCollections.observableArrayList(funciones)
+                FXCollections.observableArrayList(pelicula.getFunciones())
         );
     }
 
@@ -139,7 +150,14 @@ public class Pinci_5Controller {
         Scene scene = new Scene(loader.load());
 
         SelecPeli_7Controller controller = loader.getController();
-        controller.setCarteleraDTO(funcionSeleccionada);
+        CarteleraDTO dto = new CarteleraDTO(
+                funcionSeleccionada.getIdCartelera(),
+                funcionSeleccionada.getFecha(),
+                funcionSeleccionada.getHora(),
+                funcionSeleccionada.getIdpelicula().getIdpelicula(),
+                funcionSeleccionada.getIdsala().getIdsala()
+        );
+        controller.setCarteleraDTO(dto);
         controller.setUsuario(Use_4Controller.usuarioLogueado);
         controller.cargarDatos();
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();

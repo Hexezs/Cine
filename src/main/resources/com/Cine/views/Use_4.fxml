@@ -79,7 +79,7 @@
                 <Font name="Broadway" size="64.0" />
             </font>
         </Label>
-        <Label fx:id="nombreUsuario" layoutX="311.0" layoutY="104.0" text="NombreUsuario">
+        <Label fx:id="nombreUsuario" layoutX="14.0" layoutY="104.0" styleClass="text-field" stylesheets="@estilos.css" text="NombreUsuario" textAlignment="CENTER" textFill="#f97316">
             <font>
                 <Font name="Broadway" size="28.0" />
             </font>
