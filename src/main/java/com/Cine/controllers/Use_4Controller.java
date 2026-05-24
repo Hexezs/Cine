@@ -155,8 +155,12 @@ public class Use_4Controller {
     }
     @FXML
     public void setUsuario(Usuario usuario) {
-        this.usuarioLogueado = usuario;
 
+        if (usuario == null) {
+            System.out.println("Usuario nulo recibido");
+            return;
+        }
+        this.usuarioLogueado = usuario;
         nombreUsuario.setText(usuario.getNombre());
         cargarReservas();
     }
