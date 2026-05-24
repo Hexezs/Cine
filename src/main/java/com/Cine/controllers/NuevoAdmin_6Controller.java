@@ -111,35 +111,22 @@ public class NuevoAdmin_6Controller {
     private CarteleraService carteleraService = new CarteleraService();
     @FXML
     public void initialize(){
+
+        PickerDay.setDayCellFactory(picker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+
+                setDisable(empty || date.isBefore(LocalDate.now()));
+            }
+        });
+
         CmbxHorario.getItems().addAll(horariosBase);
         CmbxSala.getItems().addAll(salaRepository.getAllSalas());
         CmbxIdioma.getItems().addAll(idiomaRepository.getAllIdiomas());
         CmbxClasificacion.getItems().addAll(clasificacionRepository.getAllClasificaciones());
         CmbxPelicula.getItems().addAll(peliculaService.obtenerPeliculas());
-        CmbxPelicula.setCellFactory(param -> new ListCell<>() {
-            @Override
-            protected void updateItem(Pelicula item, boolean empty) {
-                super.updateItem(item, empty);
-                setText(empty || item == null ? null : item.getNombre());}
-        });
-        CmbxPelicula.setButtonCell(new ListCell<>() {
-            @Override
-            protected void updateItem(Pelicula item, boolean empty) {super.updateItem(item, empty);
-                setText(empty || item == null ? null : item.getNombre());}
-        });
-        CmbxElimPelicula.getItems().addAll(peliculaService.obtenerPeliculas());
-        CmbxElimPelicula.setCellFactory(param -> new ListCell<>() {
-            @Override
-            protected void updateItem(Pelicula item, boolean empty) {
-                super.updateItem(item, empty);
-                setText(empty || item == null ? null : item.getNombre());}
-        });
-        CmbxElimPelicula.setButtonCell(new ListCell<>() {
-            @Override
-            protected void updateItem(Pelicula item, boolean empty) {super.updateItem(item, empty);
-                setText(empty || item == null ? null : item.getNombre());
-            }
-        });
+
         configurarTablaFunciones();
         cargarFunciones();
     }
