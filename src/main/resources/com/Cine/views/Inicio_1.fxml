@@ -18,180 +18,180 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.InicioController">
-  
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="90.0" layoutX="1.0" stroke="WHITE" strokeType="INSIDE" width="699.0">
-         <fill>
-            <LinearGradient endX="0.23579545454545456" endY="1.0" startX="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.3607843220233917" green="0.7333333492279053" blue="1.0" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Label layoutX="29.0" layoutY="108.0" prefHeight="40.0" prefWidth="164.0" styleClass="text" text="Cartelera">
-         <font>
-            <Font name="Century Gothic" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="185.0" layoutY="8.0" text="CineSync">
-         <font>
-            <Font name="Broadway" size="64.0" />
-         </font>
-      </Label>
-      <Pane layoutX="433.0" layoutY="174.0" prefHeight="276.0" prefWidth="243.0" style="-fx-background-color: 94D5FF;">
-         <children>
-            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ebebeb" height="265.0" layoutX="5.0" layoutY="5.0" stroke="#ffffff00" strokeLineCap="ROUND" strokeType="INSIDE" width="233.0" />
-            <Button fx:id="BtnSesion" layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#BtnSesionAction" prefHeight="40.0" prefWidth="200.0" styleClass="boton-principal" stylesheets="@estilos.css" text="Iniciar sesion">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="BtnRregistro" layoutX="22.0" layoutY="207.0" mnemonicParsing="false" onAction="#BtnRegistroAction" prefHeight="40.0" prefWidth="200.0" styleClass="btn-acc" text="Registrate">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label layoutX="57.0" layoutY="33.0" text="¿Ya tienes una cuenta?">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="118.0" layoutY="129.0" text="Ó" />
-            <Label layoutX="68.0" layoutY="170.0" text="¡Crea una cuenta!">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Label layoutX="467.0" layoutY="125.0" styleClass="text" text="¡Reserva tu boleto!">
-         <font>
-            <Font name="Century Gothic" size="18.0" />
-         </font>
-      </Label>
-      <Separator layoutX="404.0" layoutY="94.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="8.0" />
-      <Separator layoutY="82.0" prefHeight="13.0" prefWidth="700.0" />
-      <ScrollPane layoutX="18.0" layoutY="158.0" prefHeight="293.0" prefWidth="378.0">
-         <content>
-            <GridPane prefHeight="855.0" prefWidth="362.0" styleClass="table-row-cell">
-               <columnConstraints>
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="268.33423360188806" minWidth="10.0" prefWidth="174.4" />
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="285.33442433675134" minWidth="10.0" prefWidth="188.80000000000004" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="293.4346618652344" minHeight="10.0" prefHeight="293.4346618652344" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="328.4223937988281" minHeight="10.0" prefHeight="226.69022623697924" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="279.29374186197913" minHeight="10.0" prefHeight="272.64310709635413" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <ImageView fitHeight="148.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0">
-                     <image>
-                         <Image url="@../../../imagenes/Gato_la_pelicula.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="142.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1">
-                     <image>
-                        <Image url="@../../../imagenes/Gato_2_la_pelicula.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="153.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <image>
-                        <Image url="@../../../imagenes/Gato_contra_ataca.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="149.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@../../../imagenes/Gato_la_venganza.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="148.0" fitWidth="166.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@../../../imagenes/Gato_la_precuela.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="145.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="2">
-                     <image>
-                        <Image url="@../../../imagenes/Gato_3_la_pelicula.jpeg" />
-                     </image>
-                  </ImageView>
-                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.halignment="LEFT">
-                     <font>
-                        <Font name="Consolas" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="135.0" text="la pelicula" translateX="10.0" translateY="120.0">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Consolas" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="la precuela" translateX="10.0" translateY="120.0" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Consolas" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="la venganza" translateX="10.0" translateY="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Consolas" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="contra ataca" translateX="10.0" translateY="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Gato 2" translateX="20.0" translateY="70.0" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Consolas" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="la pelicula" translateX="10.0" translateY="120.0" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Gato 3" translateX="20.0" translateY="70.0" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Consolas" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label text="la pelicula" translateX="10.0" translateY="120.0" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Consolas" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </GridPane>
-         </content>
-      </ScrollPane>
-      <ImageView fitHeight="111.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
-         </image>
-      </ImageView>
-   </children>
+
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="90.0" layoutX="1.0" stroke="WHITE" strokeType="INSIDE" width="699.0">
+            <fill>
+                <LinearGradient endX="0.23579545454545456" endY="1.0" startX="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.3607843220233917" green="0.7333333492279053" blue="1.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <Label layoutX="29.0" layoutY="108.0" prefHeight="40.0" prefWidth="164.0" styleClass="text" text="Cartelera">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="185.0" layoutY="8.0" text="CineSync">
+            <font>
+                <Font name="Broadway" size="64.0" />
+            </font>
+        </Label>
+        <Pane layoutX="433.0" layoutY="174.0" prefHeight="276.0" prefWidth="243.0" style="-fx-background-color: 94D5FF;">
+            <children>
+                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ebebeb" height="265.0" layoutX="5.0" layoutY="5.0" stroke="#ffffff00" strokeLineCap="ROUND" strokeType="INSIDE" width="233.0" />
+                <Button fx:id="BtnSesion" layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#BtnSesionAction" prefHeight="40.0" prefWidth="200.0" styleClass="boton-principal" stylesheets="@estilos.css" text="Iniciar sesion">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="BtnRregistro" layoutX="22.0" layoutY="207.0" mnemonicParsing="false" onAction="#BtnRegistroAction" prefHeight="40.0" prefWidth="200.0" styleClass="btn-acc" text="Registrate">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Label layoutX="57.0" layoutY="33.0" text="¿Ya tienes una cuenta?">
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="118.0" layoutY="129.0" text="Ó" />
+                <Label layoutX="68.0" layoutY="170.0" text="¡Crea una cuenta!">
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Label layoutX="467.0" layoutY="125.0" styleClass="text" text="¡Reserva tu boleto!">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <Separator layoutX="404.0" layoutY="94.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="8.0" />
+        <Separator layoutY="82.0" prefHeight="13.0" prefWidth="700.0" />
+        <ScrollPane layoutX="18.0" layoutY="158.0" prefHeight="293.0" prefWidth="378.0">
+            <content>
+                <GridPane prefHeight="855.0" prefWidth="362.0" styleClass="table-row-cell">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="268.33423360188806" minWidth="10.0" prefWidth="174.4" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="285.33442433675134" minWidth="10.0" prefWidth="188.80000000000004" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="293.4346618652344" minHeight="10.0" prefHeight="293.4346618652344" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="328.4223937988281" minHeight="10.0" prefHeight="226.69022623697924" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="279.29374186197913" minHeight="10.0" prefHeight="272.64310709635413" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="148.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0">
+                            <image>
+                                <Image url="@../../../imagenes/Gato_la_pelicula.jpeg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="142.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1">
+                            <image>
+                                <Image url="@../../../imagenes/Gato_2_la_pelicula.jpeg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="153.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <image>
+                                <Image url="@../../../imagenes/Gato_contra_ataca.jpeg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="149.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <image>
+                                <Image url="@../../../imagenes/Gato_la_venganza.jpeg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="148.0" fitWidth="166.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="1">
+                            <image>
+                                <Image url="@../../../imagenes/Gato_la_precuela.jpeg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="145.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-50.0" GridPane.rowIndex="2">
+                            <image>
+                                <Image url="@../../../imagenes/Gato_3_la_pelicula.jpeg" />
+                            </image>
+                        </ImageView>
+                        <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.halignment="LEFT">
+                            <font>
+                                <Font name="Consolas" size="45.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="135.0" text="la pelicula" translateX="10.0" translateY="120.0">
+                            <font>
+                                <Font name="Consolas" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Consolas" size="45.0" />
+                            </font>
+                        </Label>
+                        <Label text="la precuela" translateX="10.0" translateY="120.0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Consolas" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Consolas" size="45.0" />
+                            </font>
+                        </Label>
+                        <Label text="la venganza" translateX="10.0" translateY="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Consolas" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Gato" translateX="30.0" translateY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Consolas" size="45.0" />
+                            </font>
+                        </Label>
+                        <Label text="contra ataca" translateX="10.0" translateY="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Consolas" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Gato 2" translateX="20.0" translateY="70.0" GridPane.columnIndex="1">
+                            <font>
+                                <Font name="Consolas" size="45.0" />
+                            </font>
+                        </Label>
+                        <Label text="la pelicula" translateX="10.0" translateY="120.0" GridPane.columnIndex="1">
+                            <font>
+                                <Font name="Consolas" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Gato 3" translateX="20.0" translateY="70.0" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Consolas" size="45.0" />
+                            </font>
+                        </Label>
+                        <Label text="la pelicula" translateX="10.0" translateY="120.0" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Consolas" size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </GridPane>
+            </content>
+        </ScrollPane>
+        <ImageView fitHeight="111.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
+            </image>
+        </ImageView>
+    </children>
 </AnchorPane>

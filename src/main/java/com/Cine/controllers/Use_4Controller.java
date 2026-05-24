@@ -4,7 +4,9 @@ import com.Cine.MainApplication;
 import com.Cine.models.Reserva;
 import com.Cine.models.Usuario;
 
+import com.Cine.repository.ReservaRepository;
 import com.Cine.services.UsuarioService;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -20,9 +22,16 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 public class Use_4Controller {
+    @FXML
+    private TableView<Reserva> TableUsuarios;
+    @FXML private TableColumn<Reserva, String> horario;
+    @FXML private TableColumn<Reserva, String> peliNombre;
+    @FXML private TableColumn<Reserva, String> cantidadboletos;
+    @FXML private TableColumn<Reserva, String> asientos;
     @FXML
     private Label nombreUsuario;
     @FXML
@@ -35,10 +44,6 @@ public class Use_4Controller {
     private Button BtnCancelar;
     @FXML
     private Button BtnSig;
-
-    @FXML
-    private TableView<Reserva> tableView;
-
     @FXML
     private TableColumn<Reserva, String> ColumPelicula;
 
@@ -47,13 +52,44 @@ public class Use_4Controller {
 
     @FXML
     private TableColumn<Reserva, String> ColumFecha;
-
+    private final ReservaRepository reservaRepository = new ReservaRepository();
     private ObservableList<Reserva> lista = FXCollections.observableArrayList();
     public static Usuario usuarioLogueado;
 
     @FXML
     public void initialize() {
+        configurarTabla();
+    }
+    @FXML
+    private void configurarTabla() {
 
+        horario.setCellValueFactory(c ->
+                new SimpleStringProperty(c.getValue().getFecha().toString())
+        );
+
+        peliNombre.setCellValueFactory(c ->
+                new SimpleStringProperty(
+                        c.getValue().getIdcartelera()
+                                .getIdpelicula()
+                                .getNombre()
+                )
+        );
+
+        cantidadboletos.setCellValueFactory(c ->
+                new SimpleStringProperty(
+                        String.valueOf(c.getValue().getBoletos().size())
+                )
+        );
+
+        asientos.setCellValueFactory(c ->
+                new SimpleStringProperty(
+                        c.getValue().getBoletos()
+                                .stream()
+                                .map(b -> b.getNombreasiento())
+                                .reduce((a, b) -> a + ", " + b)
+                                .orElse("")
+                )
+        );
     }
 
     @FXML
@@ -121,7 +157,19 @@ public class Use_4Controller {
     public void setUsuario(Usuario usuario) {
         this.usuarioLogueado = usuario;
 
-        if (nombreUsuario != null) {
-            nombreUsuario.setText(usuario.getNombre());
-        }}
+        nombreUsuario.setText(usuario.getNombre());
+        cargarReservas();
+    }
+    @FXML
+    private void cargarReservas() {
+
+        if (usuarioLogueado == null) return;
+
+        List<Reserva> reservas =
+                reservaRepository.getReservasByUsuario(usuarioLogueado.getIdusuario());
+
+        TableUsuarios.setItems(
+                FXCollections.observableArrayList(reservas)
+        );
+    }
 }

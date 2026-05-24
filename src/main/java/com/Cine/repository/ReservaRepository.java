@@ -63,5 +63,18 @@ public class ReservaRepository {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+    public List<Reserva> getReservasByUsuario(int idUsuario) {
 
+        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        List<Reserva> result = entityManager.createQuery(
+                        "from Reserva where idusuario.idusuario = :id",
+                        Reserva.class)
+                .setParameter("id", idUsuario)
+                .getResultList();
+
+        entityManager.close();
+        return result;
+    }
 }
