@@ -282,6 +282,7 @@ public class Pinci_5Controller {
 
             VBox card = new VBox();
             card.setSpacing(5);
+            card.getStyleClass().add("card-pelicula");
 
             ImageView imgView = new ImageView(
                     new Image(new ByteArrayInputStream(p.getImagen()))
