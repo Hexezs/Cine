@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="900.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.SelecPeli_7Controller">
+<AnchorPane prefHeight="650.0" prefWidth="900.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.SelecPeli_7Controller">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="99.0" stroke="TRANSPARENT" strokeType="INSIDE" width="915.0">
             <fill>
@@ -74,7 +74,7 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" prefHeight="35.0" prefWidth="120.0" styleClass="boton-principal" text="Siguiente">
+                <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" prefHeight="35.0" prefWidth="120.0" styleClass="boton-principal" text="Reservar">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -230,7 +230,7 @@
                 <Font name="Century Gothic" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="TxtAsientoDisp" disable="true" layoutX="373.0" layoutY="564.0" text="ej. Disponibles: 2" />
+        <TextField fx:id="TxtAsientoDisp" layoutX="373.0" layoutY="564.0" text="ej. Disponibles: 2" />
         <Line endX="274.99993896484375" endY="1.52587890625E-5" layoutX="448.0" layoutY="140.0" startX="-257.66668701171875" startY="1.52587890625E-5" stroke="#f67631" strokeLineCap="ROUND" strokeWidth="20.0" />
         <Label layoutX="418.0" layoutY="131.0" text="PANTALLA" textFill="WHITE">
             <font>

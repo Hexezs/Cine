@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="481.0" prefWidth="586.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.CreaCuenta_3Controller">
+<AnchorPane prefHeight="481.0" prefWidth="586.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Cine.controllers.CreaCuenta_3Controller">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutY="1.0" stroke="WHITE" strokeType="INSIDE" width="704.0">
             <fill>
@@ -38,13 +38,13 @@
                 </LinearGradient>
             </fill>
         </Rectangle>
-        <Label layoutX="150.0" layoutY="14.0" text="CineSync">
+        <Label layoutX="194.0" layoutY="14.0" text="CineSync">
             <font>
                 <Font name="Broadway" size="64.0" />
             </font>
         </Label>
         <Separator layoutX="2.0" layoutY="92.0" prefHeight="22.0" prefWidth="696.0" />
-        <Label layoutX="136.0" layoutY="147.0" prefHeight="47.0" prefWidth="242.0" styleClass="text" text="Ingresa tus datos:">
+        <Label layoutX="252.0" layoutY="137.0" prefHeight="47.0" prefWidth="199.0" styleClass="text" text="Ingresa tus datos">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -106,7 +106,7 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" styleClass="boton-principal" text="Siguiente" translateX="-25.0">
+                <Button fx:id="BtnSig" mnemonicParsing="false" onAction="#BtnSigAction" styleClass="boton-principal" text="Crear Cuenta" translateX="-25.0">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -115,7 +115,7 @@
         </ButtonBar>
         <ImageView fitHeight="137.0" fitWidth="182.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../imagenes/CineSyncNoFondoLogo.png" />
+                <Image url="@imagenes/CineSyncNoFondoLogo.png" />
             </image>
         </ImageView>
     </children>
