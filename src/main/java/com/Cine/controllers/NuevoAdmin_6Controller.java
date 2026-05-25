@@ -126,6 +126,7 @@ public class NuevoAdmin_6Controller {
         CmbxIdioma.getItems().addAll(idiomaRepository.getAllIdiomas());
         CmbxClasificacion.getItems().addAll(clasificacionRepository.getAllClasificaciones());
         CmbxPelicula.getItems().addAll(peliculaService.obtenerPeliculas());
+        CmbxElimPelicula.getItems().addAll(peliculaService.obtenerPeliculas());
 
         configurarTablaFunciones();
         cargarFunciones();

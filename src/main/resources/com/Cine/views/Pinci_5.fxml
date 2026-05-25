@@ -68,17 +68,22 @@
         </ScrollPane>
 
         <!-- ===== Funciones (derecha) ===== -->
-        <Label layoutX="580.0" layoutY="150.0" text="Funciones disponibles">
+        <Label layoutX="665.0" layoutY="287.0" text="Funciones disponibles">
             <font>
-                <Font name="Century Gothic Bold" size="16.0" />
+                <Font name="System Bold" size="16.0" />
             </font>
         </Label>
-        <Label fx:id="LblPeliSelec" layoutX="580.0" layoutY="180.0" prefWidth="340.0" text="Selecciona una película" wrapText="true">
+        <Label fx:id="LblPeliSelec" layoutX="580.0" layoutY="97.0" prefWidth="340.0" text="Selecciona una película" textAlignment="CENTER" wrapText="true">
             <font>
-                <Font name="Century Gothic" size="14.0" />
+                <Font name="Century Gothic" size="17.0" />
             </font>
         </Label>
-        <TableView fx:id="TblFunciones" layoutX="580.0" layoutY="220.0" prefHeight="460.0" prefWidth="340.0">
+      <Label fx:id="LbRTC" layoutX="580.0" layoutY="125.0" prefHeight="22.0" prefWidth="325.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+        <TableView fx:id="TblFunciones" layoutX="580.0" layoutY="313.0" prefHeight="367.0" prefWidth="340.0">
             <columns>
                 <TableColumn fx:id="ColFecha" prefWidth="102.0001220703125" text="Fecha" />
                 <TableColumn fx:id="ColHora" prefWidth="62.0" text="Hora" />
@@ -107,5 +112,14 @@
                 </Button>
             </buttons>
         </ButtonBar>
+        <ScrollPane fx:id="ScrollSinopsis" fitToWidth="true" hbarPolicy="NEVER" layoutX="580.0" layoutY="153.0" prefHeight="136.0" prefWidth="340.0" styleClass="scroll-cartelera" stylesheets="@estilos.css">
+            <content>
+                <Label fx:id="LbSinopsis" wrapText="true">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </content>
+        </ScrollPane>
     </children>
 </AnchorPane>

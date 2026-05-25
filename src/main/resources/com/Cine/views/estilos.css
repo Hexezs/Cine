@@ -183,6 +183,7 @@
 .scroll-cartelera > .viewport {
     -fx-background-color: transparent;
 }
+.scroll-cartelera .label { -fx-text-fill: #0f172a; }
 
 .flow-cartelera {
     -fx-background-color: transparent;

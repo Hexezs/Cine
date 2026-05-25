@@ -27,6 +27,10 @@ public class Pinci_5Controller {
     @FXML
     private Label LblPeliSelec;
     @FXML
+    private Label LbRTC;
+    @FXML
+    private Label LbSinopsis;
+    @FXML
     private TableView<Cartelera> TblFunciones;
     @FXML
     private TableColumn<Cartelera, String> ColFecha;
@@ -118,6 +122,9 @@ public class Pinci_5Controller {
         this.peliculaSeleccionada = pelicula;
 
         LblPeliSelec.setText(pelicula.getNombre());
+        LbRTC.setText("Clasificación de edad ★ " + pelicula.getIdClasificacionRTC().getNombre() + " ★ " + pelicula.getIdClasificacionRTC().getDescripcion());
+        LbSinopsis.setText(pelicula.getSinopsis());
+
     }
 
     // =========================

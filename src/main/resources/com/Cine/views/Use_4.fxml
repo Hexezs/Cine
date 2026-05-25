@@ -61,11 +61,11 @@
 
         <TableView fx:id="TableUsuarios" layoutX="41.0" layoutY="256.0" prefHeight="278.0" prefWidth="818.0">
             <columns>
-                <TableColumn fx:id="horario" prefWidth="105.33328628540039" text="Fecha" />
-            <TableColumn fx:id="hora" prefWidth="84.6666259765625" text="Horario" />
-                <TableColumn fx:id="peliNombre" prefWidth="368.66664123535156" text="Pelicula" />
-                <TableColumn fx:id="cantidadboletos" prefWidth="63.3333740234375" text="Boletos" />
-                <TableColumn fx:id="asientos" minWidth="0.0" prefWidth="189.333251953125" text="Asientos" />
+                <TableColumn fx:id="horario" editable="false" prefWidth="105.33328628540039" sortable="false" text="Fecha" />
+            <TableColumn fx:id="hora" editable="false" prefWidth="84.6666259765625" sortable="false" text="Horario" />
+                <TableColumn fx:id="peliNombre" editable="false" prefWidth="368.66664123535156" sortable="false" text="Pelicula" />
+                <TableColumn fx:id="cantidadboletos" editable="false" prefWidth="63.3333740234375" sortable="false" text="Boletos" />
+                <TableColumn fx:id="asientos" editable="false" minWidth="0.0" prefWidth="189.333251953125" sortable="false" text="Asientos" />
             </columns>
         </TableView>
 
@@ -79,9 +79,9 @@
                 <Font name="Broadway" size="64.0" />
             </font>
         </Label>
-        <Label fx:id="nombreUsuario" layoutX="14.0" layoutY="104.0" styleClass="text-field" stylesheets="@estilos.css" text="NombreUsuario" textAlignment="CENTER" textFill="#f97316">
+        <Label fx:id="nombreUsuario" layoutX="14.0" layoutY="104.0" text="NombreUsuario" textAlignment="CENTER">
             <font>
-                <Font name="Broadway" size="28.0" />
+                <Font name="Broadway" size="31.0" />
             </font>
         </Label>
         <Button fx:id="BtnAtras" layoutX="41.0" layoutY="597.0" mnemonicParsing="false" onAction="#BtnAtrasAction" prefHeight="29.0" prefWidth="103.0" styleClass="btn-regresar" text="Cerrar Sesión">
