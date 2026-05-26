@@ -71,18 +71,18 @@ public class UsuarioRepository {
         entityManager.close();
         return usuario;
     }
-    public List<Usuario> getAllUsuarios() {
-        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Usuario> usuarios = entityManager.createQuery("from Usuario", Usuario.class).getResultList();
-        entityManager.close();
-        return usuarios;
-    }
-    public List<Usuario> getUsuariosByFuncion(int idFuncion) {
-        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        List<Usuario> usuarios = entityManager.createQuery("select b.idusuario " + "from Boleto b " + "where b.idcartelera.idCartelera = :idFuncion", Usuario.class).setParameter("idFuncion", idFuncion).getResultList();
-        entityManager.close();
-        return usuarios;
-    }
+//    public List<Usuario> getAllUsuarios() {
+//        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        List<Usuario> usuarios = entityManager.createQuery("from Usuario", Usuario.class).getResultList();
+//        entityManager.close();
+//        return usuarios;
+//    }
+//    public List<Usuario> getUsuariosByFuncion(int idFuncion) {
+//        EntityManagerFactory entityManagerFactory = HibernateUtils.getEntityManagerFactory();
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        List<Usuario> usuarios = entityManager.createQuery("select b.idusuario " + "from Boleto b " + "where b.idcartelera.idCartelera = :idFuncion", Usuario.class).setParameter("idFuncion", idFuncion).getResultList();
+//        entityManager.close();
+//        return usuarios;
+//    }
 }
