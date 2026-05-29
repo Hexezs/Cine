@@ -27,9 +27,7 @@ public class PeliculaService {
     private final IdiomaRepository idiomaRepository = new IdiomaRepository();
     private final CarteleraRepository carteleraRepository = new CarteleraRepository();
 
-    // --------------------------
     // AGREGAR PELÍCULA
-    // --------------------------
     public void agregarPelicula(PeliculaRegistroDTO dto) {
         ClasificacionRTC clasificacion = clasificacionRepository.getClasificacionByID(dto.idClasificacionRTC());
         Idioma idioma = idiomaRepository.getIdiomaByID(dto.idIdioma());
@@ -37,18 +35,14 @@ public class PeliculaService {
         peliculaRepository.addPelicula(pelicula);
     }
 
-    // --------------------------
     // ELIMINAR PELÍCULA
-    // --------------------------
     public void eliminarPelicula(Pelicula pelicula) {
         peliculaRepository.removePelicula(pelicula);
     }
 
 
 
-    // --------------------------
     // OBTENER PELÍCULAS DTO
-    // --------------------------
     public List<PeliculaDTO> obtenerPeliculasDTO() {
         List<Pelicula> peliculas = peliculaRepository.getAllPeliculas();
         List<PeliculaDTO> lista = new ArrayList<>();
@@ -60,9 +54,7 @@ public class PeliculaService {
     public List<Pelicula> obtenerPeliculasConCartelera() {
         return peliculaRepository.getPeliculasConCartelera();
     }
-    // --------------------------
     // BUSCAR POR NOMBRE
-    // --------------------------
     public Pelicula buscarPorNombre(String nombre) {
         return peliculaRepository.getPeliculaByNombre(nombre);
     }
@@ -85,9 +77,7 @@ public class PeliculaService {
 
         return peliculas;
     }
-    // --------------------------
     // FUNCIONES POR PELÍCULA
-    // --------------------------
     public List<CarteleraDTO> obtenerFuncionesDTO(int idPelicula) {
 
         List<Cartelera> funciones =
@@ -104,9 +94,7 @@ public class PeliculaService {
                 .toList();
     }
 
-    // --------------------------
     // BUSCAR CARTELERA ESPECÍFICA
-    // --------------------------
     public Cartelera buscarCartelera(int idPelicula, LocalDate fecha, String hora) {
         List<Cartelera> funciones = carteleraRepository.getCarteleraByPelicula(idPelicula);
         for (Cartelera c : funciones) {
@@ -117,9 +105,7 @@ public class PeliculaService {
         return null;
     }
 
-    // --------------------------
     // FECHAS DISPONIBLES
-    // --------------------------
     public List<LocalDate> obtenerFechasPorPelicula(int idPelicula) {
         List<Cartelera> funciones = carteleraRepository.getCarteleraByPelicula(idPelicula);
         List<LocalDate> fechas = new ArrayList<>();
@@ -131,9 +117,7 @@ public class PeliculaService {
         return fechas;
     }
 
-    // --------------------------
     // HORARIOS POR FECHA
-    // --------------------------
     public List<String> obtenerHorarios(int idPelicula, LocalDate fecha) {
         List<Cartelera> funciones = carteleraRepository.getCarteleraByPelicula(idPelicula);
         List<String> horarios = new ArrayList<>();

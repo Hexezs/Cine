@@ -7,7 +7,7 @@ import com.Cine.models.Reserva;
 
 public class BoletoMapper {
 
-    // 🔥 DTO simple (solo datos base)
+    //DTO simple (solo datos base)
     public static Boleto aEntidad(BoletoDTO dto, Asiento asientoBD, Reserva reservaBD) {
 
         Boleto entidad = new Boleto();
@@ -16,14 +16,14 @@ public class BoletoMapper {
         entidad.setMonto(dto.monto());
         entidad.setNombreasiento(dto.nombreAsiento());
 
-        // 🔥 relaciones Hibernate correctas
+        //relaciones Hibernate correctas
         entidad.setIdasiento(asientoBD);
         entidad.setIdReserva(reservaBD);
 
         return entidad;
     }
 
-    // 🔥 Entity → DTO (sin romper Hibernate)
+    //Entity → DTO (sin romper Hibernate)
     public static BoletoDTO aDTO(Boleto entidad) {
 
         return new BoletoDTO(

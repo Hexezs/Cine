@@ -2,6 +2,8 @@ package com.Cine.controllers;
 import com.Cine.MainApplication;
 import com.Cine.models.Pelicula;
 import com.Cine.services.PeliculaService;
+import com.Cine.threads.HiloCartelera;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,8 +34,21 @@ public class InicioController {
     @FXML
     public void initialize() {
         cargarCartelera();
+        HiloCartelera hilo1 = new HiloCartelera(new Runnable() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                FlowCartelera.getChildren().clear();
+                                cargarCartelera();
+                            }
+                        });
+                    }
+                });
+        hilo1.setDaemon(true);
+        hilo1.start();
     }
-
     private void cargarCartelera() {
         List<Pelicula> peliculas = peliculaService.obtenerPeliculasConCartelera();
 
@@ -41,18 +56,12 @@ public class InicioController {
             VBox card = new VBox();
             card.setSpacing(5);
             card.getStyleClass().add("card-pelicula-vista"); // toma el estilo del CSS
-
-            ImageView imgView = new ImageView(
-                    new Image(new ByteArrayInputStream(p.getImagen()))
-            );
+            ImageView imgView = new ImageView(new Image(new ByteArrayInputStream(p.getImagen())));
             imgView.setFitWidth(120);
             imgView.setFitHeight(160);
             imgView.setPreserveRatio(true);
-
             Label nombre = new Label(p.getNombre());
-
             card.getChildren().addAll(imgView, nombre);
-
             FlowCartelera.getChildren().add(card);
         }
     }
@@ -61,9 +70,7 @@ public class InicioController {
     private void BtnSesionAction(ActionEvent actionEvent) throws IOException {
         Scene scene = ((Button) actionEvent.getSource()).getScene();
         Stage stage = (Stage) scene.getWindow();
-
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/sesion_2.fxml"));
-
         Scene nextScene = new Scene(fxmlLoader.load());
         stage.setTitle("CineSync -Iniciar Sesión");
         stage.setScene(nextScene);
@@ -73,11 +80,14 @@ public class InicioController {
     private void BtnRegistroAction(ActionEvent actionEvent) throws IOException{
         Scene scene3 = ((Button) actionEvent.getSource()).getScene();
         Stage stage3 = (Stage) scene3.getWindow();
-
         FXMLLoader fxmlLoader3 = new FXMLLoader(MainApplication.class.getResource("views/CreaCuenta_3.fxml"));
-
         Scene nextScene = new Scene(fxmlLoader3.load());
         stage3.setTitle("CineSync -Crear Cuenta");
         stage3.setScene(nextScene);
+    }
+    @FXML
+    public void actualizarCarteleraThread() {
+        Platform.runLater(() -> {FlowCartelera.getChildren().clear();
+            cargarCartelera();});
     }
 }

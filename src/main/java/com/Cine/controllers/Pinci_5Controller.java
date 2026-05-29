@@ -6,6 +6,8 @@ import com.Cine.models.Pelicula;
 import com.Cine.models.Usuario;
 import com.Cine.models.Cartelera;
 import com.Cine.services.PeliculaService;
+import com.Cine.threads.HiloCartelera;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -53,94 +55,66 @@ public class Pinci_5Controller {
         configurarTabla();
         TblFunciones.setPlaceholder(new Label("Selecciona una película"));
         cargarCartelera();
+        HiloCartelera hilo2 = new HiloCartelera(new Runnable() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                cargarCartelera();
+                                if (peliculaSeleccionada != null) {
+                                    cargarFunciones(peliculaSeleccionada);
+                                }
+                            }
+                        });
+                    }
+                });
+        hilo2.setDaemon(true);
+        hilo2.start();
     }
-    // =========================
-    // CONFIGURAR TABLA
-    // =========================
     @FXML
     private void configurarTabla() {
-
-        ColFecha.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getFecha().toString())
-        );
-
-        ColHora.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getHora())
-        );
-
-        ColSala.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getIdsala().getNombreTipoSala())
-        );
-
-        ColIdioma.setCellValueFactory(c ->
-                new SimpleStringProperty(c.getValue().getIdpelicula().getIdIdioma().getNombreIdioma())
-        );
-
-        TblFunciones.setOnMouseClicked(e -> {
-            funcionSeleccionada = TblFunciones.getSelectionModel().getSelectedItem();
-        });
+        ColFecha.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getFecha().toString()));
+        ColHora.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getHora()));
+        ColSala.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getIdsala().getNombreTipoSala()));
+        ColIdioma.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getIdpelicula().getIdIdioma().getNombreIdioma()));
+        TblFunciones.setOnMouseClicked(e -> {funcionSeleccionada = TblFunciones.getSelectionModel().getSelectedItem();});
     }
 
     @FXML
     private void cargarCartelera() {
-
         List<Pelicula> peliculas = peliculaService.obtenerPeliculasConCartelera();
-
         FlowCartelera.getChildren().clear();
-
         for (Pelicula p : peliculas) {
-
             VBox card = new VBox();
             card.setSpacing(5);
             card.getStyleClass().add("card-pelicula");
-
-            ImageView imgView = new ImageView(
-                    new Image(new ByteArrayInputStream(p.getImagen()))
-            );
-
+            ImageView imgView = new ImageView(new Image(new ByteArrayInputStream(p.getImagen())));
             imgView.setFitWidth(120);
             imgView.setFitHeight(160);
             imgView.setPreserveRatio(true);
-
             Label nombre = new Label(p.getNombre());
-
             card.getChildren().addAll(imgView, nombre);
-
-            card.setOnMouseClicked(e -> {
-                setPelicula(p);
-                cargarFunciones(p);
+            card.setOnMouseClicked(e -> {setPelicula(p);cargarFunciones(p);
             });
 
             FlowCartelera.getChildren().add(card);
         }
     }
-    // =========================
-    // CUANDO SELECCIONAS PELÍCULA (desde cards)
-    // =========================
+
     @FXML
     public void setPelicula(Pelicula pelicula) {
         this.peliculaSeleccionada = pelicula;
-
         LblPeliSelec.setText(pelicula.getNombre());
         LbRTC.setText("Clasificación de edad ★ " + pelicula.getIdClasificacionRTC().getNombre() + " ★ " + pelicula.getIdClasificacionRTC().getDescripcion());
         LbSinopsis.setText(pelicula.getSinopsis());
-
     }
 
-    // =========================
-    // CARGAR FUNCIONES (DTO)
-    // =========================
     @FXML
     private void cargarFunciones(Pelicula pelicula) {
-
-        TblFunciones.setItems(
-                FXCollections.observableArrayList(pelicula.getFunciones())
-        );
+        TblFunciones.setItems(FXCollections.observableArrayList(pelicula.getFunciones()));
     }
 
-    // =========================
-    // SIGUIENTE
-    // =========================
     @FXML
     private void BtnSigAction(javafx.event.ActionEvent event) throws IOException {
 
@@ -150,9 +124,7 @@ public class Pinci_5Controller {
             return;
         }
 
-        FXMLLoader loader = new FXMLLoader(
-                MainApplication.class.getResource("views/SelecPeli_7.fxml")
-        );
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/SelecPeli_7.fxml"));
 
         Scene scene = new Scene(loader.load());
 
@@ -171,18 +143,12 @@ public class Pinci_5Controller {
         stage.setScene(scene);
     }
 
-    // =========================
-    // CANCELAR
-    // =========================
     @FXML
     private void BtnCancelarAction() {
         funcionSeleccionada = null;
         TblFunciones.getSelectionModel().clearSelection();
     }
 
-    // =========================
-    // ATRÁS
-    // =========================
     @FXML
     private void BtnAtrasAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Use_4.fxml"));
@@ -192,5 +158,14 @@ public class Pinci_5Controller {
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         stage.setTitle("CineSync -Cuenta");
         stage.setScene(nextScene);
+    }
+    public void actualizarCarteleraThread() {
+
+        Platform.runLater(() -> {
+            cargarCartelera();
+            if (peliculaSeleccionada != null) {
+                cargarFunciones(peliculaSeleccionada);
+            }
+        });
     }
 }

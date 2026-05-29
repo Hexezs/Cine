@@ -7,7 +7,6 @@ public class UsuarioMapper {
 
     // ENTITY -> DTO
     public static UsuarioDTO aDTO(Usuario entidad){
-
         return new UsuarioDTO(
                 entidad.getIdusuario(),
                 entidad.getCorreo(),

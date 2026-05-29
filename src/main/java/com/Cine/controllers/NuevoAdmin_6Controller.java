@@ -116,7 +116,6 @@ public class NuevoAdmin_6Controller {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
-
                 setDisable(empty || date.isBefore(LocalDate.now()));
             }
         });
@@ -438,26 +437,15 @@ public class NuevoAdmin_6Controller {
     }
     @FXML
     private void actualizarHorariosDisponibles() {
-
         Sala sala = CmbxSala.getValue();
         LocalDate fecha = PickerDay.getValue();
-
         if (sala == null || fecha == null) {
             CmbxHorario.getItems().setAll(horariosBase);
             return;
         }
-
-        List<Cartelera> funciones =
-                carteleraRepository.getFuncionesPorSalaYFecha(sala.getIdsala(), fecha);
-
-        List<String> ocupados = funciones.stream()
-                .map(Cartelera::getHora)
-                .toList();
-
-        List<String> disponibles = horariosBase.stream()
-                .filter(h -> !ocupados.contains(h))
-                .toList();
-
+        List<Cartelera> funciones = carteleraRepository.getFuncionesPorSalaYFecha(sala.getIdsala(), fecha);
+        List<String> ocupados = funciones.stream().map(Cartelera::getHora).toList();
+        List<String> disponibles = horariosBase.stream().filter(h -> !ocupados.contains(h)).toList();
         CmbxHorario.getItems().setAll(disponibles);
     }
     @FXML

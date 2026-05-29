@@ -12,8 +12,7 @@ public class AsientoRepository {
         Asiento asiento = null;
 
         try {
-            asiento = entityManager.createQuery("FROM Asiento a WHERE a.letra = :letra AND a.numero = :numero AND a.idsala.idsala = :idSala",
-                            Asiento.class)
+            asiento = entityManager.createQuery("FROM Asiento a WHERE a.letra = :letra AND a.numero = :numero AND a.idsala.idsala = :idSala", Asiento.class)
                     .setParameter("letra", letra)
                     .setParameter("numero", numero)
                     .setParameter("idSala", idSala)

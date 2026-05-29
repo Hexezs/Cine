@@ -22,12 +22,10 @@ public class ReservaService {
     public List<Reserva> obtenerTodasLasReservas() {
         return reservaRepository.getAllReservas();
     }
-
     public void cancelarReserva(Reserva reserva) {
         reservaRepository.removeReserva(reserva);
     }
 
-    // 🔥 NUEVO FLUJO CORRECTO
     public Reserva procesarCompra(
             Usuario usuario,
             CarteleraDTO carteleraDTO,
@@ -66,36 +64,25 @@ public class ReservaService {
             boleto.setMonto(120);
             boleto.setIdasiento(asiento);
 
-            // 🔥 clave Hibernate
             boleto.setIdReserva(reserva);
 
             boletos.add(boleto);
         }
-
         reserva.setBoletos(boletos);
-
         reservaRepository.addReserva(reserva);
-
         return reserva;
     }
 
-    // ✔ sigue funcionando igual
     public Reserva crearReserva(Usuario usuario, Cartelera cartelera) {
-
         if (usuario == null)
             throw new RuntimeException("Inicia sesión");
-
         if (cartelera == null)
             throw new RuntimeException("No función");
-
         Reserva reserva = new Reserva();
-
         reserva.setFecha(LocalDate.now());
         reserva.setIdusuario(usuario);
         reserva.setIdcartelera(cartelera);
-
         reservaRepository.addReserva(reserva);
-
         return reserva;
     }
 }

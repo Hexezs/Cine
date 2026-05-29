@@ -122,7 +122,7 @@ public void cargarDatos() {
         Scene scene = new Scene(loader.load());
         Registro_8Controller controller = loader.getController();
 
-        controller.setDatos(reserva, cartelera);
+        controller.mostrarTicketReserva(reserva);
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Cine-Sync Confirmación");
