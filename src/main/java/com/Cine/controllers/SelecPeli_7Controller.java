@@ -36,10 +36,10 @@ public class SelecPeli_7Controller {
     private final Map<String, Button> mapa = new HashMap<>();
 
     private final Set<String> seleccion = new HashSet<>();
-@FXML
-public void cargarDatos() {
-    bloquearOcupados();
-}
+    @FXML
+    public void cargarDatos() {
+        bloquearOcupados();
+    }
     @FXML
     public void initialize() {
         mapearBotones();
@@ -112,20 +112,28 @@ public void cargarDatos() {
     @FXML
     public void BtnSigAction(ActionEvent event) throws IOException {
 
-        if (seleccion.isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Selecciona al menos un asiento").showAndWait();
-            return;
-        }
-        Reserva reserva = reservaService.procesarCompra(usuarioLogueado, cartelera, new ArrayList<>(seleccion));
-        new Alert(Alert.AlertType.INFORMATION, "Reserva creada: " + reserva.getIdReserva()).showAndWait();
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Registro_8.fxml"));
-        Scene scene = new Scene(loader.load());
-        Registro_8Controller controller = loader.getController();
+        try {
+            Reserva reserva = reservaService.procesarCompra(usuarioLogueado, cartelera, new ArrayList<>(seleccion));
+            new Alert(Alert.AlertType.INFORMATION, "Reserva creada: " + reserva.getIdReserva()).showAndWait();
 
-        controller.mostrarTicketReserva(reserva);
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Cine-Sync Confirmación");
+            FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("views/Registro_8.fxml"));
+            Scene scene = new Scene(loader.load());
+            Registro_8Controller controller = loader.getController();
+
+            controller.mostrarTicketReserva(reserva);
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Cine-Sync Confirmación");
+
+        } catch (RuntimeException | IOException e) {
+            //alerta de error
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
+
+            //limpiar error y actualizar vista
+            seleccion.clear();
+            actualizarTexto();
+            bloquearOcupados();
+        }
     }
 
     @FXML

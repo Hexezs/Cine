@@ -26,7 +26,8 @@ public class ReservaService {
         reservaRepository.removeReserva(reserva);
     }
 
-    public Reserva procesarCompra(
+    //agregamos un candado
+    public synchronized Reserva procesarCompra(
             Usuario usuario,
             CarteleraDTO carteleraDTO,
             List<String> asientosSeleccionados
@@ -40,7 +41,19 @@ public class ReservaService {
 
         if (asientosSeleccionados == null || asientosSeleccionados.isEmpty())
             throw new RuntimeException("No boletos");
-        Cartelera cartelera = carteleraRepository.getCarteleraByID(carteleraDTO.idCartelera());        Reserva reserva = new Reserva();
+        Cartelera cartelera = carteleraRepository.getCarteleraByID(carteleraDTO.idCartelera());
+
+        //inicio concurrencia
+        List<Reserva> rservasActuales = obtenerReservasPorFuncion(cartelera.getIdCartelera());
+        for(Reserva r : rservasActuales) {
+            for(Boleto b : r.getBoletos()) {
+                if(asientosSeleccionados.contains(b.getNombreasiento())) {
+                    throw new RuntimeException("Asiento " + b.getNombreasiento() + " ya ocupado");
+                }
+            }
+        }//fin concurrencia
+
+        Reserva reserva = new Reserva();
         reserva.setFecha(LocalDate.now());
         reserva.setIdusuario(usuario);
         reserva.setIdcartelera(cartelera);
