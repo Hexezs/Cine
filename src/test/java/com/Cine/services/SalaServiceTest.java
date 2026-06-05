@@ -33,10 +33,10 @@ class SalaServiceTest {
 
 
     @Test
-    void buscarPorId() {
+    void buscarPorIdSalaNoExistente() {
         SalaService service = new SalaService(new SalaRepositoryFake());
-        Sala resultado = service.buscarPorId(999);
+        Sala resultado = service.buscarPorId(2);
 
-        assertNull(resultado, "No debería encontrar la sala 999");
+        assertNull(resultado, "No debería encontrar la sala 2");
     }
 }
