@@ -26,7 +26,7 @@ public class Sala {
         return idsala;
     }
 
-    private void setIdsala(int idsala) {
+    public void setIdsala(int idsala) {
         this.idsala = idsala;
     }
 
